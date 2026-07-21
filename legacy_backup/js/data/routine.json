@@ -1,0 +1,564 @@
+{
+  "days": [
+    {
+      "id": "monday",
+      "dayNumber": 1,
+      "label": "Pecho + Hombro + Tríceps",
+      "intensity": "Alta",
+      "exercises": [
+        {
+          "id": "ex-1",
+          "name": "Press de banca con barra",
+          "sets": 4,
+          "repsMin": 6,
+          "repsMax": 8,
+          "restSeconds": 150,
+          "imageUrls": [
+            "/assets/images/Press de banca con barra.gif"
+          ],
+          "imageUrl": "/assets/images/Press de banca con barra.gif"
+        },
+        {
+          "id": "ex-2",
+          "name": "Press militar con barra",
+          "sets": 3,
+          "repsMin": 8,
+          "repsMax": 10,
+          "restSeconds": 120,
+          "imageUrls": [
+            "/assets/images/Press militar con barra.gif"
+          ],
+          "imageUrl": "/assets/images/Press militar con barra.gif"
+        },
+        {
+          "id": "ex-3",
+          "name": "Aperturas con mancuernas (plano)",
+          "sets": 3,
+          "repsMin": 10,
+          "repsMax": 12,
+          "restSeconds": 90,
+          "imageUrls": [
+            "/assets/images/Aperturas con mancuernas (plano).gif"
+          ],
+          "imageUrl": "/assets/images/Aperturas con mancuernas (plano).gif"
+        },
+        {
+          "id": "ex-4",
+          "name": "Elevaciones laterales",
+          "sets": 3,
+          "repsMin": 12,
+          "repsMax": 15,
+          "restSeconds": 60,
+          "imageUrls": [
+            "/assets/images/Elevaciones laterales.gif"
+          ],
+          "imageUrl": "/assets/images/Elevaciones laterales.gif"
+        },
+        {
+          "id": "ex-5",
+          "name": "Fondos en paralelas",
+          "sets": 3,
+          "repsMin": 8,
+          "repsMax": 12,
+          "restSeconds": 90,
+          "imageUrls": [
+            "/assets/images/Fondos en paralelas.gif"
+          ],
+          "imageUrl": "/assets/images/Fondos en paralelas.gif"
+        },
+        {
+          "id": "ex-6",
+          "name": "Extensiones de tríceps en polea",
+          "sets": 3,
+          "repsMin": 10,
+          "repsMax": 12,
+          "restSeconds": 60,
+          "imageUrls": [
+            "/assets/images/Extensiones de tríceps en polea.gif"
+          ],
+          "imageUrl": "/assets/images/Extensiones de tríceps en polea.gif"
+        },
+        {
+          "id": "ex-7",
+          "name": "Crunch en máquina",
+          "sets": 3,
+          "repsMin": 15,
+          "repsMax": 20,
+          "restSeconds": 60,
+          "imageUrls": [
+            "/assets/images/Crunch en máquina.gif"
+          ],
+          "imageUrl": "/assets/images/Crunch en máquina.gif"
+        }
+      ]
+    },
+    {
+      "id": "tuesday",
+      "dayNumber": 2,
+      "label": "Espalda + Bíceps + Core",
+      "intensity": "Alta",
+      "exercises": [
+        {
+          "id": "ex-8",
+          "name": "Dominadas (o jalón al pecho)",
+          "sets": 4,
+          "repsMin": 6,
+          "repsMax": 10,
+          "restSeconds": 150,
+          "imageUrls": [
+            "/assets/images/jalón al pecho.gif"
+          ],
+          "imageUrl": "/assets/images/jalón al pecho.gif"
+        },
+        {
+          "id": "ex-9",
+          "name": "Remo con barra",
+          "sets": 4,
+          "repsMin": 8,
+          "repsMax": 10,
+          "restSeconds": 120,
+          "imageUrls": [
+            "/assets/images/Remo con barra - 1.gif",
+            "/assets/images/Remo con barra.gif"
+          ],
+          "imageUrl": "/assets/images/Remo con barra - 1.gif"
+        },
+        {
+          "id": "ex-10",
+          "name": "Remo con mancuerna a una mano",
+          "sets": 3,
+          "repsMin": 10,
+          "repsMax": 12,
+          "restSeconds": 90,
+          "perSide": true,
+          "imageUrls": [
+            "/assets/images/Remo con mancuerna a una mano.gif"
+          ],
+          "imageUrl": "/assets/images/Remo con mancuerna a una mano.gif"
+        },
+        {
+          "id": "ex-11",
+          "name": "Jalón al pecho con agarre ancho",
+          "sets": 3,
+          "repsMin": 10,
+          "repsMax": 12,
+          "restSeconds": 90,
+          "imageUrls": [
+            "/assets/images/Jalón al pecho con agarre ancho.gif"
+          ],
+          "imageUrl": "/assets/images/Jalón al pecho con agarre ancho.gif"
+        },
+        {
+          "id": "ex-12",
+          "name": "Curl de bíceps con barra",
+          "sets": 3,
+          "repsMin": 10,
+          "repsMax": 12,
+          "restSeconds": 60,
+          "imageUrls": [
+            "/assets/images/Curl de bíceps con barra - 1.gif",
+            "/assets/images/Curl de bíceps con barra - 2.gif",
+            "/assets/images/Curl de bíceps con barra.gif"
+          ],
+          "imageUrl": "/assets/images/Curl de bíceps con barra - 1.gif"
+        },
+        {
+          "id": "ex-13",
+          "name": "Curl martillo",
+          "sets": 3,
+          "repsMin": 10,
+          "repsMax": 12,
+          "restSeconds": 60,
+          "imageUrls": [
+            "/assets/images/Curl martillo - 1.gif",
+            "/assets/images/Curl martillo - 2.gif",
+            "/assets/images/Curl martillo.gif"
+          ],
+          "imageUrl": "/assets/images/Curl martillo - 1.gif"
+        },
+        {
+          "id": "ex-14",
+          "name": "Plancha",
+          "sets": 3,
+          "repsMin": 30,
+          "repsMax": 45,
+          "unit": "seg",
+          "restSeconds": 60,
+          "imageUrls": [
+            "/assets/images/Plancha.gif"
+          ],
+          "imageUrl": "/assets/images/Plancha.gif"
+        }
+      ]
+    },
+    {
+      "id": "wednesday",
+      "dayNumber": 3,
+      "label": "Piernas (Cuádriceps + Glúteos)",
+      "intensity": "Alta",
+      "exercises": [
+        {
+          "id": "ex-15",
+          "name": "Sentadilla con barra",
+          "sets": 4,
+          "repsMin": 5,
+          "repsMax": 7,
+          "restSeconds": 180
+        },
+        {
+          "id": "ex-16",
+          "name": "Prensa de piernas",
+          "sets": 4,
+          "repsMin": 10,
+          "repsMax": 12,
+          "restSeconds": 120
+        },
+        {
+          "id": "ex-17",
+          "name": "Zancadas caminando",
+          "sets": 3,
+          "reps": 10,
+          "restSeconds": 90,
+          "perSide": true
+        },
+        {
+          "id": "ex-18",
+          "name": "Extensión de cuádriceps",
+          "sets": 3,
+          "repsMin": 12,
+          "repsMax": 15,
+          "restSeconds": 90
+        },
+        {
+          "id": "ex-19",
+          "name": "Hip thrust con barra",
+          "sets": 4,
+          "repsMin": 8,
+          "repsMax": 10,
+          "restSeconds": 120
+        },
+        {
+          "id": "ex-20",
+          "name": "Elevación de talones de pie",
+          "sets": 4,
+          "repsMin": 12,
+          "repsMax": 15,
+          "restSeconds": 60
+        },
+        {
+          "id": "ex-21",
+          "name": "Plancha lateral",
+          "sets": 3,
+          "repsMin": 20,
+          "repsMax": 30,
+          "unit": "seg",
+          "restSeconds": 60,
+          "perSide": true
+        }
+      ]
+    },
+    {
+      "id": "thursday",
+      "dayNumber": 4,
+      "label": "Pecho + Hombro + Tríceps (Variación)",
+      "intensity": "Media-Alta",
+      "exercises": [
+        {
+          "id": "ex-22",
+          "name": "Press inclinado con mancuernas",
+          "sets": 4,
+          "repsMin": 8,
+          "repsMax": 10,
+          "restSeconds": 150
+        },
+        {
+          "id": "ex-23",
+          "name": "Press Arnold",
+          "sets": 3,
+          "repsMin": 10,
+          "repsMax": 12,
+          "restSeconds": 120
+        },
+        {
+          "id": "ex-24",
+          "name": "Press de banca con mancuernas",
+          "sets": 3,
+          "repsMin": 10,
+          "repsMax": 12,
+          "restSeconds": 90
+        },
+        {
+          "id": "ex-25",
+          "name": "Elevaciones frontales",
+          "sets": 3,
+          "repsMin": 12,
+          "repsMax": 15,
+          "restSeconds": 60
+        },
+        {
+          "id": "ex-26",
+          "name": "Aperturas en máquina/polea",
+          "sets": 3,
+          "repsMin": 12,
+          "repsMax": 15,
+          "restSeconds": 60
+        },
+        {
+          "id": "ex-27",
+          "name": "Fondos en banco (tríceps)",
+          "sets": 3,
+          "repsMin": 10,
+          "repsMax": 12,
+          "restSeconds": 60
+        },
+        {
+          "id": "ex-28",
+          "name": "Patada de tríceps",
+          "sets": 3,
+          "repsMin": 10,
+          "repsMax": 12,
+          "restSeconds": 60,
+          "perSide": true
+        }
+      ]
+    },
+    {
+      "id": "friday",
+      "dayNumber": 5,
+      "label": "Piernas (Posterior) + Espalda",
+      "intensity": "Alta",
+      "exercises": [
+        {
+          "id": "ex-29",
+          "name": "Peso muerto rumano",
+          "sets": 4,
+          "repsMin": 6,
+          "repsMax": 8,
+          "restSeconds": 180
+        },
+        {
+          "id": "ex-30",
+          "name": "Sentadilla búlgara",
+          "sets": 3,
+          "reps": 10,
+          "restSeconds": 90,
+          "perSide": true
+        },
+        {
+          "id": "ex-31",
+          "name": "Curl femoral",
+          "sets": 4,
+          "repsMin": 10,
+          "repsMax": 12,
+          "restSeconds": 90
+        },
+        {
+          "id": "ex-32",
+          "name": "Peso muerto convencional",
+          "sets": 3,
+          "repsMin": 4,
+          "repsMax": 6,
+          "restSeconds": 180
+        },
+        {
+          "id": "ex-33",
+          "name": "Remo en máquina/T-bar",
+          "sets": 3,
+          "repsMin": 10,
+          "repsMax": 12,
+          "restSeconds": 90
+        },
+        {
+          "id": "ex-34",
+          "name": "Pullover",
+          "sets": 3,
+          "repsMin": 12,
+          "repsMax": 15,
+          "restSeconds": 60
+        },
+        {
+          "id": "ex-35",
+          "name": "Abdominales en bicicleta",
+          "sets": 3,
+          "reps": 20,
+          "restSeconds": 60,
+          "perSide": true
+        }
+      ]
+    },
+    {
+      "id": "saturday",
+      "dayNumber": 6,
+      "label": "Full Body Ligero (Fuerza + Técnica)",
+      "intensity": "Media",
+      "note": "Movimientos compuestos con peso moderado, sin llegar al fallo. Recuperación activa con carga.",
+      "exercises": [
+        {
+          "id": "ex-36",
+          "name": "Sentadilla con barra",
+          "sets": 3,
+          "reps": 5,
+          "restSeconds": 150,
+          "notes": "Peso moderado, técnica perfecta"
+        },
+        {
+          "id": "ex-37",
+          "name": "Press de banca con barra",
+          "sets": 3,
+          "reps": 5,
+          "restSeconds": 150,
+          "notes": "Peso moderado, pausa en el pecho",
+          "imageUrls": [
+            "/assets/images/Press de banca con barra.gif"
+          ],
+          "imageUrl": "/assets/images/Press de banca con barra.gif"
+        },
+        {
+          "id": "ex-38",
+          "name": "Remo con barra",
+          "sets": 3,
+          "repsMin": 6,
+          "repsMax": 8,
+          "restSeconds": 120,
+          "notes": "Control total, aprieta la espalda",
+          "imageUrls": [
+            "/assets/images/Remo con barra - 1.gif",
+            "/assets/images/Remo con barra.gif"
+          ],
+          "imageUrl": "/assets/images/Remo con barra - 1.gif"
+        },
+        {
+          "id": "ex-39",
+          "name": "Peso muerto rumano",
+          "sets": 3,
+          "reps": 6,
+          "restSeconds": 150,
+          "notes": "Peso moderado, sentir los isquiotibiales"
+        },
+        {
+          "id": "ex-40",
+          "name": "Press militar",
+          "sets": 3,
+          "repsMin": 6,
+          "repsMax": 8,
+          "restSeconds": 120,
+          "notes": "Peso moderado, sin arquear"
+        },
+        {
+          "id": "ex-41",
+          "name": "Dominadas (o jalón asistido)",
+          "sets": 3,
+          "repsMin": 6,
+          "repsMax": 8,
+          "restSeconds": 120,
+          "notes": "Rango completo, controlado"
+        },
+        {
+          "id": "ex-42",
+          "name": "Farmer's walk",
+          "sets": 3,
+          "repsMin": 30,
+          "repsMax": 40,
+          "unit": "metros",
+          "restSeconds": 90,
+          "notes": "Agarre, core, estabilidad"
+        }
+      ]
+    },
+    {
+      "id": "sunday",
+      "dayNumber": 7,
+      "label": "Brazos + Core + Déficits",
+      "intensity": "Baja-Media",
+      "note": "Zonas débiles, agarre, core y movilidad. Volumen bajo, intensidad media.",
+      "exercises": [
+        {
+          "id": "ex-43",
+          "name": "Curl de bíceps con barra",
+          "sets": 3,
+          "repsMin": 8,
+          "repsMax": 10,
+          "restSeconds": 90,
+          "imageUrls": [
+            "/assets/images/Curl de bíceps con barra - 1.gif",
+            "/assets/images/Curl de bíceps con barra - 2.gif",
+            "/assets/images/Curl de bíceps con barra.gif"
+          ],
+          "imageUrl": "/assets/images/Curl de bíceps con barra - 1.gif"
+        },
+        {
+          "id": "ex-44",
+          "name": "Curl martillo",
+          "sets": 3,
+          "repsMin": 10,
+          "repsMax": 12,
+          "restSeconds": 60,
+          "imageUrls": [
+            "/assets/images/Curl martillo - 1.gif",
+            "/assets/images/Curl martillo - 2.gif",
+            "/assets/images/Curl martillo.gif"
+          ],
+          "imageUrl": "/assets/images/Curl martillo - 1.gif"
+        },
+        {
+          "id": "ex-45",
+          "name": "Extensiones de tríceps en polea",
+          "sets": 3,
+          "repsMin": 10,
+          "repsMax": 12,
+          "restSeconds": 60,
+          "imageUrls": [
+            "/assets/images/Extensiones de tríceps en polea.gif"
+          ],
+          "imageUrl": "/assets/images/Extensiones de tríceps en polea.gif"
+        },
+        {
+          "id": "ex-46",
+          "name": "Fondos en paralelas",
+          "sets": 3,
+          "repsMin": 8,
+          "repsMax": 10,
+          "restSeconds": 90,
+          "imageUrls": [
+            "/assets/images/Fondos en paralelas.gif"
+          ],
+          "imageUrl": "/assets/images/Fondos en paralelas.gif"
+        },
+        {
+          "id": "ex-47",
+          "name": "Plancha con elevación de pierna",
+          "sets": 3,
+          "repsMin": 30,
+          "repsMax": 45,
+          "unit": "seg",
+          "restSeconds": 60
+        },
+        {
+          "id": "ex-48",
+          "name": "Puente de glúteo",
+          "sets": 3,
+          "repsMin": 15,
+          "repsMax": 20,
+          "restSeconds": 60
+        },
+        {
+          "id": "ex-49",
+          "name": "Dead hang",
+          "sets": 3,
+          "repsMin": 20,
+          "repsMax": 30,
+          "unit": "seg",
+          "restSeconds": 60
+        },
+        {
+          "id": "ex-50",
+          "name": "Face pull",
+          "sets": 3,
+          "repsMin": 15,
+          "repsMax": 20,
+          "restSeconds": 60
+        }
+      ]
+    }
+  ]
+}

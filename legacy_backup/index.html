@@ -1,0 +1,260 @@
+<!DOCTYPE html>
+<html lang="es" class="dark">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+  <title>GymApp - Procesos</title>
+  <meta name="description" content="App de entrenamiento para el gimnasio">
+  <link rel="manifest" href="./manifest.json">
+  <meta name="theme-color" content="#1e0f0d">
+  <link rel="apple-touch-icon" href="./icons/icon-192.png">
+
+  <script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+  <link
+    href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700;800&family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&display=swap"
+    rel="stylesheet" />
+
+  <style>
+    body {
+      background-color: #0d0d0f;
+      color: #f5f5f5;
+      -webkit-tap-highlight-color: transparent;
+    }
+
+    .material-symbols-outlined {
+      font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+    }
+
+    .timer-glow {
+      animation: pulse-glow 2s infinite ease-in-out;
+    }
+
+    @keyframes pulse-glow {
+
+      0%,
+      100% {
+        border-color: transparent;
+        box-shadow: 0 0 0px rgba(99, 255, 149, 0);
+      }
+
+      50% {
+        border-color: #63ff95;
+        box-shadow: 0 0 15px rgba(99, 255, 149, 0.3);
+      }
+    }
+
+    .custom-scrollbar::-webkit-scrollbar {
+      width: 4px;
+    }
+
+    .custom-scrollbar::-webkit-scrollbar-thumb {
+      background: #43302d;
+      border-radius: 10px;
+    }
+
+    /* Hide views by default */
+    .view {
+      display: none;
+    }
+
+    .view.active {
+      display: block;
+    }
+  </style>
+
+  <script id="tailwind-config">
+    tailwind.config = {
+      darkMode: "class",
+      theme: {
+        extend: {
+          "colors": {
+            "secondary-fixed": "#63ff95",
+            "surface-bright": "#483532",
+            "surface-container-highest": "#43302d",
+            "secondary-fixed-dim": "#00e473",
+            "surface": "#1e0f0d",
+            "primary-fixed": "#ffdad5",
+            "on-tertiary-fixed-variant": "#004f55",
+            "surface-container-high": "#372623",
+            "error": "#ffb4ab",
+            "on-error": "#690005",
+            "outline": "#ab8984",
+            "surface-variant": "#43302d",
+            "on-primary-container": "#5c0001",
+            "on-primary": "#690002",
+            "error-container": "#93000a",
+            "on-tertiary-fixed": "#002022",
+            "secondary-container": "#00ea76",
+            "on-primary-fixed-variant": "#930004",
+            "inverse-on-surface": "#3e2c29",
+            "surface-container-lowest": "#180a08",
+            "surface-dim": "#1e0f0d",
+            "background": "#1e0f0d",
+            "on-secondary-fixed-variant": "#005225",
+            "on-tertiary": "#00363b",
+            "on-secondary": "#003918",
+            "primary": "#ffb4a9",
+            "tertiary": "#62d7e2",
+            "primary-fixed-dim": "#ffb4a9",
+            "outline-variant": "#5c403c",
+            "tertiary-fixed": "#82f3ff",
+            "on-background": "#fadcd7",
+            "surface-tint": "#ffb4a9",
+            "on-surface": "#fadcd7",
+            "tertiary-container": "#0da0ab",
+            "secondary": "#93ffac",
+            "on-surface-variant": "#e5beb8",
+            "inverse-surface": "#fadcd7",
+            "on-error-container": "#ffdad6",
+            "on-primary-fixed": "#410001",
+            "on-secondary-fixed": "#00210b",
+            "on-tertiary-container": "#002f33",
+            "tertiary-fixed-dim": "#62d7e2",
+            "surface-container": "#2c1b19",
+            "surface-container-low": "#271715",
+            "on-secondary-container": "#00642f",
+            "primary-container": "#ff5544",
+            "inverse-primary": "#bb1913"
+          },
+          "borderRadius": {
+            "DEFAULT": "0.25rem",
+            "lg": "0.5rem",
+            "xl": "0.75rem",
+            "full": "9999px"
+          },
+          "spacing": {
+            "lg": "24px",
+            "sm": "12px",
+            "xs": "8px",
+            "xl": "32px",
+            "base": "4px",
+            "touch-target-min": "48px",
+            "md": "16px"
+          },
+          "fontFamily": {
+            "headline-lg": ["Inter"],
+            "body-lg": ["Inter"],
+            "headline-md": ["Inter"],
+            "stat-value": ["Inter"],
+            "timer-display": ["Inter"],
+            "headline-lg-mobile": ["Inter"],
+            "body-md": ["Inter"],
+            "label-caps": ["Inter"]
+          },
+          "fontSize": {
+            "headline-lg": ["32px", { "lineHeight": "40px", "letterSpacing": "-0.02em", "fontWeight": "700" }],
+            "body-lg": ["18px", { "lineHeight": "28px", "fontWeight": "400" }],
+            "headline-md": ["24px", { "lineHeight": "30px", "fontWeight": "700" }],
+            "stat-value": ["20px", { "lineHeight": "24px", "fontWeight": "600" }],
+            "timer-display": ["84px", { "lineHeight": "84px", "letterSpacing": "-0.04em", "fontWeight": "800" }],
+            "headline-lg-mobile": ["28px", { "lineHeight": "34px", "letterSpacing": "-0.02em", "fontWeight": "700" }],
+            "body-md": ["16px", { "lineHeight": "24px", "fontWeight": "400" }],
+            "label-caps": ["12px", { "lineHeight": "16px", "letterSpacing": "0.05em", "fontWeight": "700" }]
+          }
+        },
+      },
+    }
+  </script>
+
+  <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+</head>
+
+<body
+  class="bg-[#0d0d0f] min-h-screen pb-32 font-body-md text-body-md selection:bg-primary-container selection:text-on-primary-container">
+
+  <!-- Desktop TopAppBar -->
+  <header
+    class="flex justify-between items-center h-touch-target-min px-lg w-full sticky top-0 z-40 bg-surface dark:bg-surface border-b border-outline-variant/30">
+    <div class="flex items-center gap-xs">
+      <img alt="Logo Procesos" class="w-8 h-8 object-contain rounded-md" src="./icons/icon-192.png" />
+      <span class="font-headline-md text-headline-md font-bold text-primary tracking-tight">PROCESOS</span>
+    </div>
+    <nav class="hidden md:flex items-center gap-lg">
+      <a class="nav-link font-body-md text-body-md transition-colors duration-200 cursor-pointer"
+        id="nav-home">Entrenamiento</a>
+      <a class="nav-link font-body-md text-body-md transition-colors duration-200 cursor-pointer"
+        id="nav-history">Historial</a>
+      <a
+        class="text-on-surface-variant font-medium hover:text-primary-fixed-dim font-body-md text-body-md transition-colors duration-200 cursor-pointer">Ajustes</a>
+    </nav>
+    <div class="flex items-center gap-md">
+      <button class="flex items-center justify-center w-touch-target-min h-touch-target-min text-on-surface">
+        <span class="material-symbols-outlined" data-icon="account_circle">account_circle</span>
+      </button>
+    </div>
+  </header>
+
+  <main id="app-root" class="max-w-7xl mx-auto">
+
+    <!-- Home View -->
+    <section id="view-home" class="view active px-md md:px-lg py-md space-y-lg">
+      <!-- Injected by home.js -->
+    </section>
+
+    <!-- Workout View -->
+    <section id="view-workout" class="view px-md py-lg pb-48">
+      <!-- Injected by workout-session.js -->
+    </section>
+
+    <!-- History View -->
+    <section id="view-history" class="view px-md md:px-lg pt-md">
+      <!-- Injected by history.js -->
+    </section>
+
+  </main>
+
+  <!-- Timer Overlay Banner -->
+  <div id="timer-overlay" class="fixed bottom-24 md:bottom-20 left-0 w-full z-40 px-md" style="display: none;">
+    <div
+      class="max-w-3xl mx-auto bg-surface-container-highest rounded-xl shadow-lg border border-outline-variant p-md flex flex-col items-center timer-glow">
+      <div class="flex items-center gap-md w-full justify-between">
+        <div class="flex flex-col">
+          <span class="font-label-caps text-label-caps text-secondary-fixed">DESCANSO</span>
+          <div id="timer-display"
+            class="font-timer-display text-[48px] md:text-timer-display text-secondary-fixed leading-none">00:00</div>
+        </div>
+        <button id="timer-skip-btn"
+          class="bg-primary-container text-on-primary-container rounded-lg px-md h-touch-target-min font-label-caps text-label-caps uppercase tracking-widest active:scale-95 transition-transform flex items-center gap-xs">
+          <span class="material-symbols-outlined text-sm" data-icon="timer_off">timer_off</span>
+          Saltar
+        </button>
+      </div>
+      <div class="w-full h-1 bg-[#232328] rounded-full mt-md overflow-hidden">
+        <div id="timer-progress" class="h-full bg-secondary-fixed transition-all duration-1000" style="width: 100%;">
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Bottom Navigation for Mobile -->
+  <nav
+    class="md:hidden fixed bottom-0 left-0 w-full z-50 flex flex-row items-center justify-between px-lg py-md bg-surface-container-highest border-t border-outline-variant shadow-lg rounded-t-xl">
+    <button id="mob-nav-home"
+      class="mob-nav-btn flex flex-col items-center justify-center rounded-lg px-md py-xs scale-95 transition-all text-on-surface-variant hover:bg-surface-bright">
+      <span class="material-symbols-outlined">fitness_center</span>
+      <span class="font-label-caps text-label-caps">Entreno</span>
+    </button>
+    <button id="mob-nav-history"
+      class="mob-nav-btn flex flex-col items-center justify-center rounded-lg px-md py-xs scale-95 transition-all text-on-surface-variant hover:bg-surface-bright">
+      <span class="material-symbols-outlined">history</span>
+      <span class="font-label-caps text-label-caps">Historial</span>
+    </button>
+    <button
+      class="flex flex-col items-center justify-center text-on-surface-variant px-md py-xs hover:bg-surface-bright transition-all">
+      <span class="material-symbols-outlined">settings</span>
+      <span class="font-label-caps text-label-caps">Ajustes</span>
+    </button>
+  </nav>
+
+  <script type="module" src="./js/app.js"></script>
+  <script>
+    if ('serviceWorker' in navigator) {
+      window.addEventListener('load', () => {
+        navigator.serviceWorker.register('./service-worker.js');
+      });
+    }
+  </script>
+</body>
+
+</html>

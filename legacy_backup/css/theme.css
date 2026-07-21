@@ -1,0 +1,54 @@
+/* theme.css */
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&display=swap');
+
+:root {
+  /* Colores base — tema oscuro por defecto */
+  --color-bg: #0d0d0f;
+  --color-surface: #1a1a1e;
+  --color-surface-elevated: #232328;
+  --color-text-primary: #ffffff;
+  /* Texto principal blanco puro */
+  --color-text-secondary: #a1a1aa;
+
+  /* Acento energía */
+  --color-accent: #ff4d3d;
+  /* rojo-naranja */
+  --color-accent-alt: #39ff88;
+  /* verde neón, para "completado" */
+
+  /* Estados */
+  --color-success: #39ff88;
+  --color-warning: #ffb020;
+  --color-danger: #ff4d3d;
+
+  /* Tipografía */
+  --font-family: 'Inter', -apple-system, system-ui, sans-serif;
+  --font-size-xl: 2rem;
+  /* títulos de sección */
+  --font-size-lg: 1.25rem;
+  /* nombre de ejercicio */
+  --font-size-base: 1rem;
+  --font-size-sm: 0.875rem;
+  --font-weight-bold: 700;
+
+  /* Espaciado (base 8px) */
+  --space-1: 8px;
+  --space-2: 16px;
+  --space-3: 24px;
+  --space-4: 32px;
+
+  /* Táctil */
+  --tap-target-min: 48px;
+  /* mínimo para botones/checkboxes, criterio accesibilidad mobile */
+  --radius-card: 16px;
+  --radius-button: 12px;
+}
+
+body {
+  background-color: var(--color-bg);
+  color: var(--color-text-primary);
+  font-family: var(--font-family);
+  min-height: 100vh;
+  padding-bottom: 80px;
+  /* Space for sticky bottom buttons/timer */
+}
