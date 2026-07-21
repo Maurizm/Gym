@@ -5,6 +5,7 @@ import { useRouter } from 'next/navigation';
 import { useWorkoutSession, ExerciseLog } from '@/hooks/useWorkoutSession';
 import { useTimer } from '@/hooks/useTimer';
 import routineData from '@/data/routine.json';
+import { ImageCarousel } from '@/components/ImageCarousel';
 
 export default function Workout() {
   const router = useRouter();
@@ -114,10 +115,9 @@ export default function Workout() {
                   </table>
                 </div>
                 {ex.imageUrl && (
-                  <div 
-                    className="mt-md w-full h-48 rounded-xl bg-cover bg-center grayscale opacity-40 cycle-img" 
-                    style={{ backgroundImage: `url('\${ex.imageUrl}')` }}
-                  ></div>
+                  <div className="mt-md w-full h-48 rounded-xl overflow-hidden grayscale opacity-40 hover:grayscale-0 hover:opacity-100 transition-all duration-300">
+                    <ImageCarousel images={ex.imageUrls || [ex.imageUrl]} alt={ex.name} />
+                  </div>
                 )}
               </section>
             );

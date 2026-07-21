@@ -5,6 +5,7 @@ import { useRouter } from 'next/navigation';
 import routineData from '@/data/routine.json';
 import { getPhaseInfo } from '@/lib/week-phase';
 import { useWorkoutSession } from '@/hooks/useWorkoutSession';
+import { ImageCarousel } from '@/components/ImageCarousel';
 
 const getDaysMap = () => {
   const map = [
@@ -134,11 +135,7 @@ export default function Home() {
           {activeRoutine.exercises.map((ex: any) => (
             <div key={ex.id} className="bg-[#1a1a1e] border border-[#2d2d33] rounded-xl overflow-hidden hover:border-primary/50 transition-all cursor-pointer group">
               <div className="aspect-video w-full overflow-hidden bg-[#232328]">
-                {ex.imageUrl ? (
-                  <img src={ex.imageUrl} alt={ex.name} className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500" />
-                ) : (
-                  <div className="w-full h-full flex items-center justify-center text-4xl">🏋️</div>
-                )}
+                <ImageCarousel images={ex.imageUrls || (ex.imageUrl ? [ex.imageUrl] : [])} alt={ex.name} />
               </div>
               <div className="p-md flex items-center justify-between">
                 <div className="flex items-center gap-md">
@@ -159,13 +156,19 @@ export default function Home() {
         </div>
       </section>
 
-      <div className="fixed bottom-24 md:bottom-12 left-1/2 -translate-x-1/2 w-full max-w-lg px-md z-50">
+      {/* Degradado inferior para resaltar el botón y difuminar el contenido de fondo */}
+      <div className="fixed bottom-0 left-0 w-full h-64 bg-gradient-to-t from-[#0d0d0f] via-[#0d0d0f]/90 to-transparent pointer-events-none z-40 backdrop-blur-sm"></div>
+      
+      <div className="fixed bottom-[110px] md:bottom-12 left-1/2 -translate-x-1/2 w-full max-w-lg px-md z-[999]">
         <button 
           onClick={handleStart}
-          className="w-full h-[56px] bg-[#ff4d3d] text-[#f5f5f5] rounded-xl font-headline-md text-headline-md shadow-[0_8px_32px_rgba(255,77,61,0.4)] flex items-center justify-center gap-md active:scale-95 transition-transform"
+          className="relative w-full h-[64px] bg-gradient-to-r from-[#ff4d3d] to-[#ff2a6d] text-[#ffffff] rounded-2xl font-headline-md text-headline-md shadow-[0_8px_32px_rgba(255,77,61,0.8)] flex items-center justify-center gap-md active:scale-95 transition-all overflow-hidden group hover:shadow-[0_12px_40px_rgba(255,42,109,1)]"
         >
-          <span className="material-symbols-outlined" style={{ fontVariationSettings: "'FILL' 1" }}>play_arrow</span>
-          EMPEZAR ENTRENAMIENTO
+          {/* Efecto de brillo interior */}
+          <div className="absolute inset-0 bg-white/20 w-1/2 -skew-x-12 -translate-x-full group-hover:animate-[shimmer_1.5s_infinite]"></div>
+          
+          <span className="material-symbols-outlined text-3xl animate-pulse" style={{ fontVariationSettings: "'FILL' 1" }}>play_circle</span>
+          <span className="tracking-wide text-lg md:text-xl font-bold">EMPEZAR ENTRENAMIENTO</span>
         </button>
       </div>
     </div>

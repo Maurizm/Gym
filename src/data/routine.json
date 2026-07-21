@@ -118,8 +118,7 @@
           "repsMax": 10,
           "restSeconds": 120,
           "imageUrls": [
-            "/assets/images/Remo con barra - 1.gif",
-            "/assets/images/Remo con barra.gif"
+            "/assets/images/Remo con barra - 1.gif"
           ],
           "imageUrl": "/assets/images/Remo con barra - 1.gif"
         },
@@ -156,9 +155,7 @@
           "repsMax": 12,
           "restSeconds": 60,
           "imageUrls": [
-            "/assets/images/Curl de bíceps con barra - 1.gif",
-            "/assets/images/Curl de bíceps con barra - 2.gif",
-            "/assets/images/Curl de bíceps con barra.gif"
+            "/assets/images/Curl de bíceps con barra - 1.gif"
           ],
           "imageUrl": "/assets/images/Curl de bíceps con barra - 1.gif"
         },
@@ -170,9 +167,7 @@
           "repsMax": 12,
           "restSeconds": 60,
           "imageUrls": [
-            "/assets/images/Curl martillo - 1.gif",
-            "/assets/images/Curl martillo - 2.gif",
-            "/assets/images/Curl martillo.gif"
+            "/assets/images/Curl martillo - 1.gif"
           ],
           "imageUrl": "/assets/images/Curl martillo - 1.gif"
         },
@@ -422,8 +417,7 @@
           "restSeconds": 120,
           "notes": "Control total, aprieta la espalda",
           "imageUrls": [
-            "/assets/images/Remo con barra - 1.gif",
-            "/assets/images/Remo con barra.gif"
+            "/assets/images/Remo con barra - 1.gif"
           ],
           "imageUrl": "/assets/images/Remo con barra - 1.gif"
         },
@@ -480,9 +474,7 @@
           "repsMax": 10,
           "restSeconds": 90,
           "imageUrls": [
-            "/assets/images/Curl de bíceps con barra - 1.gif",
-            "/assets/images/Curl de bíceps con barra - 2.gif",
-            "/assets/images/Curl de bíceps con barra.gif"
+            "/assets/images/Curl de bíceps con barra - 1.gif"
           ],
           "imageUrl": "/assets/images/Curl de bíceps con barra - 1.gif"
         },
@@ -494,9 +486,7 @@
           "repsMax": 12,
           "restSeconds": 60,
           "imageUrls": [
-            "/assets/images/Curl martillo - 1.gif",
-            "/assets/images/Curl martillo - 2.gif",
-            "/assets/images/Curl martillo.gif"
+            "/assets/images/Curl martillo - 1.gif"
           ],
           "imageUrl": "/assets/images/Curl martillo - 1.gif"
         },
