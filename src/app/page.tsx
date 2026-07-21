@@ -123,6 +123,15 @@ export default function Home() {
               </div>
             </div>
           </div>
+          
+          <button 
+            onClick={handleStart}
+            className="relative w-full md:w-auto shrink-0 h-[64px] px-lg bg-gradient-to-r from-[#ff4d3d] to-[#ff2a6d] text-[#ffffff] rounded-2xl font-headline-md text-headline-md shadow-[0_8px_32px_rgba(255,77,61,0.6)] flex items-center justify-center gap-md active:scale-95 transition-all overflow-hidden group hover:shadow-[0_12px_40px_rgba(255,42,109,0.8)] mt-sm md:mt-0"
+          >
+            <div className="absolute inset-0 bg-white/20 w-1/2 -skew-x-12 -translate-x-full group-hover:animate-[shimmer_1.5s_infinite]"></div>
+            <span className="material-symbols-outlined text-3xl animate-pulse" style={{ fontVariationSettings: "'FILL' 1" }}>play_circle</span>
+            <span className="tracking-wide text-lg md:text-xl font-bold whitespace-nowrap">EMPEZAR</span>
+          </button>
         </div>
       </section>
 
@@ -156,21 +165,7 @@ export default function Home() {
         </div>
       </section>
 
-      {/* Degradado inferior para resaltar el botón y difuminar el contenido de fondo */}
-      <div className="fixed bottom-0 left-0 w-full h-64 bg-gradient-to-t from-[#0d0d0f] via-[#0d0d0f]/90 to-transparent pointer-events-none z-40 backdrop-blur-sm"></div>
-      
-      <div className="fixed bottom-[110px] md:bottom-12 left-1/2 -translate-x-1/2 w-full max-w-lg px-md z-[999]">
-        <button 
-          onClick={handleStart}
-          className="relative w-full h-[64px] bg-gradient-to-r from-[#ff4d3d] to-[#ff2a6d] text-[#ffffff] rounded-2xl font-headline-md text-headline-md shadow-[0_8px_32px_rgba(255,77,61,0.8)] flex items-center justify-center gap-md active:scale-95 transition-all overflow-hidden group hover:shadow-[0_12px_40px_rgba(255,42,109,1)]"
-        >
-          {/* Efecto de brillo interior */}
-          <div className="absolute inset-0 bg-white/20 w-1/2 -skew-x-12 -translate-x-full group-hover:animate-[shimmer_1.5s_infinite]"></div>
-          
-          <span className="material-symbols-outlined text-3xl animate-pulse" style={{ fontVariationSettings: "'FILL' 1" }}>play_circle</span>
-          <span className="tracking-wide text-lg md:text-xl font-bold">EMPEZAR ENTRENAMIENTO</span>
-        </button>
-      </div>
+      {/* Se eliminó el botón flotante inferior porque ahora está en la tarjeta de arriba */}
     </div>
   );
 }
