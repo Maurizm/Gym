@@ -5,7 +5,6 @@ import { useWorkoutHistory } from '@/hooks/useWorkoutHistory';
 import { getBestWeightInSession } from '@/hooks/useWorkoutHistory';
 import { SessionState } from '@/hooks/useWorkoutSession';
 import { ProgressChart } from '@/components/ProgressChart';
-import routineData from '@/data/routine.json';
 
 function formatDuration(secs: number): string {
   const h = Math.floor(secs / 3600);
@@ -57,7 +56,7 @@ export default function History() {
     return (
       <div className="px-md md:px-lg pt-md">
         <h2 className="font-headline-md text-headline-md text-on-surface mb-md">Historial de Entrenamientos</h2>
-        <div className="bg-[#1a1a1e] border border-[#2d2d33] rounded-xl p-lg text-center flex flex-col items-center gap-md animate-fade-in-up">
+        <div className="bg-surface border border-outline-variant rounded-lg p-lg text-center flex flex-col items-center gap-md animate-fade-in-up">
           <span className="material-symbols-outlined text-[64px] text-outline-variant">history</span>
           <p className="text-on-surface-variant font-body-lg text-body-lg">Aún no hay entrenamientos registrados.</p>
           <p className="text-outline font-body-md text-body-md">Completa tu primera sesión para verla aquí.</p>
@@ -72,7 +71,7 @@ export default function History() {
         <h2 className="font-headline-md text-headline-md text-on-surface">Historial de Entrenamientos</h2>
         <button 
           onClick={() => setShowChart(!showChart)}
-          className={`flex items-center gap-xs px-sm py-1 rounded-full border transition-colors ${showChart ? 'bg-primary/20 border-primary text-primary' : 'bg-[#1a1a1e] border-[#2d2d33] text-on-surface-variant'}`}
+          className={`flex items-center gap-xs px-sm py-1 rounded-full border transition-colors ${showChart ? 'bg-primary/20 border-primary text-primary' : 'bg-surface border-outline-variant text-on-surface-variant'}`}
         >
           <span className="material-symbols-outlined text-sm">show_chart</span>
           <span className="font-label-caps text-label-caps">{showChart ? 'Ocultar Gráfica' : 'Ver Gráfica'}</span>
@@ -84,21 +83,25 @@ export default function History() {
       )}
 
       {/* Stats cards */}
-      <div className="grid grid-cols-3 gap-md animate-fade-in-up delay-75">
-        <div className="bg-[#1a1a1e] border border-[#2d2d33] rounded-xl p-md text-center">
+      <div className="grid grid-cols-2 gap-md animate-fade-in-up delay-75">
+        <div className="bg-surface border border-outline-variant rounded-lg p-md text-center flex flex-col justify-center">
           <p className="font-label-caps text-label-caps text-on-surface-variant mb-xs">SESIONES</p>
           <p className="font-headline-md text-headline-md text-primary animate-count-up">{stats.totalSessions}</p>
         </div>
-        <div className="bg-[#1a1a1e] border border-[#2d2d33] rounded-xl p-md text-center">
+        <div className="bg-surface border border-outline-variant rounded-lg p-md text-center flex flex-col justify-center">
           <p className="font-label-caps text-label-caps text-on-surface-variant mb-xs">RACHA</p>
           <div className="flex items-center justify-center gap-1">
-            <p className="font-headline-md text-headline-md text-[#39ff88] animate-count-up">{stats.currentStreak}</p>
-            <span className="material-symbols-outlined text-[#39ff88]" style={{ fontSize: 18 }}>local_fire_department</span>
+            <p className="font-headline-md text-headline-md text-primary animate-count-up">{stats.streakDays}</p>
+            <span className="material-symbols-outlined text-primary" style={{ fontSize: 18 }}>local_fire_department</span>
           </div>
         </div>
-        <div className="bg-[#1a1a1e] border border-[#2d2d33] rounded-xl p-md text-center">
+        <div className="bg-surface border border-outline-variant rounded-lg p-md text-center flex flex-col justify-center">
           <p className="font-label-caps text-label-caps text-on-surface-variant mb-xs">MINUTOS</p>
-          <p className="font-headline-md text-headline-md text-secondary-fixed animate-count-up">{stats.totalMinutes}</p>
+          <p className="font-headline-md text-headline-md text-on-surface animate-count-up">{stats.totalMinutes}</p>
+        </div>
+        <div className="bg-surface border border-outline-variant rounded-lg p-md text-center flex flex-col justify-center">
+          <p className="font-label-caps text-label-caps text-on-surface-variant mb-xs">VOLUMEN (KG)</p>
+          <p className="font-headline-md text-headline-md text-[#82f3ff] animate-count-up">{stats.totalVolume.toLocaleString()}</p>
         </div>
       </div>
 
@@ -134,11 +137,11 @@ export default function History() {
                 return (
                   <div
                     key={sess.sessionId}
-                    className="bg-[#1a1a1e] border border-[#2d2d33] rounded-xl overflow-hidden hover:border-primary/30 transition-colors animate-fade-in-up"
+                    className="bg-surface border border-outline-variant rounded-lg overflow-hidden hover:border-primary/30 transition-colors animate-fade-in-up"
                     style={{ animationDelay: `${idx * 60}ms` }}
                   >
                     {/* Session header */}
-                    <div className="p-md bg-[#232328]/50 border-b border-[#2d2d33] flex justify-between items-start">
+                    <div className="p-md bg-[#232328]/50 border-b border-outline-variant flex justify-between items-start">
                       <div>
                         <h3 className="font-stat-value text-stat-value text-on-surface capitalize">{formattedDate}</h3>
                         <p className="text-on-surface-variant font-body-md text-body-md">
@@ -167,7 +170,7 @@ export default function History() {
                         const weightsVary = setsDone.some(s => s.weightKg !== setsDone[0].weightKg);
 
                         return (
-                          <div key={log.exerciseId} className="flex justify-between items-center text-sm py-xs border-b border-[#2d2d33]/50 last:border-0">
+                          <div key={log.exerciseId} className="flex justify-between items-center text-sm py-xs border-b border-outline-variant/50 last:border-0">
                             <span className="text-on-surface flex-1 mr-md">{ex?.name || log.exerciseId}</span>
                             <div className="text-right shrink-0">
                               <span className="text-on-surface-variant font-medium">

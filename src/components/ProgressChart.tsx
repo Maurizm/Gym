@@ -15,7 +15,7 @@ import {
 import { Line } from 'react-chartjs-2';
 import { SessionState } from '@/hooks/useWorkoutSession';
 import { getBestWeightInSession } from '@/hooks/useWorkoutHistory';
-import routineData from '@/data/routine.json';
+import { useExerciseLibrary } from '@/hooks/useExerciseLibrary';
 
 ChartJS.register(
   CategoryScale,
@@ -33,7 +33,9 @@ interface Props {
 }
 
 export function ProgressChart({ history }: Props) {
+  const { library } = useExerciseLibrary();
   const [selectedExerciseId, setSelectedExerciseId] = useState<string>('');
+  const [timeFilter, setTimeFilter] = useState<'1M' | '3M' | 'ALL'>('ALL');
 
   // Extract all unique exercises done in the history
   const availableExercises = useMemo(() => {
@@ -49,20 +51,17 @@ export function ProgressChart({ history }: Props) {
     
     const results: { id: string; name: string }[] = [];
     ids.forEach(id => {
-      // Find name from routineData
+      // Find name from library
       let name = id;
-      for (const day of routineData.days) {
-        const ex = day.exercises.find((e: any) => e.id === id);
-        if (ex) {
-          name = ex.name;
-          break;
-        }
+      const ex = library.find(e => e.id === id);
+      if (ex) {
+        name = ex.name;
       }
       results.push({ id, name });
     });
     
     return results.sort((a, b) => a.name.localeCompare(b.name));
-  }, [history]);
+  }, [history, library]);
 
   // Set default exercise if not selected
   if (!selectedExerciseId && availableExercises.length > 0) {
@@ -77,7 +76,14 @@ export function ProgressChart({ history }: Props) {
     const dataPoints: { date: string; weight: number }[] = [];
     
     // Process oldest to newest
-    const sortedHistory = [...history].sort((a, b) => a.startTime - b.startTime);
+    let sortedHistory = [...history].sort((a, b) => a.startTime - b.startTime);
+
+    if (timeFilter !== 'ALL') {
+      const now = Date.now();
+      const oneMonth = 30 * 24 * 60 * 60 * 1000;
+      const threshold = timeFilter === '1M' ? now - oneMonth : now - (3 * oneMonth);
+      sortedHistory = sortedHistory.filter(sess => sess.startTime >= threshold);
+    }
     
     sortedHistory.forEach(sess => {
       if (!sess.completed) return;
@@ -109,7 +115,7 @@ export function ProgressChart({ history }: Props) {
         }
       ]
     };
-  }, [history, selectedExerciseId]);
+  }, [history, selectedExerciseId, timeFilter]);
 
   const options = {
     responsive: true,
@@ -159,20 +165,20 @@ export function ProgressChart({ history }: Props) {
 
   if (availableExercises.length === 0) {
     return (
-      <div className="bg-[#1a1a1e] border border-[#2d2d33] rounded-xl p-md text-center text-on-surface-variant">
+      <div className="bg-surface border border-outline-variant rounded-lg p-md text-center text-on-surface-variant">
         No hay datos suficientes para mostrar gráficos.
       </div>
     );
   }
 
   return (
-    <div className="bg-[#1a1a1e] border border-[#2d2d33] rounded-xl p-md space-y-md animate-fade-in-up">
+    <div className="bg-surface border border-outline-variant rounded-lg p-md space-y-md animate-fade-in-up">
       <div className="flex flex-col md:flex-row md:items-center justify-between gap-sm">
         <h3 className="font-headline-md text-headline-md text-on-surface">Evolución de Peso</h3>
         <select
           value={selectedExerciseId}
           onChange={(e) => setSelectedExerciseId(e.target.value)}
-          className="bg-[#232328] border border-[#2d2d33] text-on-surface rounded-lg px-sm py-xs font-body-md text-body-md focus:outline-none focus:border-primary focus:ring-1 focus:ring-primary max-w-full md:max-w-[250px]"
+          className="bg-[#232328] border border-outline-variant text-on-surface rounded-lg px-sm py-xs font-body-md text-body-md focus:outline-none focus:border-primary focus:ring-1 focus:ring-primary max-w-full md:max-w-[250px]"
         >
           {availableExercises.map(ex => (
             <option key={ex.id} value={ex.id}>
@@ -180,6 +186,27 @@ export function ProgressChart({ history }: Props) {
             </option>
           ))}
         </select>
+      </div>
+
+      <div className="flex gap-2">
+        <button 
+          onClick={() => setTimeFilter('1M')} 
+          className={`px-3 py-1 rounded-full text-xs font-label-caps tracking-wider transition-colors ${timeFilter === '1M' ? 'bg-primary text-on-primary' : 'bg-[#232328] text-on-surface-variant hover:bg-[#2d2d33]'}`}
+        >
+          1 MES
+        </button>
+        <button 
+          onClick={() => setTimeFilter('3M')} 
+          className={`px-3 py-1 rounded-full text-xs font-label-caps tracking-wider transition-colors ${timeFilter === '3M' ? 'bg-primary text-on-primary' : 'bg-[#232328] text-on-surface-variant hover:bg-[#2d2d33]'}`}
+        >
+          3 MESES
+        </button>
+        <button 
+          onClick={() => setTimeFilter('ALL')} 
+          className={`px-3 py-1 rounded-full text-xs font-label-caps tracking-wider transition-colors ${timeFilter === 'ALL' ? 'bg-primary text-on-primary' : 'bg-[#232328] text-on-surface-variant hover:bg-[#2d2d33]'}`}
+        >
+          TODO
+        </button>
       </div>
       
       <div className="w-full h-64 mt-md">

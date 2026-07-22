@@ -6,10 +6,11 @@ import { SessionState } from '@/hooks/useWorkoutSession';
 
 const SESSIONS_HISTORY_KEY = 'gymapp:sessions';
 
-export interface WorkoutStats {
+export interface HistoryStats {
   totalSessions: number;
-  currentStreak: number;
+  streakDays: number;
   totalMinutes: number;
+  totalVolume: number;
 }
 
 /**
@@ -100,6 +101,28 @@ function computeStreak(sessions: SessionState[]): number {
   return streak;
 }
 
+/**
+ * Computes the total volume (weight * reps) for a list of sessions.
+ */
+function computeTotalVolume(sessions: SessionState[]): number {
+  let volume = 0;
+  sessions.forEach(sess => {
+    if (!sess.completed) return;
+    sess.exerciseLogs.forEach(log => {
+      log.sets.forEach(set => {
+        if (set.completed && set.weightKg && set.repsDone) {
+          const w = parseFloat(set.weightKg);
+          const r = parseInt(set.repsDone, 10);
+          if (!isNaN(w) && !isNaN(r)) {
+            volume += (w * r);
+          }
+        }
+      });
+    });
+  });
+  return volume;
+}
+
 export function useWorkoutHistory() {
   const [history, setHistory] = useState<SessionState[]>([]);
   const [isLoaded, setIsLoaded] = useState(false);
@@ -110,12 +133,11 @@ export function useWorkoutHistory() {
     setIsLoaded(true);
   }, []);
 
-  const stats: WorkoutStats = {
-    totalSessions: history.length,
-    currentStreak: computeStreak(history),
-    totalMinutes: Math.floor(
-      history.reduce((acc, s) => acc + (s.durationSeconds || 0), 0) / 60
-    ),
+  const stats: HistoryStats = {
+    totalSessions: history.filter(s => s.completed).length,
+    streakDays: computeStreak(history),
+    totalMinutes: Math.floor(history.reduce((acc, s) => acc + (s.durationSeconds || 0), 0) / 60),
+    totalVolume: computeTotalVolume(history),
   };
 
   const getLastWeight = (exerciseId: string) =>

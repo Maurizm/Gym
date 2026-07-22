@@ -1,9 +1,11 @@
 import type { Metadata, Viewport } from "next";
-import { Inter } from "next/font/google";
+import { Inter, JetBrains_Mono } from "next/font/google";
 import "./globals.css";
 import { Navigation } from "@/components/Navigation";
+import { ThemeProvider } from "@/components/ThemeProvider";
 
-const inter = Inter({ subsets: ["latin"] });
+const inter = Inter({ subsets: ["latin"], variable: "--font-sans" });
+const mono = JetBrains_Mono({ subsets: ["latin"], variable: "--font-mono" });
 
 export const metadata: Metadata = {
   title: "GymApp - Procesos",
@@ -28,7 +30,7 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <html lang="es" className="dark">
+    <html lang="es" suppressHydrationWarning>
       <head>
         <link
           href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&display=swap"
@@ -36,12 +38,14 @@ export default function RootLayout({
         />
       </head>
       <body
-        className={`${inter.className} min-h-screen flex flex-col pb-32 font-body-md text-body-md selection:bg-primary-container selection:text-on-primary-container`}
+        className={`${inter.variable} ${mono.variable} font-sans min-h-screen flex flex-col pb-32 text-body-md selection:bg-primary/20 selection:text-primary transition-colors duration-300`}
       >
-        <Navigation />
-        <main id="app-root" className="max-w-7xl mx-auto w-full flex-1">
-          {children}
-        </main>
+        <ThemeProvider>
+          <Navigation />
+          <main id="app-root" className="max-w-7xl mx-auto w-full flex-1">
+            {children}
+          </main>
+        </ThemeProvider>
       </body>
     </html>
   );

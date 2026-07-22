@@ -42,7 +42,9 @@ export function Navigation() {
           <Link href="/history" className={`nav-link font-body-md text-body-md transition-colors duration-200 cursor-pointer ${isHistory ? 'text-primary font-bold border-b-2 border-primary pb-1' : 'text-on-surface-variant font-medium hover:text-primary-fixed-dim'}`}>
             Historial
           </Link>
-          <a className="text-on-surface-variant/40 font-medium font-body-md text-body-md cursor-not-allowed select-none" title="Próximamente">Ajustes</a>
+          <Link href="/settings" className={`nav-link font-body-md text-body-md transition-colors duration-200 cursor-pointer ${pathname === '/settings' ? 'text-primary font-bold border-b-2 border-primary pb-1' : 'text-on-surface-variant font-medium hover:text-primary-fixed-dim'}`}>
+            Ajustes
+          </Link>
         </nav>
         <div className="flex items-center gap-md">
           <button className="flex items-center justify-center w-touch-target-min h-touch-target-min text-on-surface">
@@ -63,12 +65,13 @@ export function Navigation() {
           <span className="material-symbols-outlined">history</span>
           <span className="font-label-caps text-label-caps">Historial</span>
         </Link>
-        <button disabled className="flex flex-col items-center justify-center text-on-surface-variant/40 px-md py-xs cursor-not-allowed select-none">
-          <span className="material-symbols-outlined">settings</span>
+        <Link href="/settings" className={`mob-nav-btn flex flex-col items-center justify-center rounded-lg px-md py-xs transition-all ${pathname === '/settings' ? 'bg-primary-container text-on-primary-container scale-100' : 'scale-95 text-on-surface-variant hover:bg-surface-bright'}`}>
+          <span className="material-symbols-outlined" style={{ fontVariationSettings: pathname === '/settings' ? "'FILL' 1" : "'FILL' 0" }}>
+            settings
+          </span>
           <span className="font-label-caps text-label-caps">Ajustes</span>
-        </button>
+        </Link>
       </nav>
     </>
   );
 }
-

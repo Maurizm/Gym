@@ -2,10 +2,10 @@
 
 import { useState, useEffect, useCallback } from 'react';
 import { useRouter } from 'next/navigation';
-import routineData from '@/data/routine.json';
 import { getPhaseInfo } from '@/lib/week-phase';
 import { useWorkoutSession } from '@/hooks/useWorkoutSession';
 import { useWorkoutHistory } from '@/hooks/useWorkoutHistory';
+import { useRoutine } from '@/hooks/useRoutine';
 import { ImageCarousel } from '@/components/ImageCarousel';
 
 const getDaysMap = () => {
@@ -53,6 +53,7 @@ export default function Home() {
   const router = useRouter();
   const { session, isLoaded: sessionLoaded, startSession } = useWorkoutSession();
   const { history } = useWorkoutHistory();
+  const { routine, isLoaded: routineLoaded } = useRoutine();
   const [selectedDayId, setSelectedDayId] = useState<string>('monday');
   const [isClient, setIsClient] = useState(false);
 
@@ -75,12 +76,12 @@ export default function Home() {
     setSelectedDayId(todayId);
   }, [session, sessionLoaded, router]);
 
-  if (!isClient || !sessionLoaded) return null;
+  if (!isClient || !sessionLoaded || !routineLoaded || !routine) return null;
 
   const phaseInfo = getPhaseInfo();
   const isDeload = phaseInfo.isDeload;
 
-  const activeRoutine = routineData.days.find((r: any) => r.id === selectedDayId);
+  const activeRoutine = routine.days.find((r: any) => r.id === selectedDayId);
   if (!activeRoutine) return <div className="p-md">Rutina no encontrada</div>;
 
   const handleStart = () => {
@@ -110,7 +111,7 @@ export default function Home() {
         </div>
 
         {/* Day picker */}
-        <div className="flex justify-between bg-[#1a1a1e] p-xs rounded-xl border border-[#2d2d33]">
+        <div className="flex justify-between bg-surface p-xs rounded-lg border border-outline-variant">
           {getDaysMap().map(d => {
             const isActive = d.id === selectedDayId;
             const hasDone = completedDates.has(d.id);
@@ -136,7 +137,7 @@ export default function Home() {
       </section>
 
       {/* Workout card */}
-      <section className="relative overflow-hidden rounded-xl bg-gradient-to-br from-[#1a1a1e] to-[#0d0d0f] border border-[#2d2d33] p-lg animate-fade-in-up delay-100">
+      <section className="relative overflow-hidden rounded-lg bg-gradient-to-br from-[#1a1a1e] to-[#0d0d0f] border border-outline-variant p-lg animate-fade-in-up delay-100">
         <div className="absolute top-0 right-0 w-32 h-32 bg-primary/10 rounded-full -mr-16 -mt-16 blur-3xl"></div>
         <div className="relative z-10 flex flex-col md:flex-row md:items-center justify-between gap-md">
           <div>
@@ -145,7 +146,7 @@ export default function Home() {
                 INTENSIDAD {activeRoutine.intensity}
               </span>
               {lastSession && (
-                <span className="bg-[#39ff88]/10 text-[#39ff88] font-label-caps text-label-caps px-sm py-1 rounded-full border border-[#39ff88]/20 flex items-center gap-1">
+                <span className="bg-[#39ff88]/10 text-primary font-label-caps text-label-caps px-sm py-1 rounded-full border border-[#39ff88]/20 flex items-center gap-1">
                   <span className="material-symbols-outlined" style={{ fontSize: 12 }}>check_circle</span>
                   Completado esta semana
                 </span>
@@ -153,7 +154,7 @@ export default function Home() {
             </div>
             <h2 className="font-headline-md text-headline-md text-on-surface">{activeRoutine.label}</h2>
             {(activeRoutine as any).note && (
-              <p className="text-on-surface-variant font-body-md text-body-md mt-xs text-sm italic opacity-80 max-w-md">
+              <p className="text-on-surface-variant font-body-md text-body-md mt-sm leading-relaxed max-w-prose">
                 {(activeRoutine as any).note}
               </p>
             )}
@@ -171,7 +172,7 @@ export default function Home() {
 
           <button
             onClick={handleStart}
-            className="relative w-full md:w-auto shrink-0 h-[64px] px-lg bg-gradient-to-r from-[#ff4d3d] to-[#ff2a6d] text-[#ffffff] rounded-2xl font-headline-md text-headline-md shadow-[0_8px_32px_rgba(255,77,61,0.6)] flex items-center justify-center gap-md active:scale-95 transition-all overflow-hidden group hover:shadow-[0_12px_40px_rgba(255,42,109,0.8)] mt-sm md:mt-0"
+            className="relative w-full md:w-auto shrink-0 h-[64px] px-lg bg-gradient-to-r from-[#ff4d3d] to-[#ff2a6d] text-[#ffffff] rounded-lg font-headline-md text-headline-md shadow-[0_8px_32px_rgba(255,77,61,0.6)] flex items-center justify-center gap-md active:scale-95 transition-all overflow-hidden group hover:shadow-[0_12px_40px_rgba(255,42,109,0.8)] mt-sm md:mt-0"
           >
             <div className="absolute inset-0 bg-white/20 w-1/2 -skew-x-12 -translate-x-full group-hover:animate-[shimmer_1.5s_infinite]"></div>
             <span className="material-symbols-outlined text-3xl animate-pulse" style={{ fontVariationSettings: "'FILL' 1" }}>play_circle</span>
@@ -193,14 +194,14 @@ export default function Home() {
             return (
               <div
                 key={ex.id}
-                className={`bg-[#1a1a1e] border border-[#2d2d33] rounded-xl overflow-hidden hover:border-primary/50 transition-all cursor-pointer group animate-fade-in-up ${delayClass}`}
+                className={`bg-surface border border-outline-variant rounded-lg overflow-hidden hover:border-primary/50 transition-all cursor-pointer group animate-fade-in-up ${delayClass}`}
               >
                 <div className="aspect-video w-full overflow-hidden bg-[#232328]">
                   <ImageCarousel images={ex.imageUrls || (ex.imageUrl ? [ex.imageUrl] : [])} alt={ex.name} />
                 </div>
                 <div className="p-md flex items-center justify-between">
                   <div className="flex items-center gap-md">
-                    <div className="w-10 h-10 bg-[#232328] rounded-lg flex items-center justify-center text-primary border border-[#2d2d33] shrink-0">
+                    <div className="w-10 h-10 bg-[#232328] rounded-lg flex items-center justify-center text-primary border border-outline-variant shrink-0">
                       <span className="material-symbols-outlined text-2xl">exercise</span>
                     </div>
                     <div className="min-w-0">

@@ -1,53 +1,20 @@
 @import "tailwindcss";
 
 @theme {
-  --color-secondary-fixed: #63ff95;
-  --color-surface-bright: #483532;
-  --color-surface-container-highest: #43302d;
-  --color-secondary-fixed-dim: #00e473;
-  --color-surface: #1e0f0d;
-  --color-primary-fixed: #ffdad5;
-  --color-on-tertiary-fixed-variant: #004f55;
-  --color-surface-container-high: #372623;
-  --color-error: #ffb4ab;
-  --color-on-error: #690005;
-  --color-outline: #ab8984;
-  --color-surface-variant: #43302d;
-  --color-on-primary-container: #5c0001;
-  --color-on-primary: #690002;
-  --color-error-container: #93000a;
-  --color-on-tertiary-fixed: #002022;
-  --color-secondary-container: #00ea76;
-  --color-on-primary-fixed-variant: #930004;
-  --color-inverse-on-surface: #3e2c29;
-  --color-surface-container-lowest: #180a08;
-  --color-surface-dim: #1e0f0d;
-  --color-background: #1e0f0d;
-  --color-on-secondary-fixed-variant: #005225;
-  --color-on-tertiary: #00363b;
-  --color-on-secondary: #003918;
-  --color-primary: #ffb4a9;
-  --color-tertiary: #62d7e2;
-  --color-primary-fixed-dim: #ffb4a9;
-  --color-outline-variant: #5c403c;
-  --color-tertiary-fixed: #82f3ff;
-  --color-on-background: #fadcd7;
-  --color-surface-tint: #ffb4a9;
-  --color-on-surface: #fadcd7;
-  --color-tertiary-container: #0da0ab;
-  --color-secondary: #93ffac;
-  --color-on-surface-variant: #e5beb8;
-  --color-inverse-surface: #fadcd7;
-  --color-on-error-container: #ffdad6;
-  --color-on-primary-fixed: #410001;
-  --color-on-secondary-fixed: #00210b;
-  --color-on-tertiary-container: #002f33;
-  --color-tertiary-fixed-dim: #62d7e2;
-  --color-surface-container: #2c1b19;
-  --color-surface-container-low: #271715;
-  --color-on-secondary-container: #00642f;
-  --color-primary-container: #ff5544;
-  --color-inverse-primary: #bb1913;
+  --color-primary: #EA580C;
+  --color-primary-container: #EA580C;
+  --color-on-primary-container: #FAFAFA;
+  --color-error-container: #991b1b;
+  --color-on-error-container: #fca5a5;
+
+  /* Light defaults (Performance Lab) */
+  --color-background: #f4f4f5;
+  --color-surface: #ffffff;
+  --color-on-surface: #18181b;
+  --color-on-surface-variant: #71717a;
+  --color-outline-variant: #e4e4e7;
+  --color-surface-bright: #f4f4f5;
+  --color-surface-container-highest: #ffffff;
 
   --spacing-lg: 24px;
   --spacing-sm: 12px;
@@ -59,11 +26,21 @@
 }
 
 @layer base {
+  .dark {
+    --color-background: #0A0A0A;
+    --color-surface: #1A1A1A;
+    --color-on-surface: #FAFAFA;
+    --color-on-surface-variant: #A1A1AA;
+    --color-outline-variant: #262626;
+    --color-surface-bright: #262626;
+    --color-surface-container-highest: #1A1A1A;
+  }
+
   body {
-    background-color: #0d0d0f;
-    color: #f5f5f5;
+    background-color: var(--color-background);
+    color: var(--color-on-surface);
     -webkit-tap-highlight-color: transparent;
-    font-family: 'Inter', sans-serif;
+    font-family: var(--font-sans), sans-serif;
   }
 }
 
@@ -84,15 +61,16 @@
     border-radius: 10px;
   }
 
-  .text-headline-lg { font-size: 32px; line-height: 40px; letter-spacing: -0.02em; font-weight: 700; font-family: 'Inter', sans-serif; }
-  .text-body-lg { font-size: 18px; line-height: 28px; font-weight: 400; font-family: 'Inter', sans-serif; }
-  .text-headline-md { font-size: 24px; line-height: 30px; font-weight: 700; font-family: 'Inter', sans-serif; }
-  .text-stat-value { font-size: 20px; line-height: 24px; font-weight: 600; font-family: 'Inter', sans-serif; }
-  .text-timer-display { font-size: 84px; line-height: 84px; letter-spacing: -0.04em; font-weight: 800; font-family: 'Inter', sans-serif; }
-  .text-headline-lg-mobile { font-size: 28px; line-height: 34px; letter-spacing: -0.02em; font-weight: 700; font-family: 'Inter', sans-serif; }
-  .text-body-md { font-size: 16px; line-height: 24px; font-weight: 400; font-family: 'Inter', sans-serif; }
-  .text-label-caps { font-size: 12px; line-height: 16px; letter-spacing: 0.05em; font-weight: 700; font-family: 'Inter', sans-serif; }
-  .font-headline-lg, .font-body-lg, .font-headline-md, .font-stat-value, .font-timer-display, .font-headline-lg-mobile, .font-body-md, .font-label-caps { font-family: 'Inter', sans-serif; }
+  .text-headline-lg { font-size: 32px; line-height: 40px; letter-spacing: -0.02em; font-weight: 700; font-family: var(--font-sans), sans-serif; }
+  .text-body-lg { font-size: 18px; line-height: 28px; font-weight: 400; font-family: var(--font-sans), sans-serif; }
+  .text-headline-md { font-size: 24px; line-height: 30px; font-weight: 700; font-family: var(--font-sans), sans-serif; }
+  .text-stat-value { font-size: 20px; line-height: 24px; font-weight: 600; font-family: var(--font-mono), monospace; }
+  .text-timer-display { font-size: 84px; line-height: 84px; letter-spacing: -0.04em; font-weight: 800; font-family: var(--font-mono), monospace; }
+  .text-headline-lg-mobile { font-size: 28px; line-height: 34px; letter-spacing: -0.02em; font-weight: 700; font-family: var(--font-sans), sans-serif; }
+  .text-body-md { font-size: 16px; line-height: 24px; font-weight: 400; font-family: var(--font-sans), sans-serif; }
+  .text-label-caps { font-size: 12px; line-height: 16px; letter-spacing: 0.05em; font-weight: 700; font-family: var(--font-sans), sans-serif; }
+  .font-headline-lg, .font-body-lg, .font-headline-md, .font-headline-lg-mobile, .font-body-md, .font-label-caps { font-family: var(--font-sans), sans-serif; }
+  .font-stat-value, .font-timer-display { font-family: var(--font-mono), monospace; }
 
   /* Animations */
   .animate-fade-in-up {
@@ -106,6 +84,9 @@
   }
   .animate-count-up {
     animation: count-up 0.3s ease both;
+  }
+  .animate-pulse-rust {
+    animation: pulse-rust 0.5s ease;
   }
 
   /* Staggered delays */
@@ -123,11 +104,11 @@
 @keyframes pulse-glow {
   0%, 100% {
     border-color: transparent;
-    box-shadow: 0 0 0px rgba(99, 255, 149, 0);
+    box-shadow: 0 0 0px rgba(234, 88, 12, 0);
   }
   50% {
-    border-color: #63ff95;
-    box-shadow: 0 0 15px rgba(99, 255, 149, 0.3);
+    border-color: #EA580C;
+    box-shadow: 0 0 15px rgba(234, 88, 12, 0.3);
   }
 }
 
@@ -167,4 +148,10 @@
 @keyframes count-up {
   from { opacity: 0; transform: scale(0.85); }
   to { opacity: 1; transform: scale(1); }
+}
+
+@keyframes pulse-rust {
+  0% { background-color: transparent; }
+  50% { background-color: rgba(234, 88, 12, 0.2); }
+  100% { background-color: transparent; }
 }

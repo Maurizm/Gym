@@ -5,7 +5,7 @@ import { useRouter } from 'next/navigation';
 import { useWorkoutSession, ExerciseLog } from '@/hooks/useWorkoutSession';
 import { useWorkoutHistory } from '@/hooks/useWorkoutHistory';
 import { useTimer } from '@/hooks/useTimer';
-import routineData from '@/data/routine.json';
+import { useRoutine } from '@/hooks/useRoutine';
 import { ImageCarousel } from '@/components/ImageCarousel';
 import confetti from 'canvas-confetti';
 
@@ -35,24 +35,27 @@ export default function Workout() {
   const router = useRouter();
   const { session, isLoaded: sessionLoaded, logSet, finishSession } = useWorkoutSession();
   const { getLastWeight, getMaxWeight } = useWorkoutHistory();
+  const { routine, isLoaded: routineLoaded } = useRoutine();
   const timer = useTimer();
   const [activeRoutine, setActiveRoutine] = useState<any>(null);
   const [prCelebrated, setPrCelebrated] = useState<Record<string, boolean>>({});
   const [prMessage, setPrMessage] = useState<string | null>(null);
 
   useEffect(() => {
-    if (!sessionLoaded) return;
+    if (!sessionLoaded || !routineLoaded) return;
     if (!session) {
       router.push('/');
       return;
     }
-    const routine = routineData.days.find((r: any) => r.id === session.dayId);
-    if (!routine) {
+    if (!routine) return;
+    
+    const dayRoutine = routine.days.find((r: any) => r.id === session.dayId);
+    if (!dayRoutine) {
       router.push('/');
       return;
     }
-    setActiveRoutine(routine);
-  }, [session, sessionLoaded, router]);
+    setActiveRoutine(dayRoutine);
+  }, [session, sessionLoaded, routine, routineLoaded, router]);
 
   // Pre-fill weights from history when session & history are both ready
   useEffect(() => {
@@ -71,7 +74,7 @@ export default function Workout() {
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [activeRoutine]);
 
-  if (!sessionLoaded || !session || !activeRoutine) return null;
+  if (!sessionLoaded || !routineLoaded || !session || !activeRoutine) return null;
 
   // --- Progress calculation ---
   const totalSets = session.exerciseLogs.reduce((acc, log) => acc + log.sets.length, 0);
@@ -147,19 +150,19 @@ export default function Workout() {
             return (
               <section
                 key={ex.id}
-                className={`rounded-xl border overflow-hidden transition-all duration-300 ${
+                className={`rounded-2xl dark:rounded-lg shadow-md dark:shadow-none border overflow-hidden transition-all duration-300 ${
                   allDone
-                    ? 'bg-[#1a1a1e] border-[#39ff88]/30'
-                    : 'bg-[#1a1a1e] border-[#2d2d33]'
+                    ? 'bg-surface border-primary/30'
+                    : 'bg-surface border-outline-variant'
                 }`}
               >
                 {/* Exercise header */}
                 <div className="p-md flex justify-between items-start">
                   <div className="flex flex-col flex-1 min-w-0">
                     <div className="flex items-center gap-sm">
-                      <h2 className="font-headline-md text-headline-md text-on-surface">{ex.name}</h2>
+                      <h2 className="font-headline-md text-headline-md text-on-surface tracking-tight">{ex.name}</h2>
                       {allDone && (
-                        <span className="material-symbols-outlined text-[#39ff88] text-xl" style={{ fontVariationSettings: "'FILL' 1" }}>
+                        <span className="material-symbols-outlined text-primary text-xl" style={{ fontVariationSettings: "'FILL' 1" }}>
                           check_circle
                         </span>
                       )}
@@ -181,75 +184,93 @@ export default function Workout() {
                   )}
                 </div>
 
-                {/* Sets table */}
-                <div className="px-md pb-md overflow-x-auto">
-                  <table className="w-full text-left border-collapse">
-                    <thead>
-                      <tr className="border-b border-[#2d2d33] text-on-surface-variant font-label-caps text-label-caps">
-                        <th className="py-sm px-xs w-12">SET</th>
-                        <th className="py-sm px-xs">KG</th>
-                        <th className="py-sm px-xs">{unit.toUpperCase()}</th>
-                        <th className="py-sm px-xs text-right">LISTO</th>
-                      </tr>
-                    </thead>
-                    <tbody className="font-stat-value text-stat-value">
-                      {exState.sets.map((set) => {
-                        const isChecked = set.completed;
-                        return (
-                          <tr
-                            key={set.setNumber}
-                            className={`border-b border-[#2d2d33] transition-colors duration-200 ${
-                              isChecked ? 'bg-[#39ff88]/5' : ''
-                            }`}
-                          >
-                            <td className={`py-md px-xs ${isChecked ? 'text-[#39ff88]' : 'text-on-surface-variant'}`}>
-                              {set.setNumber}
-                            </td>
-                            <td className="py-md px-xs">
+                {/* Sets list */}
+                <div className="px-md pb-md flex flex-col gap-sm">
+                  {exState.sets.map((set) => {
+                    const isChecked = set.completed;
+                    return (
+                      <div
+                        key={set.setNumber}
+                        className={`border rounded-xl dark:rounded-lg p-3 transition-colors duration-200 ${
+                          isChecked ? 'bg-primary/10 border-primary/40 animate-pulse-rust' : 'bg-surface border-outline-variant shadow-sm dark:shadow-none'
+                        }`}
+                      >
+                        <div className="flex items-end justify-between gap-3">
+                          
+                          {/* Set number */}
+                          <div className="flex flex-col mb-1 items-center justify-center w-6">
+                            <span className="text-[10px] text-on-surface-variant font-label-caps opacity-70">SET</span>
+                            <span className={`font-mono text-lg font-bold ${isChecked ? 'text-primary' : 'text-on-surface-variant'}`}>{set.setNumber}</span>
+                          </div>
+
+                          {/* Weight */}
+                          <div className="flex flex-col flex-1 max-w-[120px]">
+                            <span className="text-[10px] text-on-surface-variant font-label-caps mb-1 opacity-70">PESO (KG)</span>
+                            <div className="flex items-center bg-background rounded-md h-12 border border-outline-variant focus-within:border-primary transition-colors">
+                              <button 
+                                onClick={() => {
+                                  const current = parseFloat(set.weightKg) || 0;
+                                  logSet(ex.id, set.setNumber, { weightKg: Math.max(0, current - 2.5).toString() });
+                                }}
+                                className="w-10 h-full flex items-center justify-center text-primary active:scale-90 transition-transform hover:bg-surface-bright rounded-l-md"
+                              >
+                                <span className="material-symbols-outlined text-sm font-bold">remove</span>
+                              </button>
                               <input
                                 type="number"
                                 inputMode="decimal"
-                                className="set-weight bg-[#232328] border-none rounded-lg w-16 text-center text-on-surface focus:ring-2 focus:ring-primary-container"
-                                placeholder="kg"
+                                className="w-full bg-transparent border-none text-center font-mono text-2xl font-bold text-on-surface focus:ring-0 p-0"
+                                placeholder="0"
                                 value={set.weightKg}
                                 onChange={(e) => logSet(ex.id, set.setNumber, { weightKg: e.target.value })}
                               />
-                            </td>
-                            <td className="py-md px-xs">
+                              <button 
+                                onClick={() => {
+                                  const current = parseFloat(set.weightKg) || 0;
+                                  logSet(ex.id, set.setNumber, { weightKg: (current + 2.5).toString() });
+                                }}
+                                className="w-10 h-full flex items-center justify-center text-primary active:scale-90 transition-transform hover:bg-surface-bright rounded-r-md"
+                              >
+                                <span className="material-symbols-outlined text-sm font-bold">add</span>
+                              </button>
+                            </div>
+                          </div>
+
+                          {/* Reps */}
+                          <div className="flex flex-col flex-1 max-w-[80px]">
+                            <span className="text-[10px] text-on-surface-variant font-label-caps mb-1 opacity-70">REPS</span>
+                            <div className="flex items-center bg-background rounded-md h-12 border border-outline-variant focus-within:border-primary transition-colors">
                               <input
                                 type="number"
                                 inputMode="numeric"
-                                className="set-reps bg-[#232328] border-none rounded-lg w-16 text-center text-on-surface focus:ring-2 focus:ring-primary-container"
-                                placeholder={unit === 'reps' ? 'reps' : unit}
+                                className="w-full bg-transparent border-none text-center font-mono text-2xl font-bold text-on-surface focus:ring-0 p-0"
+                                placeholder="0"
                                 value={set.repsDone}
                                 onChange={(e) => logSet(ex.id, set.setNumber, { repsDone: e.target.value })}
                               />
-                            </td>
-                            <td className="py-md px-xs text-right">
-                              <button
-                                onClick={() => handleSetToggle(ex.id, set.setNumber, ex.restSeconds || 60, isChecked)}
-                                className={`set-check w-touch-target-min h-touch-target-min inline-flex items-center justify-end transition-colors ${
-                                  isChecked ? 'text-[#39ff88]' : 'text-outline-variant'
-                                }`}
-                              >
-                                <span
-                                  className="material-symbols-outlined transition-all"
-                                  style={{ fontVariationSettings: isChecked ? "'FILL' 1" : "'FILL' 0" }}
-                                >
-                                  {isChecked ? 'check_circle' : 'radio_button_unchecked'}
-                                </span>
-                              </button>
-                            </td>
-                          </tr>
-                        );
-                      })}
-                    </tbody>
-                  </table>
+                            </div>
+                          </div>
+
+                          {/* Action Button */}
+                          <button
+                            onClick={() => handleSetToggle(ex.id, set.setNumber, ex.restSeconds || 60, isChecked)}
+                            className={`h-12 px-4 rounded-lg dark:rounded-md flex items-center justify-center transition-all active:scale-95 font-label-caps text-label-caps tracking-wider font-bold ${
+                              isChecked 
+                                ? 'bg-primary text-white border border-primary shadow-sm shadow-primary/30 dark:shadow-none' 
+                                : 'bg-background text-on-surface-variant border border-outline-variant hover:border-primary/50'
+                            }`}
+                          >
+                            {isChecked ? 'LISTO' : 'HECHO'}
+                          </button>
+                        </div>
+                      </div>
+                    );
+                  })}
                 </div>
 
                 {/* Exercise image (shown under table) */}
                 {(ex.imageUrl || (ex.imageUrls && ex.imageUrls.length > 0)) && (
-                  <div className="mx-md mb-md w-full h-44 rounded-xl overflow-hidden grayscale opacity-35 hover:grayscale-0 hover:opacity-100 transition-all duration-300">
+                  <div className="mx-md mb-md w-full h-44 rounded-lg overflow-hidden grayscale opacity-35 hover:grayscale-0 hover:opacity-100 transition-all duration-300">
                     <ImageCarousel images={ex.imageUrls || [ex.imageUrl]} alt={ex.name} />
                   </div>
                 )}
@@ -276,7 +297,7 @@ export default function Workout() {
             </div>
             <div className="flex flex-col">
               <span className="font-label-caps text-label-caps text-on-surface-variant">PROGRESO</span>
-              <span className="font-stat-value text-stat-value text-[#39ff88]">
+              <span className="font-stat-value text-stat-value text-primary">
                 {completedSets}/{totalSets} series
               </span>
             </div>
@@ -294,7 +315,7 @@ export default function Workout() {
       {/* Rest timer */}
       {timer.isActive && (
         <div className="fixed bottom-24 md:bottom-20 left-0 w-full z-40 px-md">
-          <div className="max-w-3xl mx-auto bg-surface-container-highest rounded-xl shadow-lg border border-outline-variant p-md flex flex-col items-center timer-glow animate-slide-up">
+          <div className="max-w-3xl mx-auto bg-surface-container-highest rounded-lg shadow-lg border border-outline-variant p-md flex flex-col items-center timer-glow animate-slide-up">
             <div className="flex items-center gap-md w-full justify-between">
               <div className="flex flex-col">
                 <span className="font-label-caps text-label-caps text-secondary-fixed">DESCANSO</span>
