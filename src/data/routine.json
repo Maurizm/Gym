@@ -106,9 +106,10 @@
           "repsMax": 10,
           "restSeconds": 150,
           "imageUrls": [
+            "/assets/images/Jalón al pecho con agarre ancho.gif",
             "/assets/images/jalón al pecho.gif"
           ],
-          "imageUrl": "/assets/images/jalón al pecho.gif"
+          "imageUrl": "/assets/images/Jalón al pecho con agarre ancho.gif"
         },
         {
           "id": "ex-9",
@@ -118,7 +119,8 @@
           "repsMax": 10,
           "restSeconds": 120,
           "imageUrls": [
-            "/assets/images/Remo con barra - 1.gif"
+            "/assets/images/Remo con barra - 1.gif",
+            "/assets/images/Remo con barra.gif"
           ],
           "imageUrl": "/assets/images/Remo con barra - 1.gif"
         },
@@ -155,7 +157,9 @@
           "repsMax": 12,
           "restSeconds": 60,
           "imageUrls": [
-            "/assets/images/Curl de bíceps con barra - 1.gif"
+            "/assets/images/Curl de bíceps con barra - 1.gif",
+            "/assets/images/Curl de bíceps con barra - 2.gif",
+            "/assets/images/Curl de bíceps con barra.gif"
           ],
           "imageUrl": "/assets/images/Curl de bíceps con barra - 1.gif"
         },
@@ -167,7 +171,9 @@
           "repsMax": 12,
           "restSeconds": 60,
           "imageUrls": [
-            "/assets/images/Curl martillo - 1.gif"
+            "/assets/images/Curl martillo - 1.gif",
+            "/assets/images/Curl martillo - 2.gif",
+            "/assets/images/Curl martillo.gif"
           ],
           "imageUrl": "/assets/images/Curl martillo - 1.gif"
         },
@@ -180,9 +186,11 @@
           "unit": "seg",
           "restSeconds": 60,
           "imageUrls": [
+            "/assets/images/Plancha con elevación de pierna.gif",
+            "/assets/images/Plancha lateral.gif",
             "/assets/images/Plancha.gif"
           ],
-          "imageUrl": "/assets/images/Plancha.gif"
+          "imageUrl": "/assets/images/Plancha con elevación de pierna.gif"
         }
       ]
     },
@@ -198,7 +206,11 @@
           "sets": 4,
           "repsMin": 5,
           "repsMax": 7,
-          "restSeconds": 180
+          "restSeconds": 180,
+          "imageUrls": [
+            "/assets/images/sentadilla con barra.gif"
+          ],
+          "imageUrl": "/assets/images/sentadilla con barra.gif"
         },
         {
           "id": "ex-16",
@@ -206,7 +218,11 @@
           "sets": 4,
           "repsMin": 10,
           "repsMax": 12,
-          "restSeconds": 120
+          "restSeconds": 120,
+          "imageUrls": [
+            "/assets/images/Prensa de piernas.gif"
+          ],
+          "imageUrl": "/assets/images/Prensa de piernas.gif"
         },
         {
           "id": "ex-17",
@@ -214,7 +230,11 @@
           "sets": 3,
           "reps": 10,
           "restSeconds": 90,
-          "perSide": true
+          "perSide": true,
+          "imageUrls": [
+            "/assets/images/Zancadas caminando.gif"
+          ],
+          "imageUrl": "/assets/images/Zancadas caminando.gif"
         },
         {
           "id": "ex-18",
@@ -222,7 +242,11 @@
           "sets": 3,
           "repsMin": 12,
           "repsMax": 15,
-          "restSeconds": 90
+          "restSeconds": 90,
+          "imageUrls": [
+            "/assets/images/Extensión de cuádriceps.gif"
+          ],
+          "imageUrl": "/assets/images/Extensión de cuádriceps.gif"
         },
         {
           "id": "ex-19",
@@ -230,7 +254,11 @@
           "sets": 4,
           "repsMin": 8,
           "repsMax": 10,
-          "restSeconds": 120
+          "restSeconds": 120,
+          "imageUrls": [
+            "/assets/images/Hip thrust con barra.gif"
+          ],
+          "imageUrl": "/assets/images/Hip thrust con barra.gif"
         },
         {
           "id": "ex-20",
@@ -238,7 +266,11 @@
           "sets": 4,
           "repsMin": 12,
           "repsMax": 15,
-          "restSeconds": 60
+          "restSeconds": 60,
+          "imageUrls": [
+            "/assets/images/Elevación de talones de pie.gif"
+          ],
+          "imageUrl": "/assets/images/Elevación de talones de pie.gif"
         },
         {
           "id": "ex-21",
@@ -248,7 +280,11 @@
           "repsMax": 30,
           "unit": "seg",
           "restSeconds": 60,
-          "perSide": true
+          "perSide": true,
+          "imageUrls": [
+            "/assets/images/Plancha lateral.gif"
+          ],
+          "imageUrl": "/assets/images/Plancha lateral.gif"
         }
       ]
     },
@@ -264,7 +300,11 @@
           "sets": 4,
           "repsMin": 8,
           "repsMax": 10,
-          "restSeconds": 150
+          "restSeconds": 150,
+          "imageUrls": [
+            "/assets/images/Press inclinado con mancuernas.gif"
+          ],
+          "imageUrl": "/assets/images/Press inclinado con mancuernas.gif"
         },
         {
           "id": "ex-23",
@@ -272,7 +312,11 @@
           "sets": 3,
           "repsMin": 10,
           "repsMax": 12,
-          "restSeconds": 120
+          "restSeconds": 120,
+          "imageUrls": [
+            "/assets/images/Press Arnold.gif"
+          ],
+          "imageUrl": "/assets/images/Press Arnold.gif"
         },
         {
           "id": "ex-24",
@@ -280,7 +324,11 @@
           "sets": 3,
           "repsMin": 10,
           "repsMax": 12,
-          "restSeconds": 90
+          "restSeconds": 90,
+          "imageUrls": [
+            "/assets/images/Press de banca con mancuerna.gif"
+          ],
+          "imageUrl": "/assets/images/Press de banca con mancuerna.gif"
         },
         {
           "id": "ex-25",
@@ -288,7 +336,12 @@
           "sets": 3,
           "repsMin": 12,
           "repsMax": 15,
-          "restSeconds": 60
+          "restSeconds": 60,
+          "imageUrls": [
+            "/assets/images/Elevaciones frontales - 1.gif",
+            "/assets/images/Elevaciones frontales.gif"
+          ],
+          "imageUrl": "/assets/images/Elevaciones frontales - 1.gif"
         },
         {
           "id": "ex-26",
@@ -296,7 +349,11 @@
           "sets": 3,
           "repsMin": 12,
           "repsMax": 15,
-          "restSeconds": 60
+          "restSeconds": 60,
+          "imageUrls": [
+            "/assets/images/Aperturas en máquina polea.gif"
+          ],
+          "imageUrl": "/assets/images/Aperturas en máquina polea.gif"
         },
         {
           "id": "ex-27",
@@ -304,7 +361,11 @@
           "sets": 3,
           "repsMin": 10,
           "repsMax": 12,
-          "restSeconds": 60
+          "restSeconds": 60,
+          "imageUrls": [
+            "/assets/images/Fondos en banco (tríceps).gif"
+          ],
+          "imageUrl": "/assets/images/Fondos en banco (tríceps).gif"
         },
         {
           "id": "ex-28",
@@ -313,7 +374,12 @@
           "repsMin": 10,
           "repsMax": 12,
           "restSeconds": 60,
-          "perSide": true
+          "perSide": true,
+          "imageUrls": [
+            "/assets/images/Patada de tríceps - 1.gif",
+            "/assets/images/Patada de tríceps.gif"
+          ],
+          "imageUrl": "/assets/images/Patada de tríceps - 1.gif"
         }
       ]
     },
@@ -329,7 +395,12 @@
           "sets": 4,
           "repsMin": 6,
           "repsMax": 8,
-          "restSeconds": 180
+          "restSeconds": 180,
+          "imageUrls": [
+            "/assets/images/Peso muerto rumano - 1.gif",
+            "/assets/images/Peso muerto rumano.gif"
+          ],
+          "imageUrl": "/assets/images/Peso muerto rumano - 1.gif"
         },
         {
           "id": "ex-30",
@@ -337,7 +408,11 @@
           "sets": 3,
           "reps": 10,
           "restSeconds": 90,
-          "perSide": true
+          "perSide": true,
+          "imageUrls": [
+            "/assets/images/Sentadilla búlgara.gif"
+          ],
+          "imageUrl": "/assets/images/Sentadilla búlgara.gif"
         },
         {
           "id": "ex-31",
@@ -345,7 +420,12 @@
           "sets": 4,
           "repsMin": 10,
           "repsMax": 12,
-          "restSeconds": 90
+          "restSeconds": 90,
+          "imageUrls": [
+            "/assets/images/Curl femoral - 1.gif",
+            "/assets/images/Curl femoral.gif"
+          ],
+          "imageUrl": "/assets/images/Curl femoral - 1.gif"
         },
         {
           "id": "ex-32",
@@ -353,7 +433,12 @@
           "sets": 3,
           "repsMin": 4,
           "repsMax": 6,
-          "restSeconds": 180
+          "restSeconds": 180,
+          "imageUrls": [
+            "/assets/images/Peso muerto convencional - 1.gif",
+            "/assets/images/Peso muerto convencional.gif"
+          ],
+          "imageUrl": "/assets/images/Peso muerto convencional - 1.gif"
         },
         {
           "id": "ex-33",
@@ -361,7 +446,13 @@
           "sets": 3,
           "repsMin": 10,
           "repsMax": 12,
-          "restSeconds": 90
+          "restSeconds": 90,
+          "imageUrls": [
+            "/assets/images/Remo en máquina T-bar - 1.jpg",
+            "/assets/images/Remo en máquina T-bar - 2.gif",
+            "/assets/images/Remo en máquina T-bar.gif"
+          ],
+          "imageUrl": "/assets/images/Remo en máquina T-bar - 1.jpg"
         },
         {
           "id": "ex-34",
@@ -369,7 +460,12 @@
           "sets": 3,
           "repsMin": 12,
           "repsMax": 15,
-          "restSeconds": 60
+          "restSeconds": 60,
+          "imageUrls": [
+            "/assets/images/Pullover - 1.gif",
+            "/assets/images/Pullover.gif"
+          ],
+          "imageUrl": "/assets/images/Pullover - 1.gif"
         },
         {
           "id": "ex-35",
@@ -377,7 +473,11 @@
           "sets": 3,
           "reps": 20,
           "restSeconds": 60,
-          "perSide": true
+          "perSide": true,
+          "imageUrls": [
+            "/assets/images/Abdominales en bicicleta.gif"
+          ],
+          "imageUrl": "/assets/images/Abdominales en bicicleta.gif"
         }
       ]
     },
@@ -394,7 +494,11 @@
           "sets": 3,
           "reps": 5,
           "restSeconds": 150,
-          "notes": "Peso moderado, técnica perfecta"
+          "notes": "Peso moderado, técnica perfecta",
+          "imageUrls": [
+            "/assets/images/sentadilla con barra.gif"
+          ],
+          "imageUrl": "/assets/images/sentadilla con barra.gif"
         },
         {
           "id": "ex-37",
@@ -417,7 +521,8 @@
           "restSeconds": 120,
           "notes": "Control total, aprieta la espalda",
           "imageUrls": [
-            "/assets/images/Remo con barra - 1.gif"
+            "/assets/images/Remo con barra - 1.gif",
+            "/assets/images/Remo con barra.gif"
           ],
           "imageUrl": "/assets/images/Remo con barra - 1.gif"
         },
@@ -427,7 +532,12 @@
           "sets": 3,
           "reps": 6,
           "restSeconds": 150,
-          "notes": "Peso moderado, sentir los isquiotibiales"
+          "notes": "Peso moderado, sentir los isquiotibiales",
+          "imageUrls": [
+            "/assets/images/Peso muerto rumano - 1.gif",
+            "/assets/images/Peso muerto rumano.gif"
+          ],
+          "imageUrl": "/assets/images/Peso muerto rumano - 1.gif"
         },
         {
           "id": "ex-40",
@@ -436,7 +546,11 @@
           "repsMin": 6,
           "repsMax": 8,
           "restSeconds": 120,
-          "notes": "Peso moderado, sin arquear"
+          "notes": "Peso moderado, sin arquear",
+          "imageUrls": [
+            "/assets/images/Press militar con barra.gif"
+          ],
+          "imageUrl": "/assets/images/Press militar con barra.gif"
         },
         {
           "id": "ex-41",
@@ -445,7 +559,12 @@
           "repsMin": 6,
           "repsMax": 8,
           "restSeconds": 120,
-          "notes": "Rango completo, controlado"
+          "notes": "Rango completo, controlado",
+          "imageUrls": [
+            "/assets/images/Jalón al pecho con agarre ancho.gif",
+            "/assets/images/jalón al pecho.gif"
+          ],
+          "imageUrl": "/assets/images/Jalón al pecho con agarre ancho.gif"
         },
         {
           "id": "ex-42",
@@ -455,7 +574,11 @@
           "repsMax": 40,
           "unit": "metros",
           "restSeconds": 90,
-          "notes": "Agarre, core, estabilidad"
+          "notes": "Agarre, core, estabilidad",
+          "imageUrls": [
+            "/assets/images/Farmer's walk.gif"
+          ],
+          "imageUrl": "/assets/images/Farmer's walk.gif"
         }
       ]
     },
@@ -474,7 +597,9 @@
           "repsMax": 10,
           "restSeconds": 90,
           "imageUrls": [
-            "/assets/images/Curl de bíceps con barra - 1.gif"
+            "/assets/images/Curl de bíceps con barra - 1.gif",
+            "/assets/images/Curl de bíceps con barra - 2.gif",
+            "/assets/images/Curl de bíceps con barra.gif"
           ],
           "imageUrl": "/assets/images/Curl de bíceps con barra - 1.gif"
         },
@@ -486,7 +611,9 @@
           "repsMax": 12,
           "restSeconds": 60,
           "imageUrls": [
-            "/assets/images/Curl martillo - 1.gif"
+            "/assets/images/Curl martillo - 1.gif",
+            "/assets/images/Curl martillo - 2.gif",
+            "/assets/images/Curl martillo.gif"
           ],
           "imageUrl": "/assets/images/Curl martillo - 1.gif"
         },
@@ -521,7 +648,11 @@
           "repsMin": 30,
           "repsMax": 45,
           "unit": "seg",
-          "restSeconds": 60
+          "restSeconds": 60,
+          "imageUrls": [
+            "/assets/images/Plancha con elevación de pierna.gif"
+          ],
+          "imageUrl": "/assets/images/Plancha con elevación de pierna.gif"
         },
         {
           "id": "ex-48",
@@ -529,7 +660,12 @@
           "sets": 3,
           "repsMin": 15,
           "repsMax": 20,
-          "restSeconds": 60
+          "restSeconds": 60,
+          "imageUrls": [
+            "/assets/images/Puente de glúteo - 1.gif",
+            "/assets/images/Puente de glúteo.gif"
+          ],
+          "imageUrl": "/assets/images/Puente de glúteo - 1.gif"
         },
         {
           "id": "ex-49",
@@ -538,7 +674,11 @@
           "repsMin": 20,
           "repsMax": 30,
           "unit": "seg",
-          "restSeconds": 60
+          "restSeconds": 60,
+          "imageUrls": [
+            "/assets/images/Dead hang.gif"
+          ],
+          "imageUrl": "/assets/images/Dead hang.gif"
         },
         {
           "id": "ex-50",
@@ -546,7 +686,11 @@
           "sets": 3,
           "repsMin": 15,
           "repsMax": 20,
-          "restSeconds": 60
+          "restSeconds": 60,
+          "imageUrls": [
+            "/assets/images/Face pull.gif"
+          ],
+          "imageUrl": "/assets/images/Face pull.gif"
         }
       ]
     }

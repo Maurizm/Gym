@@ -1,0 +1,128 @@
+'use client';
+
+import { useState, useEffect } from 'react';
+import { storage } from '@/lib/storage';
+import { SessionState } from '@/hooks/useWorkoutSession';
+
+const SESSIONS_HISTORY_KEY = 'gymapp:sessions';
+
+export interface WorkoutStats {
+  totalSessions: number;
+  currentStreak: number;
+  totalMinutes: number;
+}
+
+/**
+ * Returns the most recent logged weight (in kg) for a given exercise,
+ * from any past completed session.
+ */
+export function getLastWeightForExercise(
+  history: SessionState[],
+  exerciseId: string
+): string {
+  // history is stored oldest-first; iterate from newest
+  for (let i = history.length - 1; i >= 0; i--) {
+    const log = history[i].exerciseLogs.find(l => l.exerciseId === exerciseId);
+    if (!log) continue;
+    // Find a completed set that has a weight
+    const completedSet = [...log.sets].reverse().find(s => s.completed && s.weightKg);
+    if (completedSet?.weightKg) return completedSet.weightKg;
+  }
+  return '';
+}
+
+/**
+ * Returns the maximum weight lifted (across all completed sets) for an exercise
+ * in a given session.
+ */
+export function getBestWeightInSession(session: SessionState, exerciseId: string): string {
+  const log = session.exerciseLogs.find(l => l.exerciseId === exerciseId);
+  if (!log) return '';
+  const weights = log.sets
+    .filter(s => s.completed && s.weightKg)
+    .map(s => parseFloat(s.weightKg))
+    .filter(w => !isNaN(w));
+  if (weights.length === 0) return '';
+  return Math.max(...weights).toString();
+}
+
+/**
+ * Returns the all-time absolute max weight for an exercise across the entire history.
+ */
+export function getAbsoluteMaxWeight(history: SessionState[], exerciseId: string): number {
+  let max = 0;
+  for (const session of history) {
+    if (!session.completed) continue;
+    const log = session.exerciseLogs.find(l => l.exerciseId === exerciseId);
+    if (!log) continue;
+    
+    for (const set of log.sets) {
+      if (set.completed && set.weightKg) {
+        const w = parseFloat(set.weightKg);
+        if (!isNaN(w) && w > max) {
+          max = w;
+        }
+      }
+    }
+  }
+  return max;
+}
+
+/**
+ * Computes a consecutive-day streak from a list of sessions.
+ */
+function computeStreak(sessions: SessionState[]): number {
+  if (sessions.length === 0) return 0;
+
+  const today = new Date();
+  today.setHours(0, 0, 0, 0);
+
+  // Unique dates (ISO date string), sorted descending
+  const uniqueDates = Array.from(
+    new Set(sessions.map(s => new Date(s.startTime).toISOString().split('T')[0]))
+  ).sort((a, b) => (a > b ? -1 : 1));
+
+  let streak = 0;
+  let expected = new Date(today);
+
+  for (const dateStr of uniqueDates) {
+    const d = new Date(dateStr + 'T00:00:00');
+    const diff = Math.round((expected.getTime() - d.getTime()) / (1000 * 60 * 60 * 24));
+
+    if (diff === 0 || diff === 1) {
+      streak++;
+      expected = d;
+    } else {
+      break;
+    }
+  }
+
+  return streak;
+}
+
+export function useWorkoutHistory() {
+  const [history, setHistory] = useState<SessionState[]>([]);
+  const [isLoaded, setIsLoaded] = useState(false);
+
+  useEffect(() => {
+    const saved = storage.get<SessionState[]>(SESSIONS_HISTORY_KEY, []);
+    setHistory(saved);
+    setIsLoaded(true);
+  }, []);
+
+  const stats: WorkoutStats = {
+    totalSessions: history.length,
+    currentStreak: computeStreak(history),
+    totalMinutes: Math.floor(
+      history.reduce((acc, s) => acc + (s.durationSeconds || 0), 0) / 60
+    ),
+  };
+
+  const getLastWeight = (exerciseId: string) =>
+    getLastWeightForExercise(history, exerciseId);
+
+  const getMaxWeight = (exerciseId: string) =>
+    getAbsoluteMaxWeight(history, exerciseId);
+
+  return { history, isLoaded, stats, getLastWeight, getMaxWeight };
+}

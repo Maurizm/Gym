@@ -32,11 +32,13 @@ export interface SessionState {
 
 export function useWorkoutSession() {
   const [session, setSession] = useState<SessionState | null>(null);
+  const [isLoaded, setIsLoaded] = useState(false);
 
   // Rehydrate on mount
   useEffect(() => {
     const saved = storage.get<SessionState | null>(ACTIVE_SESSION_KEY, null);
     if (saved) setSession(saved);
+    setIsLoaded(true);
   }, []);
 
   const saveState = useCallback((state: SessionState) => {
@@ -102,6 +104,7 @@ export function useWorkoutSession() {
 
   return {
     session,
+    isLoaded,
     startSession,
     logSet,
     finishSession
