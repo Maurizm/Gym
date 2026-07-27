@@ -5,6 +5,7 @@ import { useWorkoutHistory } from '@/hooks/useWorkoutHistory';
 import { getBestWeightInSession } from '@/hooks/useWorkoutHistory';
 import { SessionState } from '@/hooks/useWorkoutSession';
 import { ProgressChart } from '@/components/ProgressChart';
+import routineData from '@/data/routine.json';
 
 function formatDuration(secs: number): string {
   const h = Math.floor(secs / 3600);
