@@ -45,6 +45,9 @@ export function Navigation() {
           <Link href="/settings" className={`nav-link font-body-md text-body-md transition-colors duration-200 cursor-pointer ${pathname === '/settings' ? 'text-primary font-bold border-b-2 border-primary pb-1' : 'text-on-surface-variant font-medium hover:text-primary-fixed-dim'}`}>
             Ajustes
           </Link>
+          <Link href="/stats" className={`nav-link font-body-md text-body-md transition-colors duration-200 cursor-pointer ${pathname === '/stats' ? 'text-primary font-bold border-b-2 border-primary pb-1' : 'text-on-surface-variant font-medium hover:text-primary-fixed-dim'}`}>
+            Estadísticas
+          </Link>
         </nav>
         <div className="flex items-center gap-md">
           <button className="flex items-center justify-center w-touch-target-min h-touch-target-min text-on-surface">
@@ -70,6 +73,12 @@ export function Navigation() {
             settings
           </span>
           <span className="font-label-caps text-label-caps">Ajustes</span>
+        </Link>
+        <Link href="/stats" className={`mob-nav-btn flex flex-col items-center justify-center rounded-lg px-md py-xs transition-all ${pathname === '/stats' ? 'bg-primary-container text-on-primary-container scale-100' : 'scale-95 text-on-surface-variant hover:bg-surface-bright'}`}>
+          <span className="material-symbols-outlined" style={{ fontVariationSettings: pathname === '/stats' ? "'FILL' 1" : "'FILL' 0" }}>
+            monitoring
+          </span>
+          <span className="font-label-caps text-label-caps">Stats</span>
         </Link>
       </nav>
     </>

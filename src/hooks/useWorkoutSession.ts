@@ -12,6 +12,7 @@ export interface ExerciseSet {
   weightKg: string;
   repsDone: string;
   completed: boolean;
+  isWarmup?: boolean;
 }
 
 export interface ExerciseLog {
@@ -102,11 +103,60 @@ export function useWorkoutSession() {
     });
   }, []);
 
+  const addSet = useCallback((exerciseId: string) => {
+    setSession(prev => {
+      if (!prev) return prev;
+      const newState = { ...prev, exerciseLogs: [...prev.exerciseLogs] };
+      const exIdx = newState.exerciseLogs.findIndex(l => l.exerciseId === exerciseId);
+      if (exIdx >= 0) {
+        const exLog = { ...newState.exerciseLogs[exIdx], sets: [...newState.exerciseLogs[exIdx].sets] };
+        
+        const lastSet = exLog.sets[exLog.sets.length - 1];
+        const nextSetNum = lastSet ? lastSet.setNumber + 1 : 1;
+        
+        exLog.sets.push({
+          setNumber: nextSetNum,
+          weightKg: lastSet ? lastSet.weightKg : '',
+          repsDone: '',
+          completed: false
+        });
+        
+        newState.exerciseLogs[exIdx] = exLog;
+        storage.set(ACTIVE_SESSION_KEY, newState);
+        return newState;
+      }
+      return prev;
+    });
+  }, []);
+
+  const removeSet = useCallback((exerciseId: string, setNumber: number) => {
+    setSession(prev => {
+      if (!prev) return prev;
+      const newState = { ...prev, exerciseLogs: [...prev.exerciseLogs] };
+      const exIdx = newState.exerciseLogs.findIndex(l => l.exerciseId === exerciseId);
+      if (exIdx >= 0) {
+        const exLog = { ...newState.exerciseLogs[exIdx], sets: [...newState.exerciseLogs[exIdx].sets] };
+        
+        exLog.sets = exLog.sets.filter(s => s.setNumber !== setNumber);
+        exLog.sets.forEach((s, idx) => {
+          s.setNumber = idx + 1;
+        });
+        
+        newState.exerciseLogs[exIdx] = exLog;
+        storage.set(ACTIVE_SESSION_KEY, newState);
+        return newState;
+      }
+      return prev;
+    });
+  }, []);
+
   return {
     session,
     isLoaded,
     startSession,
     logSet,
+    addSet,
+    removeSet,
     finishSession
   };
 }

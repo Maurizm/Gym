@@ -8,13 +8,13 @@ import { useTheme } from 'next-themes';
 type Tab = 'ROUTINE' | 'LIBRARY';
 
 const DAY_NAMES: Record<string, string> = {
-  monday: 'LUN',
-  tuesday: 'MAR',
-  wednesday: 'MIÉ',
-  thursday: 'JUE',
-  friday: 'VIE',
-  saturday: 'SÁB',
-  sunday: 'DOM'
+  monday: 'Lu',
+  tuesday: 'Ma',
+  wednesday: 'Mi',
+  thursday: 'Ju',
+  friday: 'Vi',
+  saturday: 'Sa',
+  sunday: 'Do'
 };
 
 export default function Settings() {

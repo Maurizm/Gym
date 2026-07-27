@@ -10,13 +10,13 @@ import { ImageCarousel } from '@/components/ImageCarousel';
 
 const getDaysMap = () => {
   const map = [
-    { id: 'monday', lbl: 'L', dayNumber: 1 },
-    { id: 'tuesday', lbl: 'M', dayNumber: 2 },
-    { id: 'wednesday', lbl: 'X', dayNumber: 3 },
-    { id: 'thursday', lbl: 'J', dayNumber: 4 },
-    { id: 'friday', lbl: 'V', dayNumber: 5 },
-    { id: 'saturday', lbl: 'S', dayNumber: 6 },
-    { id: 'sunday', lbl: 'D', dayNumber: 7 }
+    { id: 'monday', lbl: 'Lu', dayNumber: 1 },
+    { id: 'tuesday', lbl: 'Ma', dayNumber: 2 },
+    { id: 'wednesday', lbl: 'Mi', dayNumber: 3 },
+    { id: 'thursday', lbl: 'Ju', dayNumber: 4 },
+    { id: 'friday', lbl: 'Vi', dayNumber: 5 },
+    { id: 'saturday', lbl: 'Sa', dayNumber: 6 },
+    { id: 'sunday', lbl: 'Do', dayNumber: 7 }
   ];
 
   const now = new Date();

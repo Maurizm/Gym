@@ -25,8 +25,8 @@ export function getLastWeightForExercise(
   for (let i = history.length - 1; i >= 0; i--) {
     const log = history[i].exerciseLogs.find(l => l.exerciseId === exerciseId);
     if (!log) continue;
-    // Find a completed set that has a weight
-    const completedSet = [...log.sets].reverse().find(s => s.completed && s.weightKg);
+    // Find a completed set that has a weight (ignore warmup sets)
+    const completedSet = [...log.sets].reverse().find(s => s.completed && !s.isWarmup && s.weightKg);
     if (completedSet?.weightKg) return completedSet.weightKg;
   }
   return '';
@@ -40,7 +40,7 @@ export function getBestWeightInSession(session: SessionState, exerciseId: string
   const log = session.exerciseLogs.find(l => l.exerciseId === exerciseId);
   if (!log) return '';
   const weights = log.sets
-    .filter(s => s.completed && s.weightKg)
+    .filter(s => s.completed && !s.isWarmup && s.weightKg)
     .map(s => parseFloat(s.weightKg))
     .filter(w => !isNaN(w));
   if (weights.length === 0) return '';
@@ -58,7 +58,7 @@ export function getAbsoluteMaxWeight(history: SessionState[], exerciseId: string
     if (!log) continue;
     
     for (const set of log.sets) {
-      if (set.completed && set.weightKg) {
+      if (set.completed && !set.isWarmup && set.weightKg) {
         const w = parseFloat(set.weightKg);
         if (!isNaN(w) && w > max) {
           max = w;
@@ -110,7 +110,7 @@ function computeTotalVolume(sessions: SessionState[]): number {
     if (!sess.completed) return;
     sess.exerciseLogs.forEach(log => {
       log.sets.forEach(set => {
-        if (set.completed && set.weightKg && set.repsDone) {
+        if (set.completed && !set.isWarmup && set.weightKg && set.repsDone) {
           const w = parseFloat(set.weightKg);
           const r = parseInt(set.repsDone, 10);
           if (!isNaN(w) && !isNaN(r)) {
@@ -146,5 +146,32 @@ export function useWorkoutHistory() {
   const getMaxWeight = (exerciseId: string) =>
     getAbsoluteMaxWeight(history, exerciseId);
 
-  return { history, isLoaded, stats, getLastWeight, getMaxWeight };
+  const getExerciseHistoryData = (exerciseId: string) => {
+    const result: { date: string; maxWeight: number }[] = [];
+    for (const session of history) {
+      if (!session.completed) continue;
+      const log = session.exerciseLogs.find(l => l.exerciseId === exerciseId);
+      if (!log) continue;
+      
+      let dailyMax = 0;
+      for (const set of log.sets) {
+        if (set.completed && !set.isWarmup && set.weightKg) {
+          const w = parseFloat(set.weightKg);
+          if (!isNaN(w) && w > dailyMax) {
+            dailyMax = w;
+          }
+        }
+      }
+      
+      if (dailyMax > 0) {
+        result.push({
+          date: session.date,
+          maxWeight: dailyMax
+        });
+      }
+    }
+    return result;
+  };
+
+  return { history, isLoaded, stats, getLastWeight, getMaxWeight, getExerciseHistoryData };
 }

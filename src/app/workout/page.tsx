@@ -33,7 +33,7 @@ function formatGoal(ex: any): string {
 
 export default function Workout() {
   const router = useRouter();
-  const { session, isLoaded: sessionLoaded, logSet, finishSession } = useWorkoutSession();
+  const { session, isLoaded: sessionLoaded, logSet, addSet, removeSet, finishSession } = useWorkoutSession();
   const { getLastWeight, getMaxWeight } = useWorkoutHistory();
   const { routine, isLoaded: routineLoaded } = useRoutine();
   const timer = useTimer();
@@ -193,7 +193,7 @@ export default function Workout() {
                         key={set.setNumber}
                         className={`border rounded-xl dark:rounded-lg p-3 transition-colors duration-200 ${
                           isChecked ? 'bg-primary/10 border-primary/40 animate-pulse-rust' : 'bg-surface border-outline-variant shadow-sm dark:shadow-none'
-                        }`}
+                        } ${set.isWarmup ? 'border-dashed border-secondary-fixed/50 opacity-90' : ''}`}
                       >
                         <div className="flex items-end justify-between gap-3">
                           
@@ -252,20 +252,46 @@ export default function Workout() {
                           </div>
 
                           {/* Action Button */}
-                          <button
-                            onClick={() => handleSetToggle(ex.id, set.setNumber, ex.restSeconds || 60, isChecked)}
-                            className={`h-12 px-4 rounded-lg dark:rounded-md flex items-center justify-center transition-all active:scale-95 font-label-caps text-label-caps tracking-wider font-bold ${
-                              isChecked 
-                                ? 'bg-primary text-white border border-primary shadow-sm shadow-primary/30 dark:shadow-none' 
-                                : 'bg-background text-on-surface-variant border border-outline-variant hover:border-primary/50'
-                            }`}
-                          >
-                            {isChecked ? 'LISTO' : 'HECHO'}
-                          </button>
+                          <div className="flex flex-col gap-1 shrink-0">
+                            <div className="flex gap-1 justify-end">
+                              <button
+                                onClick={() => logSet(ex.id, set.setNumber, { isWarmup: !set.isWarmup })}
+                                className={`w-8 h-6 flex items-center justify-center rounded text-[10px] font-bold transition-colors ${set.isWarmup ? 'bg-secondary-fixed text-on-secondary-fixed' : 'bg-surface-bright text-on-surface-variant'}`}
+                                title="Marcar como calentamiento"
+                              >
+                                W
+                              </button>
+                              <button
+                                onClick={() => removeSet(ex.id, set.setNumber)}
+                                className="w-8 h-6 flex items-center justify-center rounded text-[10px] font-bold bg-error-container/30 text-error hover:bg-error-container transition-colors"
+                                title="Eliminar serie"
+                              >
+                                <span className="material-symbols-outlined" style={{fontSize: 14}}>delete</span>
+                              </button>
+                            </div>
+                            <button
+                              onClick={() => handleSetToggle(ex.id, set.setNumber, ex.restSeconds || 60, isChecked)}
+                              className={`h-10 px-4 rounded-lg dark:rounded-md flex items-center justify-center transition-all active:scale-95 font-label-caps text-label-caps tracking-wider font-bold ${
+                                isChecked 
+                                  ? 'bg-primary text-white border border-primary shadow-sm shadow-primary/30 dark:shadow-none' 
+                                  : 'bg-background text-on-surface-variant border border-outline-variant hover:border-primary/50'
+                              }`}
+                            >
+                              {isChecked ? 'LISTO' : 'HECHO'}
+                            </button>
+                          </div>
                         </div>
                       </div>
                     );
                   })}
+
+                  <button
+                    onClick={() => addSet(ex.id)}
+                    className="mt-2 py-2 flex items-center justify-center gap-xs rounded-lg border border-dashed border-outline-variant text-on-surface-variant hover:text-primary hover:border-primary transition-colors font-label-caps text-label-caps"
+                  >
+                    <span className="material-symbols-outlined text-sm">add</span>
+                    AÑADIR SERIE
+                  </button>
                 </div>
 
                 {/* Exercise image (shown under table) */}
