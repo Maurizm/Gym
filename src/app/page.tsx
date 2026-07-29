@@ -137,25 +137,25 @@ export default function Home() {
       </section>
 
       {/* Workout card */}
-      <section className="relative overflow-hidden rounded-lg bg-gradient-to-br from-[#1a1a1e] to-[#0d0d0f] border border-outline-variant p-lg animate-fade-in-up delay-100">
-        <div className="absolute top-0 right-0 w-32 h-32 bg-primary/10 rounded-full -mr-16 -mt-16 blur-3xl"></div>
+      <section className="relative overflow-hidden rounded-2xl bg-surface border border-outline-variant shadow-md dark:shadow-none p-lg animate-fade-in-up delay-100">
+        <div className="absolute top-0 right-0 w-40 h-40 bg-primary/5 rounded-full -mr-20 -mt-20 blur-3xl pointer-events-none" />
         <div className="relative z-10 flex flex-col md:flex-row md:items-center justify-between gap-md">
           <div>
             <div className="flex items-center gap-sm mb-xs flex-wrap">
-              <span className="bg-error/20 text-error font-label-caps text-label-caps px-sm py-1 rounded-full border border-error/30 uppercase">
+              <span className="bg-primary/10 text-primary font-label-caps text-label-caps px-sm py-1 rounded-full border border-primary/20 uppercase">
                 INTENSIDAD {activeRoutine.intensity}
               </span>
               {lastSession && (
-                <span className="bg-[#39ff88]/10 text-primary font-label-caps text-label-caps px-sm py-1 rounded-full border border-[#39ff88]/20 flex items-center gap-1">
+                <span className="bg-emerald-50 dark:bg-emerald-900/30 text-emerald-600 dark:text-emerald-400 font-label-caps text-label-caps px-sm py-1 rounded-full border border-emerald-200 dark:border-emerald-700/40 flex items-center gap-1">
                   <span className="material-symbols-outlined" style={{ fontSize: 12 }}>check_circle</span>
                   Completado esta semana
                 </span>
               )}
             </div>
             <h2 className="font-headline-md text-headline-md text-on-surface">{activeRoutine.label}</h2>
-            {(activeRoutine as any).note && (
+            {(activeRoutine.note) && (
               <p className="text-on-surface-variant font-body-md text-body-md mt-sm leading-relaxed max-w-prose">
-                {(activeRoutine as any).note}
+                {activeRoutine.note}
               </p>
             )}
             <div className="flex items-center gap-md mt-sm text-on-surface-variant">
@@ -172,9 +172,9 @@ export default function Home() {
 
           <button
             onClick={handleStart}
-            className="relative w-full md:w-auto shrink-0 h-[64px] px-lg bg-gradient-to-r from-[#ff4d3d] to-[#ff2a6d] text-[#ffffff] rounded-lg font-headline-md text-headline-md shadow-[0_8px_32px_rgba(255,77,61,0.6)] flex items-center justify-center gap-md active:scale-95 transition-all overflow-hidden group hover:shadow-[0_12px_40px_rgba(255,42,109,0.8)] mt-sm md:mt-0"
+            className="relative w-full md:w-auto shrink-0 h-[64px] px-lg bg-primary text-white rounded-xl font-headline-md text-headline-md shadow-lg shadow-primary/30 flex items-center justify-center gap-md active:scale-95 transition-all overflow-hidden group hover:opacity-90 mt-sm md:mt-0"
           >
-            <div className="absolute inset-0 bg-white/20 w-1/2 -skew-x-12 -translate-x-full group-hover:animate-[shimmer_1.5s_infinite]"></div>
+            <div className="absolute inset-0 bg-white/10 w-1/2 -skew-x-12 -translate-x-full group-hover:animate-[shimmer_1.5s_infinite]" />
             <span className="material-symbols-outlined text-3xl animate-pulse" style={{ fontVariationSettings: "'FILL' 1" }}>play_circle</span>
             <span className="tracking-wide text-lg md:text-xl font-bold whitespace-nowrap">EMPEZAR</span>
           </button>
@@ -196,12 +196,12 @@ export default function Home() {
                 key={ex.id}
                 className={`bg-surface border border-outline-variant rounded-lg overflow-hidden hover:border-primary/50 transition-all cursor-pointer group animate-fade-in-up ${delayClass}`}
               >
-                <div className="aspect-video w-full overflow-hidden bg-[#232328]">
+                <div className="aspect-video w-full overflow-hidden bg-surface-bright">
                   <ImageCarousel images={ex.imageUrls || (ex.imageUrl ? [ex.imageUrl] : [])} alt={ex.name} />
                 </div>
                 <div className="p-md flex items-center justify-between">
                   <div className="flex items-center gap-md">
-                    <div className="w-10 h-10 bg-[#232328] rounded-lg flex items-center justify-center text-primary border border-outline-variant shrink-0">
+                    <div className="w-10 h-10 bg-surface-bright rounded-lg flex items-center justify-center text-primary border border-outline-variant shrink-0">
                       <span className="material-symbols-outlined text-2xl">exercise</span>
                     </div>
                     <div className="min-w-0">

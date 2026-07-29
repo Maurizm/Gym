@@ -8,8 +8,8 @@ const inter = Inter({ subsets: ["latin"], variable: "--font-sans" });
 const mono = JetBrains_Mono({ subsets: ["latin"], variable: "--font-mono" });
 
 export const metadata: Metadata = {
-  title: "GymApp - Procesos",
-  description: "App de entrenamiento para el gimnasio",
+  title: "El Proceso",
+  description: "Tu app de entrenamiento personal",
   manifest: "/manifest.json",
   icons: {
     apple: "/icons/icon-192.png",
@@ -17,7 +17,7 @@ export const metadata: Metadata = {
 };
 
 export const viewport: Viewport = {
-  themeColor: "#1e0f0d",
+  themeColor: "#f4f4f5",
   width: "device-width",
   initialScale: 1,
   maximumScale: 1,

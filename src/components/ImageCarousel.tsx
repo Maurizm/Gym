@@ -14,7 +14,7 @@ export function ImageCarousel({ images, alt }: { images: string[], alt: string }
       <img 
         src={images[0]} 
         alt={alt} 
-        className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500" 
+        className="w-full h-full object-contain" 
       />
     );
   }
@@ -34,7 +34,7 @@ export function ImageCarousel({ images, alt }: { images: string[], alt: string }
       <img 
         src={images[currentIndex]} 
         alt={`${alt} - Variante ${currentIndex + 1}`}
-        className="w-full h-full object-cover transition-transform duration-500" 
+        className="w-full h-full object-contain transition-opacity duration-300" 
       />
       
       {/* Navigation Controls */}

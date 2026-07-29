@@ -26,6 +26,8 @@ export interface RoutineDay {
   dayNumber: number;
   label?: string;
   restDay?: boolean;
+  intensity?: string;
+  note?: string;
   exercises: RoutineExercise[];
 }
 

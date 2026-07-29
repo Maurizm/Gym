@@ -137,7 +137,7 @@ export default function History() {
 
                 return (
                   <div
-                    key={sess.sessionId}
+                    key={`${sess.sessionId}-${idx}`}
                     className="bg-surface border border-outline-variant rounded-lg overflow-hidden hover:border-primary/30 transition-colors animate-fade-in-up"
                     style={{ animationDelay: `${idx * 60}ms` }}
                   >

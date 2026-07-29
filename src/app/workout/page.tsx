@@ -294,10 +294,15 @@ export default function Workout() {
                   </button>
                 </div>
 
-                {/* Exercise image (shown under table) */}
+                {/* Exercise image — full reference guide */}
                 {(ex.imageUrl || (ex.imageUrls && ex.imageUrls.length > 0)) && (
-                  <div className="mx-md mb-md w-full h-44 rounded-lg overflow-hidden grayscale opacity-35 hover:grayscale-0 hover:opacity-100 transition-all duration-300">
-                    <ImageCarousel images={ex.imageUrls || [ex.imageUrl]} alt={ex.name} />
+                  <div className="mx-md mb-md rounded-xl overflow-hidden border border-outline-variant/50 bg-surface-bright group" style={{ aspectRatio: '4/3', maxHeight: '280px' }}>
+                    <div className="relative w-full h-full">
+                      <ImageCarousel
+                        images={ex.imageUrls && ex.imageUrls.length > 0 ? ex.imageUrls : [ex.imageUrl]}
+                        alt={ex.name}
+                      />
+                    </div>
                   </div>
                 )}
               </section>
