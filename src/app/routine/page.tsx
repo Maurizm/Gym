@@ -5,6 +5,7 @@ import { useRoutine } from '@/hooks/useRoutine';
 import { useRouter } from 'next/navigation';
 import { useWorkoutSession } from '@/hooks/useWorkoutSession';
 import { ImageCarousel } from '@/components/ImageCarousel';
+import { ExerciseModal } from '@/components/ExerciseModal';
 
 // Color palette per day — vibrant but clean
 const DAY_CONFIG: Record<string, {
@@ -45,6 +46,7 @@ export default function RoutinePage() {
   const router = useRouter();
   const [viewMode, setViewMode] = useState<ViewMode>('week');
   const [selectedDay, setSelectedDay] = useState<string>('monday');
+  const [selectedExercise, setSelectedExercise] = useState<any>(null);
 
   if (!isLoaded || !routine) {
     return (
@@ -311,14 +313,15 @@ export default function RoutinePage() {
                     return (
                       <div
                         key={ex.id}
-                        className="bg-surface border border-outline-variant rounded-2xl overflow-hidden shadow-sm hover:shadow-md transition-all animate-fade-in-up"
+                        className="bg-surface border border-outline-variant rounded-2xl overflow-hidden shadow-sm hover:shadow-md transition-all animate-fade-in-up cursor-pointer group"
                         style={{ animationDelay: `${i * 50}ms` }}
+                        onClick={() => setSelectedExercise(ex)}
                       >
                         {/* Full-height image area */}
                         <div className="relative w-full bg-surface-bright" style={{ aspectRatio: '16/9' }}>
                           {images.length > 0 ? (
-                            <div className="absolute inset-0 group">
-                              <ImageCarousel images={images} alt={ex.name} />
+                            <div className="absolute inset-0 group/carousel">
+                              <ImageCarousel images={images} alt={ex.name} showLabels />
                             </div>
                           ) : (
                             <div className="absolute inset-0 flex items-center justify-center text-5xl opacity-30">
@@ -406,6 +409,13 @@ export default function RoutinePage() {
           })()}
         </div>
       )}
+
+      <ExerciseModal
+        isOpen={!!selectedExercise}
+        onClose={() => setSelectedExercise(null)}
+        exerciseName={selectedExercise?.name || ""}
+        exerciseData={selectedExercise}
+      />
     </div>
   );
 }

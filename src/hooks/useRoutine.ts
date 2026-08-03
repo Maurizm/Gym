@@ -19,6 +19,7 @@ export interface RoutineExercise {
   notes?: string;
   imageUrl?: string;
   imageUrls?: string[];
+  isWarmup?: boolean;
 }
 
 export interface RoutineDay {

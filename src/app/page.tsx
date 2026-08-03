@@ -7,6 +7,7 @@ import { useWorkoutSession } from '@/hooks/useWorkoutSession';
 import { useWorkoutHistory } from '@/hooks/useWorkoutHistory';
 import { useRoutine } from '@/hooks/useRoutine';
 import { ImageCarousel } from '@/components/ImageCarousel';
+import { ExerciseModal } from '@/components/ExerciseModal';
 
 const getDaysMap = () => {
   const map = [
@@ -56,6 +57,7 @@ export default function Home() {
   const { routine, isLoaded: routineLoaded } = useRoutine();
   const [selectedDayId, setSelectedDayId] = useState<string>('monday');
   const [isClient, setIsClient] = useState(false);
+  const [selectedExercise, setSelectedExercise] = useState<any>(null);
 
   // Build a set of dates that have completed sessions for badge display
   const completedDates = new Set(
@@ -182,53 +184,82 @@ export default function Home() {
       </section>
 
       {/* Exercise list */}
-      <section className="space-y-md">
-        <div className="flex justify-between items-center">
-          <h3 className="font-headline-md text-headline-md text-on-surface">Lista de Ejercicios</h3>
-          <span className="text-on-surface-variant font-label-caps text-label-caps">{activeRoutine.exercises.length} ejercicios</span>
-        </div>
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-md pb-24">
-          {activeRoutine.exercises.map((ex: any, idx: number) => {
-            const delayClass = idx < 7 ? `delay-${[75, 100, 150, 200, 300, 400, 500][idx]}` : 'delay-500';
-            const perSide = ex.perSide ? ' c/lado' : '';
+      <section className="space-y-xl pb-24">
+        {(() => {
+          const warmups = activeRoutine.exercises.filter((e: any) => e.isWarmup);
+          const workout = activeRoutine.exercises.filter((e: any) => !e.isWarmup);
+          
+          const renderList = (title: string, list: any[]) => {
+            if (list.length === 0) return null;
             return (
-              <div
-                key={ex.id}
-                className={`bg-surface border border-outline-variant rounded-lg overflow-hidden hover:border-primary/50 transition-all cursor-pointer group animate-fade-in-up ${delayClass}`}
-              >
-                <div className="aspect-video w-full overflow-hidden bg-surface-bright">
-                  <ImageCarousel images={ex.imageUrls || (ex.imageUrl ? [ex.imageUrl] : [])} alt={ex.name} />
+              <div className="space-y-md">
+                <div className="flex justify-between items-center border-b border-outline-variant/30 pb-2">
+                  <h3 className="font-headline-md text-headline-md text-on-surface">{title}</h3>
+                  <span className="text-on-surface-variant font-label-caps text-label-caps">{list.length} ejercicios</span>
                 </div>
-                <div className="p-md flex items-center justify-between">
-                  <div className="flex items-center gap-md">
-                    <div className="w-10 h-10 bg-surface-bright rounded-lg flex items-center justify-center text-primary border border-outline-variant shrink-0">
-                      <span className="material-symbols-outlined text-2xl">exercise</span>
-                    </div>
-                    <div className="min-w-0">
-                      <p className="font-stat-value text-stat-value text-on-surface">{ex.name}</p>
-                      <div className="flex items-center gap-sm flex-wrap">
-                        <p className="text-on-surface-variant font-body-md text-body-md">
-                          {formatReps(ex)}{perSide}
-                        </p>
-                        {ex.restSeconds && (
-                          <span className="flex items-center gap-0.5 text-outline font-label-caps text-label-caps">
-                            <span className="material-symbols-outlined" style={{ fontSize: 11 }}>timer</span>
-                            {formatRest(ex.restSeconds)}
-                          </span>
-                        )}
+                <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-md">
+                  {list.map((ex: any, idx: number) => {
+                    const delayClass = idx < 7 ? `delay-${[75, 100, 150, 200, 300, 400, 500][idx]}` : 'delay-500';
+                    const perSide = ex.perSide ? ' c/lado' : '';
+                    return (
+                      <div
+                        key={ex.id}
+                        className={`bg-surface border border-outline-variant rounded-lg overflow-hidden hover:border-primary/50 transition-all cursor-pointer group animate-fade-in-up ${delayClass}`}
+                        onClick={() => setSelectedExercise(ex)}
+                      >
+                        <div className="aspect-video w-full overflow-hidden bg-surface-bright relative">
+                          <div className="absolute inset-0 group/carousel">
+                            <ImageCarousel images={ex.imageUrls || (ex.imageUrl ? [ex.imageUrl] : [])} alt={ex.name} showLabels />
+                          </div>
+                        </div>
+                        <div className="p-md flex items-center justify-between">
+                          <div className="flex items-center gap-md">
+                            <div className="w-10 h-10 bg-surface-bright rounded-lg flex items-center justify-center text-primary border border-outline-variant shrink-0">
+                              <span className="material-symbols-outlined text-2xl">exercise</span>
+                            </div>
+                            <div className="min-w-0">
+                              <p className="font-stat-value text-stat-value text-on-surface">{ex.name}</p>
+                              <div className="flex items-center gap-sm flex-wrap">
+                                <p className="text-on-surface-variant font-body-md text-body-md">
+                                  {formatReps(ex)}{perSide}
+                                </p>
+                                {ex.restSeconds && (
+                                  <span className="flex items-center gap-0.5 text-outline font-label-caps text-label-caps">
+                                    <span className="material-symbols-outlined" style={{ fontSize: 11 }}>timer</span>
+                                    {formatRest(ex.restSeconds)}
+                                  </span>
+                                )}
+                              </div>
+                              {ex.notes && (
+                                <p className="text-outline font-label-caps text-label-caps italic mt-0.5 line-clamp-1">"{ex.notes}"</p>
+                              )}
+                            </div>
+                          </div>
+                          <span className="material-symbols-outlined text-on-surface-variant group-hover:text-primary transition-colors shrink-0">chevron_right</span>
+                        </div>
                       </div>
-                      {ex.notes && (
-                        <p className="text-outline font-label-caps text-label-caps italic mt-0.5 line-clamp-1">"{ex.notes}"</p>
-                      )}
-                    </div>
-                  </div>
-                  <span className="material-symbols-outlined text-on-surface-variant group-hover:text-primary transition-colors shrink-0">chevron_right</span>
+                    );
+                  })}
                 </div>
               </div>
             );
-          })}
-        </div>
+          };
+
+          return (
+            <>
+              {renderList("Calentamiento", warmups)}
+              {renderList("Entrenamiento", workout)}
+            </>
+          );
+        })()}
       </section>
+
+      <ExerciseModal
+        isOpen={!!selectedExercise}
+        onClose={() => setSelectedExercise(null)}
+        exerciseName={selectedExercise?.name || ""}
+        exerciseData={selectedExercise}
+      />
     </div>
   );
 }

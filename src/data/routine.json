@@ -3,694 +3,1013 @@
     {
       "id": "monday",
       "dayNumber": 1,
-      "label": "Pecho + Hombro + Tríceps",
-      "intensity": "Alta",
+      "label": "PUSH (Empuje - Énfasis Pesado)",
+      "intensity": "Alta (RPE 8-10)",
+      "note": "Fuerza en press de banca y hombros.",
       "exercises": [
         {
           "id": "ex-1",
-          "name": "Press de banca con barra",
-          "sets": 4,
-          "repsMin": 6,
-          "repsMax": 8,
-          "restSeconds": 150,
+          "name": "Elevación de Piernas Colgado",
+          "sets": 1,
+          "repsMin": 10,
+          "repsMax": 15,
+          "restSeconds": 0,
+          "notes": "Calentamiento",
+          "isWarmup": true,
+          "imageUrl": "/videos/0472-I3tsCnC.gif",
           "imageUrls": [
-            "/assets/images/Press de banca con barra.gif"
-          ],
-          "imageUrl": "/assets/images/Press de banca con barra.gif"
+            "/videos/0472-I3tsCnC.gif"
+          ]
         },
         {
           "id": "ex-2",
-          "name": "Press militar con barra",
-          "sets": 3,
-          "repsMin": 8,
-          "repsMax": 10,
-          "restSeconds": 120,
+          "name": "Dominada Escapular",
+          "sets": 1,
+          "repsMin": 10,
+          "repsMax": 15,
+          "restSeconds": 0,
+          "notes": "Calentamiento",
+          "isWarmup": true,
+          "imageUrl": "/videos/0688-uTBt1HV.gif",
           "imageUrls": [
-            "/assets/images/Press militar con barra.gif"
-          ],
-          "imageUrl": "/assets/images/Press militar con barra.gif"
+            "/videos/0688-uTBt1HV.gif"
+          ]
         },
         {
           "id": "ex-3",
-          "name": "Aperturas con mancuernas (plano)",
-          "sets": 3,
+          "name": "Remo Invertido",
+          "sets": 1,
           "repsMin": 10,
-          "repsMax": 12,
-          "restSeconds": 90,
+          "repsMax": 15,
+          "restSeconds": 0,
+          "notes": "Calentamiento",
+          "isWarmup": true,
+          "imageUrl": "/videos/0499-bZGHsAZ.gif",
           "imageUrls": [
-            "/assets/images/Aperturas con mancuernas (plano).gif"
-          ],
-          "imageUrl": "/assets/images/Aperturas con mancuernas (plano).gif"
+            "/videos/0499-bZGHsAZ.gif"
+          ]
         },
         {
           "id": "ex-4",
-          "name": "Elevaciones laterales",
+          "name": "Press de Banca con Barra",
           "sets": 3,
-          "repsMin": 12,
-          "repsMax": 15,
-          "restSeconds": 60,
+          "repsMin": 5,
+          "repsMax": 8,
+          "restSeconds": 240,
+          "notes": "Alt: Press de Banca con Mancuernas, Press de Pecho en Máquina, Press de Banca en Multipower",
+          "imageUrl": "/videos/0025-EIeI8Vf.gif",
           "imageUrls": [
-            "/assets/images/Elevaciones laterales.gif"
-          ],
-          "imageUrl": "/assets/images/Elevaciones laterales.gif"
+            "/videos/0025-EIeI8Vf.gif",
+            "/videos/0289-SpYC0Kp.gif",
+            "/videos/0577-T0yTjgW.gif",
+            "/videos/1625-yB9SvIF.gif"
+          ]
         },
         {
           "id": "ex-5",
-          "name": "Fondos en paralelas",
+          "name": "Press Inclinado con Mancuernas",
           "sets": 3,
           "repsMin": 8,
-          "repsMax": 12,
-          "restSeconds": 90,
+          "repsMax": 10,
+          "restSeconds": 180,
+          "notes": "Alt: Press Inclinado con Barra, Press Inclinado en Máquina",
+          "imageUrl": "/videos/0314-ns0SIbU.gif",
           "imageUrls": [
-            "/assets/images/Fondos en paralelas.gif"
-          ],
-          "imageUrl": "/assets/images/Fondos en paralelas.gif"
+            "/videos/0314-ns0SIbU.gif",
+            "/videos/0047-3TZduzM.gif",
+            "/videos/1299-jHAnWmT.gif"
+          ]
         },
         {
           "id": "ex-6",
-          "name": "Extensiones de tríceps en polea",
+          "name": "Press de Hombros Sentado (Mancuernas)",
           "sets": 3,
-          "repsMin": 10,
-          "repsMax": 12,
-          "restSeconds": 60,
+          "repsMin": 8,
+          "repsMax": 10,
+          "restSeconds": 180,
+          "notes": "Alt: Press Militar con Barra, Press de Hombros en Máquina, Press Arnold",
+          "imageUrl": "/videos/0405-znQUdHY.gif",
           "imageUrls": [
-            "/assets/images/Extensiones de tríceps en polea.gif"
-          ],
-          "imageUrl": "/assets/images/Extensiones de tríceps en polea.gif"
+            "/videos/0405-znQUdHY.gif",
+            "/videos/0091-kTbSH9h.gif",
+            "/videos/0603-67n3r98.gif",
+            "/videos/2137-Xy4jlWA.gif"
+          ]
         },
         {
           "id": "ex-7",
-          "name": "Crunch en máquina",
+          "name": "Cruce de Poleas",
           "sets": 3,
-          "repsMin": 15,
-          "repsMax": 20,
-          "restSeconds": 60,
+          "repsMin": 12,
+          "repsMax": 15,
+          "restSeconds": 120,
+          "notes": "Alt: Máquina Pec Deck (Aperturas), Aperturas con Mancuernas",
+          "imageUrl": "/videos/0153-OQ1otBN.gif",
           "imageUrls": [
-            "/assets/images/Crunch en máquina.gif"
-          ],
-          "imageUrl": "/assets/images/Crunch en máquina.gif"
+            "/videos/0153-OQ1otBN.gif",
+            "/videos/0596-v3xmPAR.gif",
+            "/videos/0308-yz9nUhF.gif"
+          ]
+        },
+        {
+          "id": "ex-8",
+          "name": "Elevaciones Laterales con Mancuernas",
+          "sets": 4,
+          "repsMin": 12,
+          "repsMax": 15,
+          "restSeconds": 120,
+          "notes": "Alt: Elevaciones Laterales en Polea, Elevaciones Laterales en Máquina",
+          "imageUrl": "/videos/0334-DsgkuIt.gif",
+          "imageUrls": [
+            "/videos/0334-DsgkuIt.gif",
+            "/videos/0178-goJ6ezq.gif",
+            "/videos/0584-dRTfGZT.gif"
+          ]
+        },
+        {
+          "id": "ex-9",
+          "name": "Extensión de Tríceps con Cuerda",
+          "sets": 3,
+          "repsMin": 10,
+          "repsMax": 12,
+          "restSeconds": 120,
+          "notes": "Alt: Extensión de Tríceps (Barra V), Patada de Tríceps con Mancuerna, Extensión de Tríceps sobre Cabeza (Cuerda)",
+          "imageUrl": "/videos/0241-gAwDzB3.gif",
+          "imageUrls": [
+            "/videos/0241-gAwDzB3.gif",
+            "/videos/0306-OTgkHwR.gif",
+            "/videos/0194-2IxROQ1.gif"
+          ]
         }
       ]
     },
     {
       "id": "tuesday",
       "dayNumber": 2,
-      "label": "Espalda + Bíceps + Core",
-      "intensity": "Alta",
+      "label": "PULL (Tirón - Énfasis Espesor)",
+      "intensity": "Alta (RPE 8-9)",
+      "note": "Remos pesados y dorsal ancho.",
       "exercises": [
         {
-          "id": "ex-8",
-          "name": "Dominadas (o jalón al pecho)",
-          "sets": 4,
-          "repsMin": 6,
-          "repsMax": 10,
-          "restSeconds": 150,
-          "imageUrls": [
-            "/assets/images/Jalón al pecho con agarre ancho.gif",
-            "/assets/images/jalón al pecho.gif"
-          ],
-          "imageUrl": "/assets/images/Jalón al pecho con agarre ancho.gif"
-        },
-        {
-          "id": "ex-9",
-          "name": "Remo con barra",
-          "sets": 4,
-          "repsMin": 8,
-          "repsMax": 10,
-          "restSeconds": 120,
-          "imageUrls": [
-            "/assets/images/Remo con barra - 1.gif",
-            "/assets/images/Remo con barra.gif"
-          ],
-          "imageUrl": "/assets/images/Remo con barra - 1.gif"
-        },
-        {
           "id": "ex-10",
-          "name": "Remo con mancuerna a una mano",
-          "sets": 3,
+          "name": "Elevación de Piernas Colgado",
+          "sets": 1,
           "repsMin": 10,
-          "repsMax": 12,
-          "restSeconds": 90,
-          "perSide": true,
+          "repsMax": 15,
+          "restSeconds": 0,
+          "notes": "Calentamiento",
+          "isWarmup": true,
+          "imageUrl": "/videos/0472-I3tsCnC.gif",
           "imageUrls": [
-            "/assets/images/Remo con mancuerna a una mano.gif"
-          ],
-          "imageUrl": "/assets/images/Remo con mancuerna a una mano.gif"
+            "/videos/0472-I3tsCnC.gif"
+          ]
         },
         {
           "id": "ex-11",
-          "name": "Jalón al pecho con agarre ancho",
-          "sets": 3,
+          "name": "Dominada Escapular",
+          "sets": 1,
           "repsMin": 10,
-          "repsMax": 12,
-          "restSeconds": 90,
+          "repsMax": 15,
+          "restSeconds": 0,
+          "notes": "Calentamiento",
+          "isWarmup": true,
+          "imageUrl": "/videos/0688-uTBt1HV.gif",
           "imageUrls": [
-            "/assets/images/Jalón al pecho con agarre ancho.gif"
-          ],
-          "imageUrl": "/assets/images/Jalón al pecho con agarre ancho.gif"
+            "/videos/0688-uTBt1HV.gif"
+          ]
         },
         {
           "id": "ex-12",
-          "name": "Curl de bíceps con barra",
-          "sets": 3,
+          "name": "Remo Invertido",
+          "sets": 1,
           "repsMin": 10,
-          "repsMax": 12,
-          "restSeconds": 60,
+          "repsMax": 15,
+          "restSeconds": 0,
+          "notes": "Calentamiento",
+          "isWarmup": true,
+          "imageUrl": "/videos/0499-bZGHsAZ.gif",
           "imageUrls": [
-            "/assets/images/Curl de bíceps con barra - 1.gif",
-            "/assets/images/Curl de bíceps con barra - 2.gif",
-            "/assets/images/Curl de bíceps con barra.gif"
-          ],
-          "imageUrl": "/assets/images/Curl de bíceps con barra - 1.gif"
+            "/videos/0499-bZGHsAZ.gif"
+          ]
         },
         {
           "id": "ex-13",
-          "name": "Curl martillo",
+          "name": "Peso Muerto Convencional o Sumo",
           "sets": 3,
-          "repsMin": 10,
-          "repsMax": 12,
-          "restSeconds": 60,
+          "repsMin": 5,
+          "repsMax": 5,
+          "restSeconds": 300,
+          "notes": "Alt: Peso Muerto con Barra Hexagonal, Rack Pull (Tirón desde Soportes), Peso Muerto desde Bloques",
+          "imageUrl": "/videos/0032-ila4NZS.gif",
           "imageUrls": [
-            "/assets/images/Curl martillo - 1.gif",
-            "/assets/images/Curl martillo - 2.gif",
-            "/assets/images/Curl martillo.gif"
-          ],
-          "imageUrl": "/assets/images/Curl martillo - 1.gif"
+            "/videos/0032-ila4NZS.gif",
+            "/videos/0811-jQGwmxN.gif",
+            "/videos/0074-za9Ni4z.gif"
+          ]
         },
         {
           "id": "ex-14",
-          "name": "Plancha",
+          "name": "Remo Pendlay / Remo con Barra",
           "sets": 3,
-          "repsMin": 30,
-          "repsMax": 45,
-          "unit": "seg",
-          "restSeconds": 60,
+          "repsMin": 6,
+          "repsMax": 8,
+          "restSeconds": 180,
+          "notes": "Alt: Remo en Punta Apoyado al Pecho, Remo con Mancuerna, Remo Sentado en Polea",
+          "imageUrl": "/videos/0027-eZyBC3j.gif",
           "imageUrls": [
-            "/assets/images/Plancha con elevación de pierna.gif",
-            "/assets/images/Plancha lateral.gif",
-            "/assets/images/Plancha.gif"
-          ],
-          "imageUrl": "/assets/images/Plancha con elevación de pierna.gif"
+            "/videos/0027-eZyBC3j.gif",
+            "/videos/0606-aaXr7ld.gif",
+            "/videos/0293-BJ0Hz5L.gif",
+            "/videos/0861-fUBheHs.gif"
+          ]
+        },
+        {
+          "id": "ex-15",
+          "name": "Dominadas (o Jalón al Pecho)",
+          "sets": 3,
+          "repsMin": 8,
+          "repsMax": 10,
+          "restSeconds": 180,
+          "notes": "Alt: Dominadas Asistidas, Jalón al Pecho (Agarre Neutro)",
+          "imageUrl": "/videos/0652-lBDjFxJ.gif",
+          "imageUrls": [
+            "/videos/0652-lBDjFxJ.gif",
+            "/videos/0017-kiJ4Z2K.gif",
+            "/videos/0198-RVwzP10.gif"
+          ]
+        },
+        {
+          "id": "ex-16",
+          "name": "Remo Gironda (Agarre Estrecho)",
+          "sets": 3,
+          "repsMin": 10,
+          "repsMax": 12,
+          "restSeconds": 120,
+          "notes": "Alt: Remo en Máquina Apoyado al Pecho, Remo con Mancuerna",
+          "imageUrl": "/videos/0861-fUBheHs.gif",
+          "imageUrls": [
+            "/videos/0861-fUBheHs.gif",
+            "/videos/1350-7I6LNUG.gif",
+            "/videos/0293-BJ0Hz5L.gif"
+          ]
+        },
+        {
+          "id": "ex-17",
+          "name": "Face Pull con Cuerda",
+          "sets": 3,
+          "repsMin": 15,
+          "repsMax": 20,
+          "restSeconds": 120,
+          "notes": "Alt: Separaciones con Banda Elástica, Cruces Inversos en Polea, Pájaros en Máquina (Pec Deck Inverso)",
+          "imageUrl": "/videos/0205-SpsOSXk.gif",
+          "imageUrls": [
+            "/videos/0205-SpsOSXk.gif",
+            "/videos/0970-r1XNRYB.gif",
+            "/videos/0154-aqvSOQE.gif",
+            "/videos/0602-myfUsKf.gif"
+          ]
+        },
+        {
+          "id": "ex-18",
+          "name": "Curl de Bíceps con Barra EZ",
+          "sets": 3,
+          "repsMin": 8,
+          "repsMax": 10,
+          "restSeconds": 120,
+          "notes": "Alt: Curl de Bíceps con Mancuernas, Curl de Bíceps en Polea, Curl de Bíceps con Barra",
+          "imageUrl": "/videos/0447-6TG6x2w.gif",
+          "imageUrls": [
+            "/videos/0447-6TG6x2w.gif",
+            "/videos/0285-BU15nH4.gif",
+            "/videos/0868-G08RZcQ.gif",
+            "/videos/0031-25GPyDY.gif"
+          ]
         }
       ]
     },
     {
       "id": "wednesday",
       "dayNumber": 3,
-      "label": "Piernas (Cuádriceps + Glúteos)",
-      "intensity": "Alta",
+      "label": "LEGS (Piernas - Cuádriceps/Femorales)",
+      "intensity": "Alta (RPE 8-10)",
+      "note": "Sentadilla pesada y estímulo metabólico.",
       "exercises": [
         {
-          "id": "ex-15",
-          "name": "Sentadilla con barra",
-          "sets": 4,
-          "repsMin": 5,
-          "repsMax": 7,
-          "restSeconds": 180,
+          "id": "ex-19",
+          "name": "Rotación de Tobillos",
+          "sets": 1,
+          "repsMin": 10,
+          "repsMax": 15,
+          "restSeconds": 0,
+          "notes": "Calentamiento",
+          "isWarmup": true,
+          "perSide": true,
+          "imageUrl": "/videos/1368-uL9CsKm.gif",
           "imageUrls": [
-            "/assets/images/sentadilla con barra.gif"
-          ],
-          "imageUrl": "/assets/images/sentadilla con barra.gif"
+            "/videos/1368-uL9CsKm.gif"
+          ]
         },
         {
-          "id": "ex-16",
-          "name": "Prensa de piernas",
+          "id": "ex-20",
+          "name": "Estiramiento en Cuadrupedia",
+          "sets": 1,
+          "repsMin": 30,
+          "repsMax": 45,
+          "restSeconds": 0,
+          "notes": "Calentamiento",
+          "isWarmup": true,
+          "unit": "seg",
+          "imageUrl": "/videos/1512-qBcKorM.gif",
+          "imageUrls": [
+            "/videos/1512-qBcKorM.gif"
+          ]
+        },
+        {
+          "id": "ex-21",
+          "name": "Toque de Puntas de Pie Circular",
+          "sets": 1,
+          "repsMin": 10,
+          "repsMax": 15,
+          "restSeconds": 0,
+          "notes": "Calentamiento",
+          "isWarmup": true,
+          "imageUrl": "/videos/3214-RtyAsy1.gif",
+          "imageUrls": [
+            "/videos/3214-RtyAsy1.gif"
+          ]
+        },
+        {
+          "id": "ex-22",
+          "name": "Sentadilla Trasera con Barra",
+          "sets": 3,
+          "repsMin": 5,
+          "repsMax": 8,
+          "restSeconds": 240,
+          "notes": "Alt: Sentadilla Hack, Prensa de Piernas, Sentadilla en Multipower",
+          "imageUrl": "/videos/0043-qXTaZnJ.gif",
+          "imageUrls": [
+            "/videos/0043-qXTaZnJ.gif",
+            "/videos/0743-Qa55kX1.gif",
+            "/videos/1425-WWD6FzI.gif",
+            "/videos/1385-IeDEXTe.gif"
+          ]
+        },
+        {
+          "id": "ex-23",
+          "name": "Peso Muerto Rumano (RDL)",
+          "sets": 3,
+          "repsMin": 8,
+          "repsMax": 10,
+          "restSeconds": 180,
+          "notes": "Alt: Peso Muerto Piernas Rígidas, Buenos Días, Peso Muerto Rumano con Mancuernas",
+          "imageUrl": "/videos/0085-wQ2c4XD.gif",
+          "imageUrls": [
+            "/videos/0085-wQ2c4XD.gif",
+            "/videos/1009-kuMiR2T.gif",
+            "/videos/0044-XlZ4lAC.gif",
+            "/videos/1459-rR0LJzx.gif"
+          ]
+        },
+        {
+          "id": "ex-24",
+          "name": "Prensa de Piernas",
+          "sets": 3,
+          "repsMin": 10,
+          "repsMax": 12,
+          "restSeconds": 180,
+          "notes": "Alt: Sentadilla Goblet, Zancadas Caminando con Mancuernas",
+          "imageUrl": "/videos/1425-WWD6FzI.gif",
+          "imageUrls": [
+            "/videos/1425-WWD6FzI.gif",
+            "/videos/1760-yn8yg1r.gif",
+            "/videos/0336-RRWFUcw.gif"
+          ]
+        },
+        {
+          "id": "ex-25",
+          "name": "Curl de Isquios Tumbado",
+          "sets": 3,
+          "repsMin": 12,
+          "repsMax": 15,
+          "restSeconds": 120,
+          "notes": "Alt: Curl de Isquios Sentado, Curl Deslizante de Isquios, Curl de Isquios con Mancuerna",
+          "imageUrl": "/videos/0586-17lJ1kr.gif",
+          "imageUrls": [
+            "/videos/0586-17lJ1kr.gif",
+            "/videos/0599-Zg3XY7P.gif",
+            "/videos/1649-Zwiw7XR.gif"
+          ]
+        },
+        {
+          "id": "ex-26",
+          "name": "Elevación de Talones de Pie",
           "sets": 4,
           "repsMin": 10,
           "repsMax": 12,
           "restSeconds": 120,
+          "notes": "Alt: Elevación de Talones Sentado, Elevación de Talones en Prensa",
+          "imageUrl": "/videos/0605-ykUOVze.gif",
           "imageUrls": [
-            "/assets/images/Prensa de piernas.gif"
-          ],
-          "imageUrl": "/assets/images/Prensa de piernas.gif"
+            "/videos/0605-ykUOVze.gif",
+            "/videos/0594-bOOdeyc.gif",
+            "/videos/1391-ykHcWme.gif"
+          ]
         },
         {
-          "id": "ex-17",
-          "name": "Zancadas caminando",
-          "sets": 3,
-          "reps": 10,
-          "restSeconds": 90,
-          "perSide": true,
-          "imageUrls": [
-            "/assets/images/Zancadas caminando.gif"
-          ],
-          "imageUrl": "/assets/images/Zancadas caminando.gif"
-        },
-        {
-          "id": "ex-18",
-          "name": "Extensión de cuádriceps",
+          "id": "ex-27",
+          "name": "Crunch Abdominal en Polea",
           "sets": 3,
           "repsMin": 12,
           "repsMax": 15,
-          "restSeconds": 90,
-          "imageUrls": [
-            "/assets/images/Extensión de cuádriceps.gif"
-          ],
-          "imageUrl": "/assets/images/Extensión de cuádriceps.gif"
-        },
-        {
-          "id": "ex-19",
-          "name": "Hip thrust con barra",
-          "sets": 4,
-          "repsMin": 8,
-          "repsMax": 10,
           "restSeconds": 120,
+          "notes": "Alt: Crunch con Peso, Elevación de Piernas Colgado, Elevaciones en V",
+          "imageUrl": "/videos/0175-WW95auq.gif",
           "imageUrls": [
-            "/assets/images/Hip thrust con barra.gif"
-          ],
-          "imageUrl": "/assets/images/Hip thrust con barra.gif"
-        },
-        {
-          "id": "ex-20",
-          "name": "Elevación de talones de pie",
-          "sets": 4,
-          "repsMin": 12,
-          "repsMax": 15,
-          "restSeconds": 60,
-          "imageUrls": [
-            "/assets/images/Elevación de talones de pie.gif"
-          ],
-          "imageUrl": "/assets/images/Elevación de talones de pie.gif"
-        },
-        {
-          "id": "ex-21",
-          "name": "Plancha lateral",
-          "sets": 3,
-          "repsMin": 20,
-          "repsMax": 30,
-          "unit": "seg",
-          "restSeconds": 60,
-          "perSide": true,
-          "imageUrls": [
-            "/assets/images/Plancha lateral.gif"
-          ],
-          "imageUrl": "/assets/images/Plancha lateral.gif"
+            "/videos/0175-WW95auq.gif",
+            "/videos/0832-s8nrDXF.gif",
+            "/videos/0472-I3tsCnC.gif",
+            "/videos/0972-tZkGYZ9.gif"
+          ]
         }
       ]
     },
     {
       "id": "thursday",
       "dayNumber": 4,
-      "label": "Pecho + Hombro + Tríceps (Variación)",
-      "intensity": "Media-Alta",
+      "label": "UPPER (Tren Superior - Hipertrofia)",
+      "intensity": "Media (RPE 8-10)",
+      "note": "Repeticiones moderadas/altas, menos peso, máximo control.",
       "exercises": [
         {
-          "id": "ex-22",
-          "name": "Press inclinado con mancuernas",
-          "sets": 4,
-          "repsMin": 8,
-          "repsMax": 10,
-          "restSeconds": 150,
+          "id": "ex-28",
+          "name": "Elevación de Piernas Colgado",
+          "sets": 1,
+          "repsMin": 10,
+          "repsMax": 15,
+          "restSeconds": 0,
+          "notes": "Calentamiento",
+          "isWarmup": true,
+          "imageUrl": "/videos/0472-I3tsCnC.gif",
           "imageUrls": [
-            "/assets/images/Press inclinado con mancuernas.gif"
-          ],
-          "imageUrl": "/assets/images/Press inclinado con mancuernas.gif"
+            "/videos/0472-I3tsCnC.gif"
+          ]
         },
         {
-          "id": "ex-23",
+          "id": "ex-29",
+          "name": "Dominada Escapular",
+          "sets": 1,
+          "repsMin": 10,
+          "repsMax": 15,
+          "restSeconds": 0,
+          "notes": "Calentamiento",
+          "isWarmup": true,
+          "imageUrl": "/videos/0688-uTBt1HV.gif",
+          "imageUrls": [
+            "/videos/0688-uTBt1HV.gif"
+          ]
+        },
+        {
+          "id": "ex-30",
+          "name": "Remo Invertido",
+          "sets": 1,
+          "repsMin": 10,
+          "repsMax": 15,
+          "restSeconds": 0,
+          "notes": "Calentamiento",
+          "isWarmup": true,
+          "imageUrl": "/videos/0499-bZGHsAZ.gif",
+          "imageUrls": [
+            "/videos/0499-bZGHsAZ.gif"
+          ]
+        },
+        {
+          "id": "ex-31",
+          "name": "Press de Banca (Agarre Cerrado)",
+          "sets": 3,
+          "repsMin": 8,
+          "repsMax": 10,
+          "restSeconds": 180,
+          "notes": "Alt: Press con Mancuernas (Agarre Cerrado), Press de Suelo, Fondos en Paralelas",
+          "imageUrl": "/videos/0030-J6Dx1Mu.gif",
+          "imageUrls": [
+            "/videos/0030-J6Dx1Mu.gif",
+            "/videos/0296-RxayqAZ.gif",
+            "/videos/0065-vtusOWT.gif",
+            "/videos/0814-X6C6i5Y.gif"
+          ]
+        },
+        {
+          "id": "ex-32",
+          "name": "Remo a una Mano con Mancuerna",
+          "sets": 3,
+          "repsMin": 10,
+          "repsMax": 12,
+          "restSeconds": 120,
+          "notes": "Alt: Remo a una Mano en Polea, Remo con Mancuernas Apoyado al Pecho",
+          "imageUrl": "/videos/0293-BJ0Hz5L.gif",
+          "imageUrls": [
+            "/videos/0293-BJ0Hz5L.gif",
+            "/videos/0214-vpp9Ku2.gif",
+            "/videos/0327-7vG5o25.gif"
+          ]
+        },
+        {
+          "id": "ex-33",
           "name": "Press Arnold",
           "sets": 3,
           "repsMin": 10,
           "repsMax": 12,
           "restSeconds": 120,
+          "notes": "Alt: Press de Hombros Sentado (Mancuernas), Press de Hombros en Máquina",
+          "imageUrl": "/videos/2137-Xy4jlWA.gif",
           "imageUrls": [
-            "/assets/images/Press Arnold.gif"
-          ],
-          "imageUrl": "/assets/images/Press Arnold.gif"
+            "/videos/2137-Xy4jlWA.gif",
+            "/videos/0405-znQUdHY.gif",
+            "/videos/0603-67n3r98.gif"
+          ]
         },
         {
-          "id": "ex-24",
-          "name": "Press de banca con mancuernas",
-          "sets": 3,
-          "repsMin": 10,
-          "repsMax": 12,
-          "restSeconds": 90,
-          "imageUrls": [
-            "/assets/images/Press de banca con mancuerna.gif"
-          ],
-          "imageUrl": "/assets/images/Press de banca con mancuerna.gif"
-        },
-        {
-          "id": "ex-25",
-          "name": "Elevaciones frontales",
+          "id": "ex-34",
+          "name": "Jalón al Pecho Supino",
           "sets": 3,
           "repsMin": 12,
           "repsMax": 15,
-          "restSeconds": 60,
+          "restSeconds": 120,
+          "notes": "Alt: Dominadas Supinas, Jalón al Pecho Prono",
+          "imageUrl": "/videos/0150-eYnzaCm.gif",
           "imageUrls": [
-            "/assets/images/Elevaciones frontales - 1.gif",
-            "/assets/images/Elevaciones frontales.gif"
-          ],
-          "imageUrl": "/assets/images/Elevaciones frontales - 1.gif"
+            "/videos/0150-eYnzaCm.gif",
+            "/videos/1326-T2mxWqc.gif",
+            "/videos/0198-RVwzP10.gif"
+          ]
         },
         {
-          "id": "ex-26",
-          "name": "Aperturas en máquina/polea",
+          "id": "ex-35",
+          "name": "Pájaros con Mancuernas (Vuelo Inverso)",
           "sets": 3,
-          "repsMin": 12,
+          "repsMin": 15,
           "repsMax": 15,
           "restSeconds": 60,
+          "notes": "Alt: Pájaros en Máquina (Pec Deck Inverso), Cruces Inversos en Polea",
+          "imageUrl": "/videos/0383-EAs3xL9.gif",
           "imageUrls": [
-            "/assets/images/Aperturas en máquina polea.gif"
-          ],
-          "imageUrl": "/assets/images/Aperturas en máquina polea.gif"
+            "/videos/0383-EAs3xL9.gif",
+            "/videos/0602-myfUsKf.gif",
+            "/videos/0154-aqvSOQE.gif"
+          ]
         },
         {
-          "id": "ex-27",
-          "name": "Fondos en banco (tríceps)",
+          "id": "ex-36",
+          "name": "Curl Martillo con Mancuernas",
+          "sets": 3,
+          "repsMin": 10,
+          "repsMax": 12,
+          "restSeconds": 0,
+          "notes": "Alt: Curl Martillo con Cuerda, Curl Prono con Barra EZ",
+          "imageUrl": "/videos/0313-slDvUAU.gif",
+          "imageUrls": [
+            "/videos/0313-slDvUAU.gif",
+            "/videos/0165-HPlPoQA.gif",
+            "/videos/0080-xNrS20v.gif"
+          ]
+        },
+        {
+          "id": "ex-37",
+          "name": "Rompecráneos con Mancuernas",
           "sets": 3,
           "repsMin": 10,
           "repsMax": 12,
           "restSeconds": 60,
+          "notes": "Alt: Rompecráneos con Barra EZ, Extensión de Tríceps sobre Cabeza (Cuerda), Patada de Tríceps en Polea",
+          "imageUrl": "/videos/0351-mpKZGWz.gif",
           "imageUrls": [
-            "/assets/images/Fondos en banco (tríceps).gif"
-          ],
-          "imageUrl": "/assets/images/Fondos en banco (tríceps).gif"
-        },
-        {
-          "id": "ex-28",
-          "name": "Patada de tríceps",
-          "sets": 3,
-          "repsMin": 10,
-          "repsMax": 12,
-          "restSeconds": 60,
-          "perSide": true,
-          "imageUrls": [
-            "/assets/images/Patada de tríceps - 1.gif",
-            "/assets/images/Patada de tríceps.gif"
-          ],
-          "imageUrl": "/assets/images/Patada de tríceps - 1.gif"
+            "/videos/0351-mpKZGWz.gif",
+            "/videos/0060-h8LFzo9.gif",
+            "/videos/0194-2IxROQ1.gif",
+            "/videos/0860-HEJ6DIX.gif"
+          ]
         }
       ]
     },
     {
       "id": "friday",
       "dayNumber": 5,
-      "label": "Piernas (Posterior) + Espalda",
-      "intensity": "Alta",
+      "label": "LOWER (Tren Inferior - Glúteos)",
+      "intensity": "Media (RPE 8-10)",
+      "note": "Carga mecánica en femorales/glúteos y aislamiento de cuádriceps.",
       "exercises": [
         {
-          "id": "ex-29",
-          "name": "Peso muerto rumano",
-          "sets": 4,
+          "id": "ex-38",
+          "name": "Rotación de Tobillos",
+          "sets": 1,
+          "repsMin": 10,
+          "repsMax": 15,
+          "restSeconds": 0,
+          "notes": "Calentamiento",
+          "isWarmup": true,
+          "perSide": true,
+          "imageUrl": "/videos/1368-uL9CsKm.gif",
+          "imageUrls": [
+            "/videos/1368-uL9CsKm.gif"
+          ]
+        },
+        {
+          "id": "ex-39",
+          "name": "Estiramiento en Cuadrupedia",
+          "sets": 1,
+          "repsMin": 30,
+          "repsMax": 45,
+          "restSeconds": 0,
+          "notes": "Calentamiento",
+          "isWarmup": true,
+          "unit": "seg",
+          "imageUrl": "/videos/1512-qBcKorM.gif",
+          "imageUrls": [
+            "/videos/1512-qBcKorM.gif"
+          ]
+        },
+        {
+          "id": "ex-40",
+          "name": "Toque de Puntas de Pie Circular",
+          "sets": 1,
+          "repsMin": 10,
+          "repsMax": 15,
+          "restSeconds": 0,
+          "notes": "Calentamiento",
+          "isWarmup": true,
+          "imageUrl": "/videos/3214-RtyAsy1.gif",
+          "imageUrls": [
+            "/videos/3214-RtyAsy1.gif"
+          ]
+        },
+        {
+          "id": "ex-41",
+          "name": "Hip Thrust con Barra",
+          "sets": 3,
           "repsMin": 6,
           "repsMax": 8,
           "restSeconds": 180,
+          "notes": "Alt: Puente de Glúteos, Hiperextensiones a 45°, Pull-Through en Polea",
+          "imageUrl": "/videos/1409-qKBpF7I.gif",
           "imageUrls": [
-            "/assets/images/Peso muerto rumano - 1.gif",
-            "/assets/images/Peso muerto rumano.gif"
-          ],
-          "imageUrl": "/assets/images/Peso muerto rumano - 1.gif"
+            "/videos/1409-qKBpF7I.gif",
+            "/videos/0489-zhMwOwE.gif",
+            "/videos/0196-OM46QHm.gif"
+          ]
         },
         {
-          "id": "ex-30",
-          "name": "Sentadilla búlgara",
+          "id": "ex-42",
+          "name": "Zancadas Caminando con Mancuernas",
           "sets": 3,
-          "reps": 10,
-          "restSeconds": 90,
+          "repsMin": 10,
+          "repsMax": 12,
+          "restSeconds": 120,
+          "notes": "Alt: Subidas a Cajón con Mancuernas, Sentadilla Búlgara, Zancada Inversa",
           "perSide": true,
+          "imageUrl": "/videos/0336-RRWFUcw.gif",
           "imageUrls": [
-            "/assets/images/Sentadilla búlgara.gif"
-          ],
-          "imageUrl": "/assets/images/Sentadilla búlgara.gif"
+            "/videos/0336-RRWFUcw.gif",
+            "/videos/0431-aXtJhlg.gif",
+            "/videos/0098-W31mMjd.gif",
+            "/videos/1651-1VpF8db.gif"
+          ]
         },
         {
-          "id": "ex-31",
-          "name": "Curl femoral",
-          "sets": 4,
-          "repsMin": 10,
-          "repsMax": 12,
-          "restSeconds": 90,
-          "imageUrls": [
-            "/assets/images/Curl femoral - 1.gif",
-            "/assets/images/Curl femoral.gif"
-          ],
-          "imageUrl": "/assets/images/Curl femoral - 1.gif"
-        },
-        {
-          "id": "ex-32",
-          "name": "Peso muerto convencional",
+          "id": "ex-43",
+          "name": "Sentadilla Frontal",
           "sets": 3,
-          "repsMin": 4,
-          "repsMax": 6,
+          "repsMin": 8,
+          "repsMax": 10,
           "restSeconds": 180,
+          "notes": "Alt: Sentadilla Goblet, Sentadilla con Barra de Seguridad, Prensa de Piernas",
+          "imageUrl": "/videos/0042-zG0zs85.gif",
           "imageUrls": [
-            "/assets/images/Peso muerto convencional - 1.gif",
-            "/assets/images/Peso muerto convencional.gif"
-          ],
-          "imageUrl": "/assets/images/Peso muerto convencional - 1.gif"
+            "/videos/0042-zG0zs85.gif",
+            "/videos/1760-yn8yg1r.gif",
+            "/videos/1425-WWD6FzI.gif"
+          ]
         },
         {
-          "id": "ex-33",
-          "name": "Remo en máquina/T-bar",
-          "sets": 3,
-          "repsMin": 10,
-          "repsMax": 12,
-          "restSeconds": 90,
-          "imageUrls": [
-            "/assets/images/Remo en máquina T-bar - 1.jpg",
-            "/assets/images/Remo en máquina T-bar - 2.gif",
-            "/assets/images/Remo en máquina T-bar.gif"
-          ],
-          "imageUrl": "/assets/images/Remo en máquina T-bar - 1.jpg"
-        },
-        {
-          "id": "ex-34",
-          "name": "Pullover",
+          "id": "ex-44",
+          "name": "Extensión de Cuádriceps",
           "sets": 3,
           "repsMin": 12,
           "repsMax": 15,
-          "restSeconds": 60,
+          "restSeconds": 120,
+          "notes": "Alt: Sentadilla Sissy, Sentadilla Goblet (Tensión Constante)",
+          "imageUrl": "/videos/0585-my33uHU.gif",
           "imageUrls": [
-            "/assets/images/Pullover - 1.gif",
-            "/assets/images/Pullover.gif"
-          ],
-          "imageUrl": "/assets/images/Pullover - 1.gif"
+            "/videos/0585-my33uHU.gif",
+            "/videos/1489-xdYPUtE.gif",
+            "/videos/1760-yn8yg1r.gif"
+          ]
         },
         {
-          "id": "ex-35",
-          "name": "Abdominales en bicicleta",
+          "id": "ex-45",
+          "name": "Curl de Isquios Sentado",
           "sets": 3,
-          "reps": 20,
-          "restSeconds": 60,
-          "perSide": true,
+          "repsMin": 12,
+          "repsMax": 15,
+          "restSeconds": 120,
+          "notes": "Alt: Curl de Isquios Tumbado, Curl Deslizante de Isquios",
+          "imageUrl": "/videos/0599-Zg3XY7P.gif",
           "imageUrls": [
-            "/assets/images/Abdominales en bicicleta.gif"
-          ],
-          "imageUrl": "/assets/images/Abdominales en bicicleta.gif"
+            "/videos/0599-Zg3XY7P.gif",
+            "/videos/0586-17lJ1kr.gif"
+          ]
+        },
+        {
+          "id": "ex-46",
+          "name": "Elevación de Piernas Colgado",
+          "sets": 3,
+          "repsMin": 10,
+          "repsMax": 15,
+          "restSeconds": 120,
+          "notes": "Alt: Elevación de Piernas en Silla Romana, Elevación de Piernas Tumbado, Elevaciones en V",
+          "imageUrl": "/videos/0472-I3tsCnC.gif",
+          "imageUrls": [
+            "/videos/0472-I3tsCnC.gif",
+            "/videos/2963-weoDEpH.gif",
+            "/videos/0012-UGhRD1A.gif",
+            "/videos/0972-tZkGYZ9.gif"
+          ]
         }
       ]
     },
     {
       "id": "saturday",
       "dayNumber": 6,
-      "label": "Full Body Ligero (Fuerza + Técnica)",
-      "intensity": "Media",
-      "note": "Movimientos compuestos con peso moderado, sin llegar al fallo. Recuperación activa con carga.",
+      "label": "Full Body 1 (Enfoque Fuerza Funcional)",
+      "intensity": "Baja (RPE 7)",
+      "note": "Ocasional, no debe interferir con la recuperación.",
       "exercises": [
         {
-          "id": "ex-36",
-          "name": "Sentadilla con barra",
-          "sets": 3,
-          "reps": 5,
-          "restSeconds": 150,
-          "notes": "Peso moderado, técnica perfecta",
+          "id": "ex-47",
+          "name": "Elevación de Piernas Colgado",
+          "sets": 1,
+          "repsMin": 10,
+          "repsMax": 15,
+          "restSeconds": 0,
+          "notes": "Calentamiento",
+          "isWarmup": true,
+          "imageUrl": "/videos/0472-I3tsCnC.gif",
           "imageUrls": [
-            "/assets/images/sentadilla con barra.gif"
-          ],
-          "imageUrl": "/assets/images/sentadilla con barra.gif"
+            "/videos/0472-I3tsCnC.gif"
+          ]
         },
         {
-          "id": "ex-37",
-          "name": "Press de banca con barra",
-          "sets": 3,
-          "reps": 5,
-          "restSeconds": 150,
-          "notes": "Peso moderado, pausa en el pecho",
+          "id": "ex-48",
+          "name": "Remo Invertido",
+          "sets": 1,
+          "repsMin": 10,
+          "repsMax": 15,
+          "restSeconds": 0,
+          "notes": "Calentamiento",
+          "isWarmup": true,
+          "imageUrl": "/videos/0499-bZGHsAZ.gif",
           "imageUrls": [
-            "/assets/images/Press de banca con barra.gif"
-          ],
-          "imageUrl": "/assets/images/Press de banca con barra.gif"
+            "/videos/0499-bZGHsAZ.gif"
+          ]
         },
         {
-          "id": "ex-38",
-          "name": "Remo con barra",
+          "id": "ex-49",
+          "name": "Toque de Puntas de Pie Circular",
+          "sets": 1,
+          "repsMin": 10,
+          "repsMax": 15,
+          "restSeconds": 0,
+          "notes": "Calentamiento",
+          "isWarmup": true,
+          "imageUrl": "/videos/3214-RtyAsy1.gif",
+          "imageUrls": [
+            "/videos/3214-RtyAsy1.gif"
+          ]
+        },
+        {
+          "id": "ex-50",
+          "name": "Sentadilla Trasera con Barra",
           "sets": 3,
           "repsMin": 6,
           "repsMax": 8,
           "restSeconds": 120,
-          "notes": "Control total, aprieta la espalda",
+          "notes": "Alt: Sentadilla Hack, Prensa de Piernas",
+          "imageUrl": "/videos/0043-qXTaZnJ.gif",
           "imageUrls": [
-            "/assets/images/Remo con barra - 1.gif",
-            "/assets/images/Remo con barra.gif"
-          ],
-          "imageUrl": "/assets/images/Remo con barra - 1.gif"
+            "/videos/0043-qXTaZnJ.gif",
+            "/videos/0743-Qa55kX1.gif",
+            "/videos/1425-WWD6FzI.gif"
+          ]
         },
         {
-          "id": "ex-39",
-          "name": "Peso muerto rumano",
+          "id": "ex-51",
+          "name": "Press de Banca con Mancuernas",
           "sets": 3,
-          "reps": 6,
-          "restSeconds": 150,
-          "notes": "Peso moderado, sentir los isquiotibiales",
-          "imageUrls": [
-            "/assets/images/Peso muerto rumano - 1.gif",
-            "/assets/images/Peso muerto rumano.gif"
-          ],
-          "imageUrl": "/assets/images/Peso muerto rumano - 1.gif"
-        },
-        {
-          "id": "ex-40",
-          "name": "Press militar",
-          "sets": 3,
-          "repsMin": 6,
-          "repsMax": 8,
+          "repsMin": 8,
+          "repsMax": 10,
           "restSeconds": 120,
-          "notes": "Peso moderado, sin arquear",
+          "notes": "Alt: Press de Pecho en Máquina, Flexiones",
+          "imageUrl": "/videos/0289-SpYC0Kp.gif",
           "imageUrls": [
-            "/assets/images/Press militar con barra.gif"
-          ],
-          "imageUrl": "/assets/images/Press militar con barra.gif"
+            "/videos/0289-SpYC0Kp.gif",
+            "/videos/0577-T0yTjgW.gif",
+            "/videos/0662-I4hDWkc.gif"
+          ]
         },
         {
-          "id": "ex-41",
-          "name": "Dominadas (o jalón asistido)",
+          "id": "ex-52",
+          "name": "Remo Sentado en Polea",
           "sets": 3,
-          "repsMin": 6,
-          "repsMax": 8,
-          "restSeconds": 120,
-          "notes": "Rango completo, controlado",
-          "imageUrls": [
-            "/assets/images/Jalón al pecho con agarre ancho.gif",
-            "/assets/images/jalón al pecho.gif"
-          ],
-          "imageUrl": "/assets/images/Jalón al pecho con agarre ancho.gif"
-        },
-        {
-          "id": "ex-42",
-          "name": "Farmer's walk",
-          "sets": 3,
-          "repsMin": 30,
-          "repsMax": 40,
-          "unit": "metros",
+          "repsMin": 10,
+          "repsMax": 12,
           "restSeconds": 90,
-          "notes": "Agarre, core, estabilidad",
+          "notes": "Alt: Remo con Mancuerna, Remo con Mancuernas Apoyado al Pecho",
+          "imageUrl": "/videos/0861-fUBheHs.gif",
           "imageUrls": [
-            "/assets/images/Farmer's walk.gif"
-          ],
-          "imageUrl": "/assets/images/Farmer's walk.gif"
+            "/videos/0861-fUBheHs.gif",
+            "/videos/0293-BJ0Hz5L.gif",
+            "/videos/0327-7vG5o25.gif"
+          ]
+        },
+        {
+          "id": "ex-53",
+          "name": "Elevaciones Laterales con Mancuernas",
+          "sets": 3,
+          "repsMin": 15,
+          "repsMax": 15,
+          "restSeconds": 90,
+          "notes": "Alt: Elevaciones Laterales en Polea",
+          "imageUrl": "/videos/0334-DsgkuIt.gif",
+          "imageUrls": [
+            "/videos/0334-DsgkuIt.gif",
+            "/videos/0178-goJ6ezq.gif"
+          ]
+        },
+        {
+          "id": "ex-54",
+          "name": "Curl de Bíceps con Mancuernas",
+          "sets": 3,
+          "repsMin": 12,
+          "repsMax": 15,
+          "restSeconds": 0,
+          "notes": "Alt: Curl de Bíceps con Barra EZ",
+          "imageUrl": "/videos/0285-BU15nH4.gif",
+          "imageUrls": [
+            "/videos/0285-BU15nH4.gif",
+            "/videos/0447-6TG6x2w.gif"
+          ]
+        },
+        {
+          "id": "ex-55",
+          "name": "Extensión de Tríceps con Cuerda",
+          "sets": 3,
+          "repsMin": 12,
+          "repsMax": 15,
+          "restSeconds": 60,
+          "notes": "Alt: Extensión de Tríceps sobre Cabeza (Cuerda)",
+          "imageUrl": "/videos/0241-gAwDzB3.gif",
+          "imageUrls": [
+            "/videos/0241-gAwDzB3.gif",
+            "/videos/0194-2IxROQ1.gif"
+          ]
         }
       ]
     },
     {
       "id": "sunday",
       "dayNumber": 7,
-      "label": "Brazos + Core + Déficits",
-      "intensity": "Baja-Media",
-      "note": "Zonas débiles, agarre, core y movilidad. Volumen bajo, intensidad media.",
+      "label": "Full Body 2 (Máquinas / Hipertrofia)",
+      "intensity": "Baja (RPE 7)",
+      "note": "Ocasional, no debe interferir con la recuperación.",
       "exercises": [
         {
-          "id": "ex-43",
-          "name": "Curl de bíceps con barra",
-          "sets": 3,
-          "repsMin": 8,
-          "repsMax": 10,
-          "restSeconds": 90,
+          "id": "ex-56",
+          "name": "Elevación de Piernas Colgado",
+          "sets": 1,
+          "repsMin": 10,
+          "repsMax": 15,
+          "restSeconds": 0,
+          "notes": "Calentamiento",
+          "isWarmup": true,
+          "imageUrl": "/videos/0472-I3tsCnC.gif",
           "imageUrls": [
-            "/assets/images/Curl de bíceps con barra - 1.gif",
-            "/assets/images/Curl de bíceps con barra - 2.gif",
-            "/assets/images/Curl de bíceps con barra.gif"
-          ],
-          "imageUrl": "/assets/images/Curl de bíceps con barra - 1.gif"
+            "/videos/0472-I3tsCnC.gif"
+          ]
         },
         {
-          "id": "ex-44",
-          "name": "Curl martillo",
+          "id": "ex-57",
+          "name": "Remo Invertido",
+          "sets": 1,
+          "repsMin": 10,
+          "repsMax": 15,
+          "restSeconds": 0,
+          "notes": "Calentamiento",
+          "isWarmup": true,
+          "imageUrl": "/videos/0499-bZGHsAZ.gif",
+          "imageUrls": [
+            "/videos/0499-bZGHsAZ.gif"
+          ]
+        },
+        {
+          "id": "ex-58",
+          "name": "Toque de Puntas de Pie Circular",
+          "sets": 1,
+          "repsMin": 10,
+          "repsMax": 15,
+          "restSeconds": 0,
+          "notes": "Calentamiento",
+          "isWarmup": true,
+          "imageUrl": "/videos/3214-RtyAsy1.gif",
+          "imageUrls": [
+            "/videos/3214-RtyAsy1.gif"
+          ]
+        },
+        {
+          "id": "ex-59",
+          "name": "Prensa de Piernas",
           "sets": 3,
           "repsMin": 10,
           "repsMax": 12,
-          "restSeconds": 60,
+          "restSeconds": 120,
+          "notes": "Alt: Sentadilla Goblet",
+          "imageUrl": "/videos/1425-WWD6FzI.gif",
           "imageUrls": [
-            "/assets/images/Curl martillo - 1.gif",
-            "/assets/images/Curl martillo - 2.gif",
-            "/assets/images/Curl martillo.gif"
-          ],
-          "imageUrl": "/assets/images/Curl martillo - 1.gif"
+            "/videos/1425-WWD6FzI.gif",
+            "/videos/1760-yn8yg1r.gif"
+          ]
         },
         {
-          "id": "ex-45",
-          "name": "Extensiones de tríceps en polea",
+          "id": "ex-60",
+          "name": "Peso Muerto Rumano Ligero",
           "sets": 3,
           "repsMin": 10,
           "repsMax": 12,
-          "restSeconds": 60,
+          "restSeconds": 120,
+          "notes": "Alt: Buenos Días, Pull-Through en Polea",
+          "imageUrl": "/videos/1459-rR0LJzx.gif",
           "imageUrls": [
-            "/assets/images/Extensiones de tríceps en polea.gif"
-          ],
-          "imageUrl": "/assets/images/Extensiones de tríceps en polea.gif"
+            "/videos/1459-rR0LJzx.gif",
+            "/videos/0044-XlZ4lAC.gif",
+            "/videos/0196-OM46QHm.gif"
+          ]
         },
         {
-          "id": "ex-46",
-          "name": "Fondos en paralelas",
+          "id": "ex-61",
+          "name": "Press de Hombros en Máquina",
           "sets": 3,
-          "repsMin": 8,
-          "repsMax": 10,
+          "repsMin": 10,
+          "repsMax": 12,
+          "restSeconds": 120,
+          "notes": "Alt: Press de Hombros Sentado (Mancuernas)",
+          "imageUrl": "/videos/0603-67n3r98.gif",
+          "imageUrls": [
+            "/videos/0603-67n3r98.gif",
+            "/videos/0405-znQUdHY.gif"
+          ]
+        },
+        {
+          "id": "ex-62",
+          "name": "Jalón al Pecho",
+          "sets": 3,
+          "repsMin": 12,
+          "repsMax": 15,
+          "restSeconds": 120,
+          "notes": "Alt: Dominadas Asistidas",
+          "imageUrl": "/videos/0198-RVwzP10.gif",
+          "imageUrls": [
+            "/videos/0198-RVwzP10.gif",
+            "/videos/0017-kiJ4Z2K.gif"
+          ]
+        },
+        {
+          "id": "ex-63",
+          "name": "Máquina Pec Deck (Aperturas)",
+          "sets": 3,
+          "repsMin": 15,
+          "repsMax": 15,
           "restSeconds": 90,
+          "notes": "Alt: Cruce de Poleas, Aperturas con Mancuernas",
+          "imageUrl": "/videos/0596-v3xmPAR.gif",
           "imageUrls": [
-            "/assets/images/Fondos en paralelas.gif"
-          ],
-          "imageUrl": "/assets/images/Fondos en paralelas.gif"
+            "/videos/0596-v3xmPAR.gif",
+            "/videos/0153-OQ1otBN.gif",
+            "/videos/0308-yz9nUhF.gif"
+          ]
         },
         {
-          "id": "ex-47",
-          "name": "Plancha con elevación de pierna",
+          "id": "ex-64",
+          "name": "Plancha Abdominal",
           "sets": 3,
-          "repsMin": 30,
-          "repsMax": 45,
+          "repsMin": 40,
+          "repsMax": 60,
+          "restSeconds": 60,
+          "notes": "Alt: Crunch Abdominal en Polea, Rueda Abdominal",
           "unit": "seg",
-          "restSeconds": 60,
+          "imageUrl": "/videos/0464-CosupLu.gif",
           "imageUrls": [
-            "/assets/images/Plancha con elevación de pierna.gif"
-          ],
-          "imageUrl": "/assets/images/Plancha con elevación de pierna.gif"
-        },
-        {
-          "id": "ex-48",
-          "name": "Puente de glúteo",
-          "sets": 3,
-          "repsMin": 15,
-          "repsMax": 20,
-          "restSeconds": 60,
-          "imageUrls": [
-            "/assets/images/Puente de glúteo - 1.gif",
-            "/assets/images/Puente de glúteo.gif"
-          ],
-          "imageUrl": "/assets/images/Puente de glúteo - 1.gif"
-        },
-        {
-          "id": "ex-49",
-          "name": "Dead hang",
-          "sets": 3,
-          "repsMin": 20,
-          "repsMax": 30,
-          "unit": "seg",
-          "restSeconds": 60,
-          "imageUrls": [
-            "/assets/images/Dead hang.gif"
-          ],
-          "imageUrl": "/assets/images/Dead hang.gif"
-        },
-        {
-          "id": "ex-50",
-          "name": "Face pull",
-          "sets": 3,
-          "repsMin": 15,
-          "repsMax": 20,
-          "restSeconds": 60,
-          "imageUrls": [
-            "/assets/images/Face pull.gif"
-          ],
-          "imageUrl": "/assets/images/Face pull.gif"
+            "/videos/0464-CosupLu.gif",
+            "/videos/0175-WW95auq.gif",
+            "/videos/0971-zhF9lW4.gif"
+          ]
         }
       ]
     }

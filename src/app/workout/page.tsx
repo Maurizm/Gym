@@ -7,6 +7,7 @@ import { useWorkoutHistory } from '@/hooks/useWorkoutHistory';
 import { useTimer } from '@/hooks/useTimer';
 import { useRoutine } from '@/hooks/useRoutine';
 import { ImageCarousel } from '@/components/ImageCarousel';
+import { ExerciseModal } from '@/components/ExerciseModal';
 import confetti from 'canvas-confetti';
 
 /** Format rest seconds to a readable label */
@@ -40,6 +41,9 @@ export default function Workout() {
   const [activeRoutine, setActiveRoutine] = useState<any>(null);
   const [prCelebrated, setPrCelebrated] = useState<Record<string, boolean>>({});
   const [prMessage, setPrMessage] = useState<string | null>(null);
+  const [selectedExercise, setSelectedExercise] = useState<any>(null);
+  const [showSummary, setShowSummary] = useState(false);
+  const [summaryData, setSummaryData] = useState<any>(null);
 
   useEffect(() => {
     if (!sessionLoaded || !routineLoaded) return;
@@ -85,11 +89,40 @@ export default function Workout() {
   const progressPct = totalSets > 0 ? Math.round((completedSets / totalSets) * 100) : 0;
 
   const handleFinish = () => {
-    if (confirm('¿Seguro que deseas finalizar el entrenamiento?')) {
-      finishSession();
-      timer.stop();
-      router.push('/');
-    }
+    if (!confirm('¿Seguro que deseas finalizar el entrenamiento?')) return;
+
+    const durationSecs = Math.floor((Date.now() - (session?.startTime ?? Date.now())) / 1000);
+
+    // Compute summary stats
+    let totalVolume = 0;
+    let totalSetsCompleted = 0;
+    let starExercise = { name: '', weight: 0 };
+
+    session?.exerciseLogs.forEach(log => {
+      const exDef = activeRoutine?.exercises.find((e: any) => e.id === log.exerciseId);
+      log.sets.forEach(set => {
+        if (!set.completed || set.isWarmup) return;
+        totalSetsCompleted++;
+        const w = parseFloat(set.weightKg);
+        const r = parseInt(set.repsDone, 10);
+        if (!isNaN(w) && !isNaN(r)) totalVolume += w * r;
+        if (!isNaN(w) && w > starExercise.weight) {
+          starExercise = { name: exDef?.name ?? '', weight: w };
+        }
+      });
+    });
+
+    const dayLabel = activeRoutine?.label ?? session?.dayId ?? 'Entrenamiento';
+
+    setSummaryData({ durationSecs, totalVolume: Math.round(totalVolume), totalSetsCompleted, starExercise, dayLabel });
+    finishSession();
+    timer.stop();
+    setShowSummary(true);
+
+    // Burst of confetti
+    confetti({ particleCount: 220, spread: 100, origin: { y: 0.55 }, colors: ['#6366f1', '#0ea5e9', '#10b981', '#f59e0b', '#ff4d3d'] });
+    setTimeout(() => confetti({ particleCount: 80, spread: 60, origin: { y: 0.6, x: 0.2 }, colors: ['#fff', '#c7d2fe'] }), 400);
+    setTimeout(() => confetti({ particleCount: 80, spread: 60, origin: { y: 0.6, x: 0.8 }, colors: ['#fff', '#a5f3fc'] }), 700);
   };
 
   const handleSetToggle = (exId: string, setNum: number, restSecs: number, currentCompleted: boolean) => {
@@ -129,6 +162,79 @@ export default function Workout() {
 
   return (
     <>
+      {/* ── POST-WORKOUT SUMMARY OVERLAY ────────────────────────────── */}
+      {showSummary && summaryData && (
+        <div className="fixed inset-0 z-[200] flex items-center justify-center bg-black/80 backdrop-blur-md animate-fade-in-up px-md">
+          <div className="w-full max-w-sm bg-surface rounded-3xl shadow-2xl overflow-hidden border border-outline-variant animate-fade-in-up">
+
+            {/* Hero header */}
+            <div className="bg-gradient-to-br from-primary/30 via-secondary-fixed/10 to-surface-bright px-lg pt-lg pb-md text-center">
+              <div className="text-5xl mb-sm">🏆</div>
+              <h2 className="font-headline-lg text-headline-lg text-on-surface font-bold">¡Sesión Completada!</h2>
+              <p className="text-on-surface-variant text-sm mt-xs capitalize line-clamp-2">{summaryData.dayLabel}</p>
+            </div>
+
+            {/* Stats grid */}
+            <div className="grid grid-cols-3 gap-xs px-lg py-md">
+              {[
+                {
+                  icon: 'timer', label: 'Duración',
+                  value: summaryData.durationSecs >= 3600
+                    ? `${Math.floor(summaryData.durationSecs / 3600)}h ${Math.floor((summaryData.durationSecs % 3600) / 60)}m`
+                    : `${Math.floor(summaryData.durationSecs / 60)}m`,
+                  color: '#0ea5e9',
+                },
+                {
+                  icon: 'done_all', label: 'Series', value: summaryData.totalSetsCompleted, color: '#10b981',
+                },
+                {
+                  icon: 'scale', label: 'Volumen', value: summaryData.totalVolume > 0 ? `${summaryData.totalVolume.toLocaleString('es')}kg` : '—', color: '#6366f1',
+                },
+              ].map(({ icon, label, value, color }) => (
+                <div key={label} className="flex flex-col items-center gap-xs bg-surface-bright rounded-2xl py-md px-sm text-center">
+                  <span className="material-symbols-outlined" style={{ color, fontSize: 22, fontVariationSettings: "'FILL' 1" }}>{icon}</span>
+                  <p className="font-headline-sm text-headline-sm text-on-surface font-bold leading-none">{value}</p>
+                  <p className="text-[10px] text-on-surface-variant font-label-caps uppercase tracking-wide">{label}</p>
+                </div>
+              ))}
+            </div>
+
+            {/* Star exercise */}
+            {summaryData.starExercise?.name && (
+              <div className="mx-lg mb-md flex items-center gap-sm bg-primary/10 border border-primary/25 rounded-2xl px-md py-sm">
+                <span className="material-symbols-outlined text-primary text-2xl" style={{ fontVariationSettings: "'FILL' 1" }}>emoji_events</span>
+                <div className="min-w-0">
+                  <p className="text-[10px] font-label-caps text-primary uppercase tracking-wider">Ejercicio estrella</p>
+                  <p className="font-body-md text-body-md text-on-surface font-semibold truncate">{summaryData.starExercise.name}</p>
+                  <p className="text-xs text-on-surface-variant">{summaryData.starExercise.weight} kg máx.</p>
+                </div>
+              </div>
+            )}
+
+            {/* Motivational message */}
+            <p className="text-center text-sm text-on-surface-variant px-lg pb-sm italic">
+              {summaryData.totalSetsCompleted >= 15
+                ? '¡Sesión épica! Descansa bien, lo mereces. 💪'
+                : summaryData.totalSetsCompleted >= 8
+                ? '¡Gran trabajo! El progreso es constante. 🔥'
+                : '¡Buen comienzo! Cada sesión cuenta. ⚡'}
+            </p>
+
+            {/* CTA */}
+            <div className="px-lg pb-lg pt-xs">
+              <button
+                onClick={() => router.push('/')}
+                className="w-full h-14 rounded-2xl font-headline-sm text-headline-sm text-white font-bold flex items-center justify-center gap-sm active:scale-95 transition-all shadow-lg"
+                style={{ background: 'linear-gradient(135deg, #6366f1, #0ea5e9)', boxShadow: '0 8px 24px rgba(99,102,241,0.35)' }}
+              >
+                <span className="material-symbols-outlined" style={{ fontVariationSettings: "'FILL' 1" }}>home</span>
+                Volver al Inicio
+              </button>
+            </div>
+          </div>
+        </div>
+      )}
+
       {/* PR Toast Message */}
       {prMessage && (
         <div className="fixed top-24 left-1/2 -translate-x-1/2 z-50 animate-fade-in-up bg-surface-container-highest border border-primary text-primary px-lg py-sm rounded-full shadow-[0_0_20px_rgba(255,180,169,0.4)] flex items-center gap-sm">
@@ -143,14 +249,31 @@ export default function Workout() {
             const exState = session.exerciseLogs.find((l: ExerciseLog) => l.exerciseId === ex.id);
             if (!exState) return null;
 
+            const isFirstWarmup = exIdx === 0 && ex.isWarmup;
+            const isFirstMain = !ex.isWarmup && (exIdx === 0 || activeRoutine.exercises[exIdx - 1].isWarmup);
+
             const unit = getUnit(ex);
-            const completedCount = exState.sets.filter(s => s.completed).length;
+            const completedCount = exState.sets.filter((s: any) => s.completed).length;
             const allDone = completedCount === exState.sets.length;
 
             return (
-              <section
-                key={ex.id}
-                className={`rounded-2xl dark:rounded-lg shadow-md dark:shadow-none border overflow-hidden transition-all duration-300 ${
+              <div key={ex.id} className="contents">
+                {isFirstWarmup && (
+                  <div className="flex items-center gap-sm mt-4 mb-2">
+                    <span className="material-symbols-outlined text-secondary-fixed">local_fire_department</span>
+                    <h3 className="font-headline-md text-headline-md text-secondary-fixed">Calentamiento</h3>
+                    <div className="flex-1 h-px bg-outline-variant/50 ml-sm"></div>
+                  </div>
+                )}
+                {isFirstMain && (
+                  <div className="flex items-center gap-sm mt-8 mb-2">
+                    <span className="material-symbols-outlined text-primary">fitness_center</span>
+                    <h3 className="font-headline-md text-headline-md text-primary">Entrenamiento</h3>
+                    <div className="flex-1 h-px bg-outline-variant/50 ml-sm"></div>
+                  </div>
+                )}
+                <section
+                  className={`rounded-2xl dark:rounded-lg shadow-md dark:shadow-none border overflow-hidden transition-all duration-300 ${
                   allDone
                     ? 'bg-surface border-primary/30'
                     : 'bg-surface border-outline-variant'
@@ -161,6 +284,13 @@ export default function Workout() {
                   <div className="flex flex-col flex-1 min-w-0">
                     <div className="flex items-center gap-sm">
                       <h2 className="font-headline-md text-headline-md text-on-surface tracking-tight">{ex.name}</h2>
+                      <button 
+                        onClick={() => setSelectedExercise(ex)} 
+                        className="text-primary hover:scale-110 active:scale-95 transition-all w-8 h-8 flex items-center justify-center bg-primary/10 rounded-full"
+                        title="Ver técnica detallada"
+                      >
+                        <span className="material-symbols-outlined" style={{ fontSize: 20 }}>psychology</span>
+                      </button>
                       {allDone && (
                         <span className="material-symbols-outlined text-primary text-xl" style={{ fontVariationSettings: "'FILL' 1" }}>
                           check_circle
@@ -184,7 +314,18 @@ export default function Workout() {
                   )}
                 </div>
 
+                {/* Exercise GIF carousel */}
+                {(ex.imageUrls?.length > 0 || ex.imageUrl) && (() => {
+                  const imgs: string[] = ex.imageUrls?.length > 0 ? ex.imageUrls : [ex.imageUrl];
+                  return (
+                    <div className="relative w-full bg-surface-bright overflow-hidden group/carousel" style={{ aspectRatio: '16/9' }}>
+                      <ImageCarousel images={imgs} alt={ex.name} showLabels />
+                    </div>
+                  );
+                })()}
+
                 {/* Sets list */}
+
                 <div className="px-md pb-md flex flex-col gap-sm">
                   {exState.sets.map((set) => {
                     const isChecked = set.completed;
@@ -294,18 +435,9 @@ export default function Workout() {
                   </button>
                 </div>
 
-                {/* Exercise image — full reference guide */}
-                {(ex.imageUrl || (ex.imageUrls && ex.imageUrls.length > 0)) && (
-                  <div className="mx-md mb-md rounded-xl overflow-hidden border border-outline-variant/50 bg-surface-bright group" style={{ aspectRatio: '4/3', maxHeight: '280px' }}>
-                    <div className="relative w-full h-full">
-                      <ImageCarousel
-                        images={ex.imageUrls && ex.imageUrls.length > 0 ? ex.imageUrls : [ex.imageUrl]}
-                        alt={ex.name}
-                      />
-                    </div>
-                  </div>
-                )}
+
               </section>
+              </div>
             );
           })}
         </div>
@@ -371,6 +503,13 @@ export default function Workout() {
           </div>
         </div>
       )}
+
+      <ExerciseModal
+        isOpen={!!selectedExercise}
+        onClose={() => setSelectedExercise(null)}
+        exerciseName={selectedExercise?.name || ""}
+        exerciseData={selectedExercise}
+      />
     </>
   );
 }

@@ -1,0 +1,171 @@
+{
+  "golden_rule": {
+    "title": "🧠 Regla de Oro (Manejo de Pesos)",
+    "content": "Antes de empezar, usa el RPE y la Doble Progresión:\n• RPE 8: Peso que te cueste, pero dejando 2 repeticiones en reserva.\n• RPE 9: Deja 1 repetición en reserva.\n• RPE 10: Fallo muscular total.\n• Doble Progresión: Si el rango es 8-10 reps, al lograr todas las series con 10 reps, la próxima semana sube el peso y vuelve a intentar sacar 8 reps."
+  },
+  "barbell bench press": {
+    "why": "Es el ejercicio principal de empuje. Permite la mayor carga mecánica para desarrollar el pecho, los tríceps y los deltoides anteriores.",
+    "weights": "RPE 8 (Rango 5-8 reps). Ejercicio de fuerza, carga pesada, pero NUNCA llegues al fallo. Deja 2 reps.",
+    "technique": "Retrae las escápulas (pecho afuera, hombros hacia atrás y abajo). Toca la barra en la parte inferior del pecho con los codos a unos 45°. Usa el leg drive (empuja el suelo) para estabilizar. No rebotes la barra."
+  },
+  "dumbbell incline bench press": {
+    "why": "El haz clavicular (pecho superior) suele estar poco desarrollado. El ángulo inclinado lo ataca directamente.",
+    "weights": "RPE 8 (Rango 8-10 reps).",
+    "technique": "Inclinación de 30°-45°. Baja hasta sentir estiramiento profundo. Empuja hacia arriba y ligeramente hacia el centro en la parte alta para maximizar la contracción."
+  },
+  "dumbbell seated shoulder press": {
+    "why": "Desarrollo de los deltoides. Al usar mancuernas, permites un rango de movimiento más natural.",
+    "weights": "RPE 8 (Rango 8-10 reps).",
+    "technique": "Aprieta glúteos y core para no arquear la lumbar. Baja hasta la altura de las orejas. No bloquees los codos agresivamente arriba."
+  },
+  "cable cross-over": {
+    "why": "Aislamiento del pecho. Mantiene la tensión constante durante todo el movimiento, especialmente en la contracción.",
+    "weights": "RPE 9 (Rango 12-15 reps). Esfuérzate más cerca del fallo.",
+    "technique": "Piensa en 'abrazar un árbol'. Codos ligeramente flexionados y fijos. El movimiento nace de llevar los brazos al centro del pecho."
+  },
+  "dumbbell lateral raise": {
+    "why": "El deltoides lateral es clave para la amplitud visual de los hombros. Requiere aislamiento puro.",
+    "weights": "RPE 9-10 (Rango 12-15 reps). Llega al fallo en la última serie.",
+    "technique": "Inclina ligeramente el torso. Levanta los codos, no las manos (meñiques hacia el techo). Controla la bajada 1-2 segundos."
+  },
+  "cable triceps pushdown": {
+    "why": "Aislamiento de tríceps (cabeza larga y lateral).",
+    "weights": "RPE 9 (Rango 10-12 reps).",
+    "technique": "Codos pegados a las costillas. Abre la cuerda hacia afuera en la parte baja para exprimir la contracción."
+  },
+  "barbell deadlift": {
+    "why": "El rey de la cadena posterior. Genera una enorme tensión mecánica en todo el cuerpo.",
+    "weights": "RPE 8 (Rango 5 reps). Carga pesada pero estricta. Deja 2 reps en reserva.",
+    "technique": "'Tira del slack' (quita la holgura) antes de levantar; la barra hace una leve curva antes de despegar. Pegada a las espinillas. Aprieta glúteos arriba sin hiperextender la lumbar."
+  },
+  "trap bar deadlift": {
+    "why": "El rey de la cadena posterior. Genera una enorme tensión mecánica en todo el cuerpo.",
+    "weights": "RPE 8 (Rango 5 reps). Carga pesada pero estricta. Deja 2 reps en reserva.",
+    "technique": "'Tira del slack' (quita la holgura) antes de levantar; la barra hace una leve curva antes de despegar. Pegada a las espinillas. Aprieta glúteos arriba sin hiperextender la lumbar."
+  },
+  "barbell bent over row": {
+    "why": "Espesor de la espalda (dorsales y trapecios). Gran estiramiento al estar paralelo al suelo.",
+    "weights": "RPE 8 (Rango 6-8 reps).",
+    "technique": "Torso a 45° o paralelo al suelo. Barra debe tocar el suelo entre reps (si es Pendlay) y tirar explosivamente hacia el ombligo sin usar impulso."
+  },
+  "pull-up": {
+    "why": "Amplitud del dorsal. Tirón vertical.",
+    "weights": "RPE 8 (Rango 8-10 reps). Pasa de 10? Usa peso. No puedes 8? Máquina asistida.",
+    "technique": "Agarre 1.5x ancho hombros. Mete los codos en los 'bolsillos traseros'. No te balancees; controla la subida."
+  },
+  "cable pulldown": {
+    "why": "Amplitud del dorsal. Tirón vertical.",
+    "weights": "RPE 8 (Rango 8-10 reps). Pasa de 10? Usa peso. No puedes 8? Máquina asistida.",
+    "technique": "Agarre 1.5x ancho hombros. Mete los codos en los 'bolsillos traseros'. No te balancees; controla la subida."
+  },
+  "cable seated row": {
+    "why": "Tirón horizontal. Enfocado en la porción media/baja de dorsales y romboides con tensión constante.",
+    "weights": "RPE 9 (Rango 10-12 reps).",
+    "technique": "Permite que omóplatos se abran ligeramente al estirar, para luego apretarlos juntos al tirar. No balancees el torso hacia atrás."
+  },
+  "cable rear pulldown": {
+    "why": "Salud y postura. Desarrolla el deltoides posterior y el manguito rotador.",
+    "weights": "RPE 9 (Rango 15-20 reps). Peso ligero, buscamos bombeo.",
+    "technique": "Polea altura de los ojos. Tira hacia tu frente, separando las manos y rotando hombros externamente. Pausa 1 seg arriba."
+  },
+  "ez barbell curl": {
+    "why": "Flexión de codo pesada. La barra Z es amable con las muñecas.",
+    "weights": "RPE 9 (Rango 8-10 reps).",
+    "technique": "Codos pegados a las costillas. Movimiento solo en antebrazo. Aprieta arriba y baja en 2 segundos. Cero balanceo."
+  },
+  "barbell full squat": {
+    "why": "El mejor constructor de cuádriceps, glúteos y aductores. Gran estabilización del core.",
+    "weights": "RPE 8 (Rango 5-8 reps). Pesado y técnico.",
+    "technique": "Clavos en el suelo, empuja rodillas afuera. Siéntate 'atrás y abajo'. Maniobra Valsalva. Baja al menos paralelo."
+  },
+  "barbell romanian deadlift": {
+    "why": "Énfasis en la bajada (excéntrica) para isquios y glúteos.",
+    "weights": "RPE 8 (Rango 8-10 reps).",
+    "technique": "Rodillas semiflexionadas fijas. Empuja cadera atrás hasta estirar profundo. Barra roza las piernas. No redondees la espalda."
+  },
+  "sled 45": {
+    "why": "Hipertrofia de cuádriceps sin fatiga de core o espalda baja.",
+    "weights": "RPE 9 (Rango 10-12 reps).",
+    "technique": "Pies a anchura de hombros. Baja hasta 90°. No eleves talones ni juntes rodillas. Empuja con el medio pie."
+  },
+  "lever lying leg curl": {
+    "why": "Aislamiento de los isquiotibiales (cabeza corta del bíceps femoral).",
+    "weights": "RPE 9-10 (Rango 12-15 reps). Al fallo.",
+    "technique": "Caderas presionadas contra el banco. Flexiona rápido (concéntrico) y baja muy lento en 2-3 segundos."
+  },
+  "lever standing calf raise": {
+    "why": "El gemelo funciona mejor con la pierna estirada.",
+    "weights": "RPE 9-10 (Rango 10-12 reps).",
+    "technique": "Rango completo: Baja todo lo que puedas (1 seg) y sube lo más alto posible de puntillas (1 seg). Sin rebotes."
+  },
+  "cable kneeling crunch": {
+    "why": "El recto abdominal necesita resistencia progresiva para crecer.",
+    "weights": "RPE 9 (Rango 12-15 reps).",
+    "technique": "Arrodillado. No dobles la cadera, flexiona la columna llevando las costillas a la pelvis. Exhala al contraer."
+  },
+  "barbell close-grip bench press": {
+    "why": "Movimiento horizontal que recarga fuertemente los tríceps y parte interna del pecho.",
+    "weights": "RPE 8 (Rango 8-10 reps).",
+    "technique": "Agarre ancho de hombros. Codos pegados al cuerpo. Baja la barra a la parte baja del esternón."
+  },
+  "dumbbell bent over row": {
+    "why": "Estiramiento profundo del dorsal y corrige asimetrías.",
+    "weights": "RPE 9 (Rango 10-12 reps).",
+    "technique": "Apoya rodilla y mano en banco. Torso paralelo al suelo. Tira la mancuerna hacia la cadera ('bolsillo trasero')."
+  },
+  "dumbbell arnold press": {
+    "why": "Rota las muñecas y trabaja los tres cabezales del deltoides integralmente.",
+    "weights": "RPE 8 (Rango 10-12 reps).",
+    "technique": "Empieza con mancuernas frente a la cara (supinación). Empuja rotando 180° para terminar palmas adelante."
+  },
+  "cable reverse-grip pulldown": {
+    "why": "Involucra más los bíceps y estira mejor la porción inferior del dorsal.",
+    "weights": "RPE 9 (Rango 12-15 reps).",
+    "technique": "Agarre ancho de hombros. Inclínate hacia atrás, tira hacia el pecho superior llevando codos abajo y atrás."
+  },
+  "dumbbell reverse fly": {
+    "why": "Aislamiento del deltoides posterior (hombro trasero).",
+    "weights": "RPE 9-10 (Rango 15 reps). Ligero.",
+    "technique": "Torso inclinado casi paralelo al suelo. Abre hacia los lados. Palmas miran al suelo."
+  },
+  "dumbbell hammer curl": {
+    "why": "Ahorra tiempo y da estrés metabólico al brazoquídeo.",
+    "weights": "RPE 10 (Rango 10-12 reps). Al fallo.",
+    "technique": "Agarre neutro. Sube sin mover codos. (Parte de Superset con Skull Crusher)."
+  },
+  "dumbbell lying triceps extension": {
+    "why": "Inunda el tríceps con sangre (estrés metabólico).",
+    "weights": "RPE 10 (Rango 10-12 reps). Al fallo.",
+    "technique": "Tumbado. Brazos al techo, baja las mancuernas a los lados de la frente. Sube explosivo."
+  },
+  "barbell glute bridge": {
+    "why": "Activación máxima del glúteo en extensión completa de cadera.",
+    "weights": "RPE 8 (Rango 6-8 reps).",
+    "technique": "Espalda alta en banco, mentón metido. Baja cadera y empuja apretando glúteos. Espinillas verticales arriba. Pausa 1 seg."
+  },
+  "dumbbell lunge": {
+    "why": "Trabajo unilateral para glúteos y cuádriceps que mejora equilibrio.",
+    "weights": "RPE 8 (Rango 10-12 por pierna).",
+    "technique": "Paso largo. Baja rodilla trasera hasta casi tocar suelo. Empuja con talón delantero para el siguiente paso."
+  },
+  "barbell front squat": {
+    "why": "Barra al frente obliga a estar más erguido, peso sobre cuádriceps y menos lumbar.",
+    "weights": "RPE 8 (Rango 8-10 reps).",
+    "technique": "Barra en deltoides frontales, codos apuntando adelante altos. Torso vertical."
+  },
+  "lever leg extension": {
+    "why": "Aislamiento puro del cuádriceps (recto femoral). Estrés metabólico final.",
+    "weights": "RPE 9-10 (Rango 12-15 reps).",
+    "technique": "Sube rápido, aprieta 1 seg arriba, baja lento contando 3 segundos."
+  },
+  "lever seated leg curl": {
+    "why": "Sentado flexiona la cadera, mayor estiramiento isquiotibial reclutando más fibras.",
+    "weights": "RPE 9-10 (Rango 12-15 reps).",
+    "technique": "No te balancees en el asiento. Aprieta los femorales al doblar las rodillas."
+  },
+  "hanging leg raise": {
+    "why": "Enfocado en la parte inferior del recto abdominal.",
+    "weights": "Peso corporal (Rango 10-15 reps). RPE 9.",
+    "technique": "Cuelga de barra. Sin balanceo. Sube rodillas al pecho enrollando pelvis (no piernas rígidas). Baja lento."
+  }
+}
