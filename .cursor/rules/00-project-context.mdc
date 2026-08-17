@@ -1,0 +1,45 @@
+---
+description: Project Context & Master Quality Gate
+globs: ["**/*"]
+alwaysApply: true
+---
+
+# GymApp — Project Context & Master Quality Gate
+
+## Project Identity
+- **Name**: GymApp
+- **Stack**: Next.js 16 (App Router) · React 19 · TypeScript (strict) · Tailwind CSS 4 · Chart.js
+- **Platform**: Progressive Web App (mobile-first, used on phone via local network)
+- **Theme**: Dark-mode-first fitness tracking application
+- **Language**: UI in Spanish (user-facing), code in English
+
+## Quality Philosophy
+This project follows the highest design engineering standards in the industry. Every component, every interaction, every pixel is held to the standard of a premium product studio.
+
+**The rules in this project are NOT suggestions — they are requirements.**
+
+## Active Rule Files
+All rules in `.cursor/rules/` are loaded and enforced simultaneously:
+
+1. **`01-design-engineering.mdc`** — Animation & microinteraction standards (Emil Kowalski)
+2. **`02-anti-slop-design.mdc`** — Visual design quality & anti-slop enforcement (Taste/Impeccable)
+3. **`03-vercel-web-standards.mdc`** — Performance, a11y, cognitive load (Vercel standards)
+4. **`04-react-performance.mdc`** — React rendering, TypeScript, architecture (Callstack principles)
+
+## Master Rules (Override Everything)
+1. **Never generate "good enough" code**. If it wouldn't impress a design engineer at Vercel, Linear, or Raycast — it's not done.
+2. **Dark mode is the default**. Light mode is secondary. Test dark mode FIRST.
+3. **Mobile-first**. This app is primarily used on a phone. Every layout decision starts at 375px.
+4. **Animations are mandatory**, not optional. Every state change must have a transition.
+5. **TypeScript strict mode is non-negotiable**. No `any`, no `@ts-ignore`, no shortcuts.
+6. **Performance budget**: Bundle size must stay minimal. Lazy-load anything not needed on first paint.
+7. **Accessibility is a feature, not an afterthought**. Semantic HTML, keyboard nav, screen reader support.
+
+## When Writing Code for This Project
+Before writing ANY code, mentally run through:
+1. Does this component have proper hover/active/focus states? (Rule 01)
+2. Would this pass the slop test? (Rule 02)
+3. Is this accessible and performant? (Rule 03)
+4. Am I causing unnecessary re-renders? (Rule 04)
+
+If the answer to ANY of these is "no" or "I'm not sure", fix it BEFORE writing the code.

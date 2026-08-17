@@ -1,7 +1,7 @@
 'use client';
 
 import { useState, useEffect, useMemo } from 'react';
-import { useWorkoutHistory } from '@/hooks/useWorkoutHistory';
+import { useWorkoutHistory, SessionState } from '@/hooks/useWorkoutHistory';
 import { useExerciseLibrary } from '@/hooks/useExerciseLibrary';
 import { useRoutine } from '@/hooks/useRoutine';
 import {
@@ -47,12 +47,12 @@ function StatCard({ icon, label, value, sub, color }: {
   icon: string; label: string; value: string | number; sub?: string; color?: string;
 }) {
   return (
-    <div className="bg-surface border border-outline-variant rounded-2xl p-md flex flex-col gap-xs shadow-sm hover:shadow-md transition-shadow">
+    <div className="bg-surface border border-outline-variant rounded-2xl p-md flex flex-col gap-xs shadow-sm dark:shadow-none hover:-translate-y-0.5 transition-transform duration-300 ease-[cubic-bezier(0.16,1,0.3,1)]">
       <div className="flex items-center gap-xs">
         <span className="material-symbols-outlined text-xl" style={{ color: color || 'var(--color-primary)' }}>{icon}</span>
-        <p className="font-label-caps text-label-caps text-on-surface-variant uppercase tracking-wider">{label}</p>
+        <p className="text-label-caps text-on-surface-variant uppercase tracking-wider">{label}</p>
       </div>
-      <p className="font-headline-lg text-headline-lg text-on-surface font-bold leading-none">{value}</p>
+      <p className="text-headline-lg text-on-surface font-bold leading-none">{value}</p>
       {sub && <p className="text-xs text-on-surface-variant">{sub}</p>}
     </div>
   );
@@ -62,14 +62,14 @@ function MuscleBar({ label, count, max, color }: { label: string; count: number;
   const pct = max > 0 ? Math.round((count / max) * 100) : 0;
   return (
     <div className="flex items-center gap-sm">
-      <span className="text-xs text-on-surface-variant w-24 shrink-0 capitalize">{label}</span>
-      <div className="flex-1 h-2 bg-surface-bright rounded-full overflow-hidden">
+      <span className="text-xs text-on-surface-variant w-24 shrink-0 capitalize tracking-wide">{label}</span>
+      <div className="flex-1 h-2 bg-surface-bright rounded-full overflow-hidden border border-outline-variant/30">
         <div
-          className="h-full rounded-full transition-all duration-700"
+          className="h-full rounded-full transition-all duration-700 ease-[cubic-bezier(0.16,1,0.3,1)]"
           style={{ width: `${pct}%`, backgroundColor: color }}
         />
       </div>
-      <span className="text-xs font-mono text-on-surface-variant w-6 text-right">{count}</span>
+      <span className="text-xs font-mono font-bold text-on-surface-variant w-6 text-right">{count}</span>
     </div>
   );
 }
@@ -91,7 +91,7 @@ export default function Stats() {
   }, [libLoaded, library, selectedExId]);
 
   // ── Derived stats ───────────────────────────────────────────────────────────
-  const completedSessions = useMemo(() => history.filter(s => s.completed), [history]);
+  const completedSessions = useMemo(() => history.filter((s: SessionState) => s.completed), [history]);
 
   const thisWeekSessions = useMemo(() =>
     completedSessions.filter(s => isSameWeek(new Date(s.startTime), new Date())).length,
@@ -122,7 +122,7 @@ export default function Stats() {
         const d = new Date(s.startTime);
         if (d >= startOfWeek && d < endOfWeek) {
           s.exerciseLogs.forEach(log => {
-            log.sets.forEach(set => {
+            log.sets.forEach((set: { completed: boolean; isWarmup?: boolean; weightKg?: string; repsDone?: string }) => {
               if (set.completed && !set.isWarmup && set.weightKg && set.repsDone) {
                 const w = parseFloat(set.weightKg);
                 const r = parseInt(set.repsDone, 10);
@@ -142,13 +142,24 @@ export default function Stats() {
     if (!routineLoaded || !routine) return {};
     const freq: Record<string, number> = {};
     for (const session of completedSessions) {
-      const dayDef = routine.days.find((d: any) => d.id === session.dayId);
+      let dayDef = null;
+      if (routine.phases) {
+        for (const p of routine.phases) {
+          const found = p.days.find((d: any) => d.id === session.dayId);
+          if (found) {
+            dayDef = found;
+            break;
+          }
+        }
+      } else if (routine.days) {
+        dayDef = routine.days.find((d: any) => d.id === session.dayId);
+      }
       if (!dayDef) continue;
-      for (const ex of dayDef.exercises) {
+      for (const ex of dayDef.exercises as unknown as Record<string, unknown>[]) {
         if (ex.isWarmup) continue;
-        const log = session.exerciseLogs.find((l: any) => l.exerciseId === ex.id);
-        if (!log || !log.sets.some((s: any) => s.completed)) continue;
-        const libMatch = library.find(libEx => libEx.name.toLowerCase() === ex.name.toLowerCase());
+        const log = session.exerciseLogs.find((l) => l.exerciseId === ex.id);
+        if (!log || !log.sets.some((s: { completed: boolean }) => s.completed)) continue;
+        const libMatch = library.find(libEx => libEx.name.toLowerCase() === (ex.name as string).toLowerCase());
         const muscle = ((ex as any).target || (libMatch as any)?.target || 'otros').toLowerCase();
         freq[muscle] = (freq[muscle] || 0) + 1;
       }
@@ -185,19 +196,20 @@ export default function Stats() {
     );
   }
 
-  const MUSCLE_COLORS = ['#6366f1', '#0ea5e9', '#10b981', '#f59e0b', '#ef4444', '#8b5cf6'];
+  // Updated palette colors for charts
+  const MUSCLE_COLORS = ['#a22c29', '#d97706', '#16a34a', '#0ea5e9', '#8b5cf6', '#b9baa3'];
 
   const lineChartData = {
     labels: chartData.map(d => new Date(d.date).toLocaleDateString('es', { month: 'short', day: 'numeric' })),
     datasets: [{
       label: 'Peso Máximo (kg)',
       data: chartData.map(d => d.maxWeight),
-      borderColor: '#6366f1',
-      backgroundColor: 'rgba(99,102,241,0.12)',
+      borderColor: '#a22c29',
+      backgroundColor: 'rgba(162, 44, 41, 0.12)',
       fill: true,
       tension: 0.4,
-      pointBackgroundColor: '#fff',
-      pointBorderColor: '#6366f1',
+      pointBackgroundColor: '#fafaf7',
+      pointBorderColor: '#a22c29',
       pointRadius: 5,
       pointHoverRadius: 7,
     }],
@@ -209,7 +221,7 @@ export default function Stats() {
       label: 'Volumen (kg)',
       data: weeklyVolume.map(w => w.volume),
       backgroundColor: weeklyVolume.map((_, i) =>
-        i === weeklyVolume.length - 1 ? 'rgba(99,102,241,0.9)' : 'rgba(99,102,241,0.3)'
+        i === weeklyVolume.length - 1 ? 'rgba(162, 44, 41, 0.9)' : 'rgba(162, 44, 41, 0.3)'
       ),
       borderRadius: 6,
     }],
@@ -221,18 +233,18 @@ export default function Stats() {
     plugins: {
       legend: { display: false },
       tooltip: {
-        backgroundColor: '#1e1e2e',
-        titleColor: '#fff',
-        bodyColor: '#a5b4fc',
-        borderColor: '#3f3f5c',
+        backgroundColor: 'var(--color-surface-container)',
+        titleColor: 'var(--color-on-surface)',
+        bodyColor: 'var(--color-primary)',
+        borderColor: 'var(--color-outline-variant)',
         borderWidth: 1,
         padding: 10,
         displayColors: false,
       },
     },
     scales: {
-      x: { grid: { color: 'rgba(255,255,255,0.06)' }, ticks: { color: '#8a8a93', font: { size: 11 } } },
-      y: { grid: { color: 'rgba(255,255,255,0.06)' }, ticks: { color: '#8a8a93', font: { size: 11 } } },
+      x: { grid: { color: 'rgba(138, 139, 126, 0.1)' }, ticks: { color: 'var(--color-on-surface-variant)', font: { size: 11, family: 'var(--font-mono)' } } },
+      y: { grid: { color: 'rgba(138, 139, 126, 0.1)' }, ticks: { color: 'var(--color-on-surface-variant)', font: { size: 11, family: 'var(--font-mono)' } } },
     },
   });
 
@@ -243,24 +255,24 @@ export default function Stats() {
   ] as const;
 
   return (
-    <div className="px-md md:px-lg pt-lg pb-32 space-y-lg animate-fade-in-up">
+    <div className="px-md md:px-lg pt-lg pb-32 space-y-lg max-w-6xl mx-auto animate-fade-in-up">
       {/* Header */}
       <div>
-        <h1 className="font-headline-lg text-headline-lg text-on-surface font-bold">Mis Estadísticas</h1>
-        <p className="text-on-surface-variant font-body-md text-body-md mt-xs">
+        <h1 className="text-headline-lg-mobile md:text-headline-lg text-on-surface tracking-tight">Mis Estadísticas</h1>
+        <p className="text-on-surface-variant text-body-md mt-xs">
           {stats.totalSessions} sesiones completadas · Racha de {stats.streakDays} días
         </p>
       </div>
 
       {/* Tab bar */}
-      <div className="flex gap-xs bg-surface-container p-1 rounded-xl self-start w-full md:w-auto">
+      <div className="flex gap-xs bg-surface-container p-1 rounded-xl self-start w-full md:w-auto overflow-x-auto no-scrollbar border border-outline-variant/50">
         {TABS.map(t => (
           <button
             key={t.id}
             onClick={() => setTab(t.id)}
-            className={`flex-1 md:flex-none flex items-center justify-center gap-xs px-md py-sm rounded-lg font-label-caps text-label-caps transition-all duration-200 ${
+            className={`flex-1 md:flex-none flex items-center justify-center gap-xs px-md py-sm rounded-lg text-label-caps transition-colors duration-200 ease-[cubic-bezier(0.16,1,0.3,1)] ${
               tab === t.id
-                ? 'bg-surface text-primary shadow-sm'
+                ? 'bg-surface text-primary shadow-sm border border-outline-variant/30'
                 : 'text-on-surface-variant hover:text-on-surface'
             }`}
           >
@@ -274,25 +286,25 @@ export default function Stats() {
       {tab === 'overview' && (
         <div className="space-y-lg animate-fade-in-up">
           {/* Stat cards */}
-          <div className="grid grid-cols-2 md:grid-cols-4 gap-sm">
-            <StatCard icon="fitness_center" label="Sesiones totales" value={stats.totalSessions} sub="completadas" color="#6366f1" />
-            <StatCard icon="local_fire_department" label="Esta semana" value={thisWeekSessions} sub="sesiones" color="#ef4444" />
-            <StatCard icon="bolt" label="Racha actual" value={`${stats.streakDays} días`} sub="consecutivos" color="#f59e0b" />
-            <StatCard icon="timer" label="Duración media" value={formatDuration(avgDuration)} sub="por sesión" color="#0ea5e9" />
+          <div className="grid grid-cols-2 md:grid-cols-4 gap-md">
+            <StatCard icon="fitness_center" label="Sesiones" value={stats.totalSessions} sub="completadas" color="#a22c29" />
+            <StatCard icon="local_fire_department" label="Semana" value={thisWeekSessions} sub="sesiones" color="#d97706" />
+            <StatCard icon="bolt" label="Racha" value={`${stats.streakDays} días`} sub="consecutivos" color="#16a34a" />
+            <StatCard icon="timer" label="Duración" value={formatDuration(avgDuration)} sub="por sesión" color="#0ea5e9" />
           </div>
 
           <div className="grid grid-cols-1 md:grid-cols-2 gap-lg">
             {/* Volume bar chart */}
-            <div className="bg-surface border border-outline-variant rounded-2xl p-md space-y-md">
+            <div className="bg-surface border border-outline-variant rounded-2xl p-md space-y-md shadow-sm dark:shadow-none">
               <div>
-                <h3 className="font-headline-sm text-headline-sm text-on-surface">Volumen Semanal</h3>
+                <h3 className="text-headline-sm text-on-surface">Volumen Semanal</h3>
                 <p className="text-xs text-on-surface-variant mt-0.5">Últimas 8 semanas (kg totales)</p>
               </div>
               <div className="h-52">
                 {weeklyVolume.some(w => w.volume > 0) ? (
                   <Bar data={barChartData} options={chartOptions() as any} />
                 ) : (
-                  <div className="w-full h-full flex flex-col items-center justify-center text-on-surface-variant gap-2 border-2 border-dashed border-outline-variant rounded-xl">
+                  <div className="w-full h-full flex flex-col items-center justify-center text-on-surface-variant gap-2 border-2 border-dashed border-outline-variant rounded-xl bg-surface-bright/50">
                     <span className="material-symbols-outlined text-4xl opacity-40">bar_chart</span>
                     <p className="text-sm">Sin datos aún</p>
                   </div>
@@ -301,9 +313,9 @@ export default function Stats() {
             </div>
 
             {/* Muscle frequency */}
-            <div className="bg-surface border border-outline-variant rounded-2xl p-md space-y-md">
+            <div className="bg-surface border border-outline-variant rounded-2xl p-md space-y-md shadow-sm dark:shadow-none">
               <div>
-                <h3 className="font-headline-sm text-headline-sm text-on-surface">Músculos más Trabajados</h3>
+                <h3 className="text-headline-sm text-on-surface">Músculos más Trabajados</h3>
                 <p className="text-xs text-on-surface-variant mt-0.5">Series completadas por grupo muscular</p>
               </div>
               {topMuscles.length > 0 ? (
@@ -319,7 +331,7 @@ export default function Stats() {
                   ))}
                 </div>
               ) : (
-                <div className="w-full h-40 flex flex-col items-center justify-center text-on-surface-variant gap-2 border-2 border-dashed border-outline-variant rounded-xl">
+                <div className="w-full h-40 flex flex-col items-center justify-center text-on-surface-variant gap-2 border-2 border-dashed border-outline-variant rounded-xl bg-surface-bright/50">
                   <span className="material-symbols-outlined text-4xl opacity-40">accessibility_new</span>
                   <p className="text-sm">Completa sesiones para ver datos</p>
                 </div>
@@ -328,9 +340,9 @@ export default function Stats() {
           </div>
 
           {/* Global totals */}
-          <div className="grid grid-cols-2 gap-sm">
-            <StatCard icon="scale" label="Volumen total" value={`${stats.totalVolume.toLocaleString('es')} kg`} sub="toneladas levantadas" color="#10b981" />
-            <StatCard icon="schedule" label="Tiempo total" value={formatDuration(stats.totalMinutes * 60)} sub="horas entrenadas" color="#8b5cf6" />
+          <div className="grid grid-cols-2 gap-md">
+            <StatCard icon="scale" label="Volumen total" value={`${stats.totalVolume.toLocaleString('es')} kg`} sub="toneladas levantadas" color="#8b5cf6" />
+            <StatCard icon="schedule" label="Tiempo total" value={formatDuration(stats.totalMinutes * 60)} sub="horas entrenadas" color="#b9baa3" />
           </div>
         </div>
       )}
@@ -338,16 +350,20 @@ export default function Stats() {
       {/* ── PROGRESS TAB ── */}
       {tab === 'progress' && (
         <div className="space-y-lg animate-fade-in-up">
-          <div className="bg-surface border border-outline-variant rounded-2xl p-md md:p-lg space-y-md">
+          <div className="bg-surface border border-outline-variant rounded-2xl p-md md:p-lg space-y-md shadow-sm dark:shadow-none">
             <div className="flex flex-col md:flex-row md:items-center justify-between gap-md">
               <div>
-                <h3 className="font-headline-sm text-headline-sm text-on-surface">Progresión de Carga</h3>
+                <h3 className="text-headline-sm text-on-surface">Progresión de Carga</h3>
                 <p className="text-xs text-on-surface-variant mt-0.5">Peso máximo por sesión</p>
               </div>
               <select
                 value={selectedExId}
                 onChange={e => setSelectedExId(e.target.value)}
-                className="bg-surface-bright border border-outline-variant text-on-surface rounded-xl px-md py-sm focus:outline-none focus:border-primary text-sm"
+                className="
+                  bg-surface-bright border border-outline-variant text-on-surface rounded-xl px-md py-sm
+                  focus:outline-none focus:border-primary focus:ring-1 focus:ring-primary text-body-md
+                  transition-colors duration-200 ease-[cubic-bezier(0.16,1,0.3,1)]
+                "
               >
                 {library.map(ex => (
                   <option key={ex.id} value={ex.id}>{ex.name}</option>
@@ -359,11 +375,11 @@ export default function Stats() {
             {chartData.length > 0 && (() => {
               const pr = Math.max(...chartData.map(d => d.maxWeight));
               return (
-                <div className="flex items-center gap-sm p-sm bg-primary/10 border border-primary/20 rounded-xl">
+                <div className="flex items-center gap-sm p-sm bg-primary-soft border border-primary/20 rounded-xl">
                   <span className="material-symbols-outlined text-primary" style={{ fontVariationSettings: "'FILL' 1" }}>emoji_events</span>
                   <div>
-                    <p className="font-label-caps text-label-caps text-primary">RÉCORD PERSONAL</p>
-                    <p className="font-headline-sm text-headline-sm text-on-surface">{pr} kg</p>
+                    <p className="text-label-caps text-primary uppercase">RÉCORD PERSONAL</p>
+                    <p className="text-headline-sm text-on-surface">{pr} kg</p>
                   </div>
                 </div>
               );
@@ -373,7 +389,7 @@ export default function Stats() {
               {chartData.length > 0 ? (
                 <Line data={lineChartData} options={chartOptions() as any} />
               ) : (
-                <div className="w-full h-full flex flex-col items-center justify-center text-on-surface-variant border-2 border-dashed border-outline-variant rounded-xl gap-2">
+                <div className="w-full h-full flex flex-col items-center justify-center text-on-surface-variant border-2 border-dashed border-outline-variant rounded-xl gap-2 bg-surface-bright/50">
                   <span className="material-symbols-outlined text-4xl opacity-40">show_chart</span>
                   <p className="text-sm">Sin datos para {selectedEx?.name || 'este ejercicio'}</p>
                   <p className="text-xs opacity-60">Registra pesos durante tus sesiones</p>
@@ -387,14 +403,14 @@ export default function Stats() {
       {/* ── CALENDAR TAB ── */}
       {tab === 'calendar' && (
         <div className="space-y-lg animate-fade-in-up">
-          <div className="bg-surface border border-outline-variant rounded-2xl p-md md:p-lg space-y-md">
+          <div className="bg-surface border border-outline-variant rounded-2xl p-md md:p-lg space-y-md shadow-sm dark:shadow-none">
             <div>
-              <h3 className="font-headline-sm text-headline-sm text-on-surface">Actividad — Últimos 70 días</h3>
+              <h3 className="text-headline-sm text-on-surface">Actividad — Últimos 70 días</h3>
               <p className="text-xs text-on-surface-variant mt-0.5">{completedSessions.length} sesiones registradas</p>
             </div>
 
             {/* Heatmap grid */}
-            <div className="flex flex-wrap gap-1 pt-xs">
+            <div className="flex flex-wrap gap-1.5 pt-xs">
               {calendarDays.map(({ date, count }) => {
                 const d = new Date(date + 'T12:00:00');
                 const isToday = date === new Date().toISOString().split('T')[0];
@@ -403,8 +419,8 @@ export default function Stats() {
                     key={date}
                     title={`${d.toLocaleDateString('es', { weekday: 'short', day: 'numeric', month: 'short' })}${count ? ' ✓ Entreno' : ''}`}
                     className={`w-7 h-7 rounded-md transition-all duration-300 flex items-center justify-center cursor-default
-                      ${count ? 'bg-primary shadow-sm shadow-primary/30' : 'bg-surface-bright border border-outline-variant/40'}
-                      ${isToday ? 'ring-2 ring-primary ring-offset-1 ring-offset-surface' : ''}
+                      ${count ? 'bg-primary shadow-sm' : 'bg-surface-bright border border-outline-variant/50'}
+                      ${isToday ? 'ring-2 ring-primary ring-offset-2 ring-offset-surface scale-110' : ''}
                     `}
                   >
                     {count > 0 && (
@@ -418,33 +434,33 @@ export default function Stats() {
             </div>
 
             {/* Legend */}
-            <div className="flex items-center gap-sm pt-xs">
-              <div className="w-5 h-5 rounded bg-surface-bright border border-outline-variant/40" />
-              <span className="text-xs text-on-surface-variant">Sin entreno</span>
-              <div className="w-5 h-5 rounded bg-primary ml-sm" />
-              <span className="text-xs text-on-surface-variant">Sesión completada</span>
+            <div className="flex items-center gap-sm pt-md border-t border-outline-variant">
+              <div className="w-5 h-5 rounded border border-outline-variant/50 bg-surface-bright" />
+              <span className="text-xs text-on-surface-variant text-label-caps">SIN ENTRENO</span>
+              <div className="w-5 h-5 rounded bg-primary ml-md" />
+              <span className="text-xs text-on-surface-variant text-label-caps">COMPLETADO</span>
             </div>
 
             {/* Recent sessions list */}
             {completedSessions.length > 0 && (
-              <div className="space-y-sm pt-sm border-t border-outline-variant">
-                <h4 className="font-label-caps text-label-caps text-on-surface-variant">Últimas Sesiones</h4>
+              <div className="space-y-0 pt-sm">
+                <h4 className="text-label-caps text-on-surface-variant mb-sm mt-md">Últimas Sesiones</h4>
                 {[...completedSessions].reverse().slice(0, 5).map((s, i) => (
-                  <div key={i} className="flex items-center justify-between py-sm border-b border-outline-variant/30 last:border-0">
-                    <div className="flex items-center gap-sm">
-                      <div className="w-8 h-8 rounded-xl bg-primary/10 flex items-center justify-center">
+                  <div key={i} className="flex items-center justify-between py-sm border-b border-outline-variant/50 last:border-0 hover:bg-surface-bright px-sm -mx-sm rounded-lg transition-colors duration-200">
+                    <div className="flex items-center gap-md">
+                      <div className="w-10 h-10 rounded-xl bg-primary-soft flex items-center justify-center">
                         <span className="material-symbols-outlined text-primary text-sm" style={{ fontVariationSettings: "'FILL' 1" }}>fitness_center</span>
                       </div>
                       <div>
-                        <p className="font-body-md text-body-md text-on-surface capitalize">{s.dayId ?? 'Sesión'}</p>
+                        <p className="text-body-md text-on-surface capitalize font-medium">{s.dayId ?? 'Sesión'}</p>
                         <p className="text-xs text-on-surface-variant">
                           {new Date(s.startTime).toLocaleDateString('es', { weekday: 'long', day: 'numeric', month: 'short' })}
                         </p>
                       </div>
                     </div>
                     <div className="text-right">
-                      <p className="font-mono text-sm text-primary">{formatDuration(s.durationSeconds || 0)}</p>
-                      <p className="text-xs text-on-surface-variant">{s.exerciseLogs?.length ?? 0} ejercicios</p>
+                      <p className="font-mono text-sm text-primary font-bold">{formatDuration(s.durationSeconds || 0)}</p>
+                      <p className="text-xs text-on-surface-variant text-label-caps mt-0.5">{s.exerciseLogs?.length ?? 0} EJ.</p>
                     </div>
                   </div>
                 ))}

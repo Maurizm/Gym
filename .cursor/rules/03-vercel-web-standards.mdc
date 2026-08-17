@@ -1,0 +1,180 @@
+---
+description: Vercel Web Standards (a11y, performance, cognitive load, Next.js best practices)
+globs: ["**/*.tsx", "**/*.ts", "**/*.css", "**/*.mjs"]
+alwaysApply: true
+---
+
+# Vercel Web Design & Engineering Standards
+
+> Build like Vercel ships: fast, accessible, beautiful, minimal cognitive load.
+> Every millisecond counts. Every unnecessary element is noise.
+
+## Performance Standards
+
+### Core Web Vitals Targets
+| Metric | Target | Max Acceptable |
+|--------|--------|----------------|
+| LCP (Largest Contentful Paint) | < 1.5s | < 2.5s |
+| FID / INP (Interaction to Next Paint) | < 100ms | < 200ms |
+| CLS (Cumulative Layout Shift) | < 0.05 | < 0.1 |
+| TTFB (Time to First Byte) | < 200ms | < 600ms |
+
+### Mandatory Optimizations
+1. **Images**: Always use `next/image` with `width`, `height`, and appropriate `sizes` prop. Never use raw `<img>` tags.
+   ```tsx
+   // ✅ Correct
+   <Image src="/hero.webp" alt="Descriptive alt" width={800} height={600} priority />
+   
+   // ❌ FORBIDDEN
+   <img src="/hero.png" />
+   ```
+
+2. **Fonts**: Load via `next/font` for zero-CLS, self-hosted fonts. Never use `<link>` to Google Fonts CDN.
+   ```tsx
+   // ✅ Correct
+   import { Inter } from 'next/font/google';
+   const inter = Inter({ subsets: ['latin'], display: 'swap' });
+   ```
+
+3. **Code Splitting**: Use `dynamic()` for heavy components not needed on initial paint.
+   ```tsx
+   import dynamic from 'next/dynamic';
+   const Chart = dynamic(() => import('@/components/ProgressChart'), {
+     loading: () => <ChartSkeleton />,
+     ssr: false,
+   });
+   ```
+
+4. **Bundle Size**: Never import entire libraries when tree-shaking is available.
+   ```tsx
+   // ✅ Correct
+   import { Chart as ChartJS, ArcElement } from 'chart.js';
+   
+   // ❌ FORBIDDEN
+   import Chart from 'chart.js/auto';
+   ```
+
+5. **Server Components by Default**: Every component is a Server Component unless it explicitly needs client interactivity. Mark client components with `'use client'` only at the boundary.
+
+6. **Streaming & Suspense**: Wrap slow data fetches in `<Suspense>` with meaningful fallbacks.
+
+### What NOT To Ship
+- ❌ `console.log` in production code
+- ❌ Unused imports or dead code
+- ❌ `any` type in TypeScript (use `unknown` + type guards instead)
+- ❌ Inline styles (use Tailwind or CSS modules)
+- ❌ `!important` in CSS (refactor specificity instead)
+- ❌ `setTimeout` for animation timing (use CSS transitions or `requestAnimationFrame`)
+- ❌ Synchronous `localStorage` reads in render path (causes hydration mismatches)
+
+## Accessibility Standards (a11y)
+
+### WCAG 2.1 AA Compliance — MANDATORY
+1. **Color Contrast**: 
+   - Normal text: ≥ 4.5:1 contrast ratio against background
+   - Large text (≥18px bold or ≥24px): ≥ 3:1
+   - UI components and graphical objects: ≥ 3:1
+   - Use tools: WebAIM Contrast Checker, axe DevTools
+
+2. **Keyboard Navigation**:
+   - All interactive elements must be reachable via `Tab` key
+   - Focus order must follow logical reading order
+   - Custom components must implement proper `role`, `tabIndex`, `aria-*` attributes
+   - **Focus trapping** in modals/dialogs — focus must not escape to background content
+   - `Escape` key must close modals, dropdowns, and overlays
+
+3. **Semantic HTML**:
+   ```tsx
+   // ✅ Correct
+   <nav aria-label="Main navigation">
+   <main>
+   <section aria-labelledby="section-title">
+   <button type="button" onClick={handleClick}>
+   
+   // ❌ FORBIDDEN
+   <div onClick={handleClick}>  // div is not a button
+   <div class="nav">            // div is not nav
+   ```
+
+4. **ARIA When Needed**:
+   - Use native HTML elements FIRST (`<button>`, `<dialog>`, `<details>`)
+   - Add `aria-label` for icon-only buttons
+   - Use `aria-live="polite"` for dynamic content updates (toasts, counters)
+   - Use `aria-expanded` for toggleable sections
+   - Use `role="status"` for loading indicators
+
+5. **Screen Reader Audit**:
+   - Every image has meaningful `alt` text (or `alt=""` for decorative)
+   - Form inputs have associated `<label>` elements
+   - Error messages are linked to inputs via `aria-describedby`
+   - Page title changes on route navigation
+
+6. **Motion Preferences**:
+   ```css
+   @media (prefers-reduced-motion: reduce) {
+     *, *::before, *::after {
+       animation-duration: 0.01ms !important;
+       animation-iteration-count: 1 !important;
+       transition-duration: 0.01ms !important;
+       scroll-behavior: auto !important;
+     }
+   }
+   ```
+
+## Cognitive Load Minimization
+
+### Interface Clarity
+- **One primary action per screen/section**. If there are multiple CTAs, only ONE should be visually dominant.
+- **Progressive disclosure**: Show essential info first, details on demand (expandable sections, modals).
+- **Limit choices**: No more than 5-7 options visible at once (Miller's Law). Use search/filter for longer lists.
+- **Consistent patterns**: Same action = same component = same position across all pages.
+
+### Copy & Microcopy
+- Labels should be **verbs for actions** ("Save workout", not "Submit"), **nouns for navigation** ("History", not "Go to history").
+- Error messages must explain **what went wrong** AND **how to fix it**.
+- Empty states must have a **call to action**, not just a description.
+- **Never use technical jargon** in user-facing text (no "null", "undefined", "error 500").
+
+### Information Architecture
+- **Max 3 levels of navigation depth**. If deeper, reconsider the IA.
+- **Breadcrumbs or back buttons** on any page more than 1 level deep.
+- **Active navigation state** must be clearly visible — the user should always know "where am I?".
+
+## Next.js Specific Standards
+
+### App Router Patterns
+- Use **`layout.tsx`** for shared UI (navigation, providers). Never duplicate layout across pages.
+- Use **`loading.tsx`** for route-level loading states with skeleton UI.
+- Use **`error.tsx`** for route-level error boundaries with user-friendly messages.
+- Use **`not-found.tsx`** for custom 404 pages — never show the default.
+- Use **metadata API** for SEO on every page:
+  ```tsx
+  export const metadata: Metadata = {
+    title: 'Page Title — App Name',
+    description: 'Compelling description under 160 chars',
+  };
+  ```
+
+### Data Patterns
+- Fetch data in **Server Components** whenever possible.
+- Use **Server Actions** for mutations (form submissions, data updates).
+- Client-side state only for **ephemeral UI state** (modals open, form input, animation state).
+- Cache aggressively with `unstable_cache` or route segment config.
+
+### Security
+- Sanitize all user inputs.
+- Use `encodeURIComponent` for URL parameters.
+- Never expose API keys or secrets in client bundles.
+- Use `headers()` or `cookies()` server-side, never in client components.
+
+## Pre-Ship Checklist
+- [ ] Lighthouse score ≥ 90 on Performance, Accessibility, Best Practices, SEO
+- [ ] Zero axe-core violations
+- [ ] Keyboard-navigable — tested Tab through entire page
+- [ ] Dark mode tested — no contrast issues
+- [ ] Mobile responsive — tested at 320px, 375px, 768px, 1024px, 1440px
+- [ ] No layout shift on load (CLS < 0.05)
+- [ ] Loading states for every async operation
+- [ ] Error states for every fallible operation
+- [ ] `prefers-reduced-motion` respected
+- [ ] No `console.log` or `console.error` in production

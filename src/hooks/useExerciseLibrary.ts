@@ -47,21 +47,42 @@ export function useExerciseLibrary() {
     const map = new Map<string, LibraryExercise>();
     
     // Add defaults
-    defaultRoutine.days.forEach(day => {
-      day.exercises.forEach((ex: any) => {
-        if (!map.has(ex.id)) {
-          map.set(ex.id, {
-            id: ex.id,
-            name: ex.name,
-            unit: ex.unit || 'reps',
-            perSide: ex.perSide || false,
-            imageUrl: ex.imageUrl,
-            imageUrls: ex.imageUrls,
-            isCustom: false
+    if (defaultRoutine.phases) {
+      defaultRoutine.phases.forEach(phase => {
+        phase.days.forEach(day => {
+          day.exercises.forEach((ex: any) => {
+            if (!map.has(ex.id)) {
+              map.set(ex.id, {
+                id: ex.id,
+                name: ex.name,
+                unit: ex.unit || 'reps',
+                perSide: ex.perSide || false,
+                imageUrl: ex.imageUrl,
+                imageUrls: ex.imageUrls,
+                isCustom: false
+              });
+            }
           });
-        }
+        });
       });
-    });
+    } else if ((defaultRoutine as any).days) {
+      // Fallback for legacy
+      (defaultRoutine as any).days.forEach((day: any) => {
+        day.exercises.forEach((ex: any) => {
+          if (!map.has(ex.id)) {
+            map.set(ex.id, {
+              id: ex.id,
+              name: ex.name,
+              unit: ex.unit || 'reps',
+              perSide: ex.perSide || false,
+              imageUrl: ex.imageUrl,
+              imageUrls: ex.imageUrls,
+              isCustom: false
+            });
+          }
+        });
+      });
+    }
 
     // Add custom
     customExercises.forEach(ex => {

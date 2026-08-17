@@ -2,6 +2,31 @@
 
 import { useState, useEffect, useCallback, useRef } from 'react';
 
+const playDing = () => {
+  try {
+    const AudioContext = window.AudioContext || (window as any).webkitAudioContext;
+    if (!AudioContext) return;
+    const ctx = new AudioContext();
+    const osc = ctx.createOscillator();
+    const gainNode = ctx.createGain();
+    
+    osc.type = 'sine';
+    osc.frequency.setValueAtTime(880, ctx.currentTime); // A5 note
+    osc.frequency.exponentialRampToValueAtTime(440, ctx.currentTime + 0.5);
+    
+    gainNode.gain.setValueAtTime(0.5, ctx.currentTime);
+    gainNode.gain.exponentialRampToValueAtTime(0.01, ctx.currentTime + 1);
+    
+    osc.connect(gainNode);
+    gainNode.connect(ctx.destination);
+    
+    osc.start();
+    osc.stop(ctx.currentTime + 1);
+  } catch (e) {
+    console.error("Audio playback failed", e);
+  }
+};
+
 export function useTimer() {
   const [remainingSecs, setRemainingSecs] = useState<number | null>(null);
   const [totalSecs, setTotalSecs] = useState<number>(0);
@@ -11,7 +36,7 @@ export function useTimer() {
   const format = (seconds: number) => {
     const mins = Math.floor(seconds / 60);
     const secs = seconds % 60;
-    return `\${mins.toString().padStart(2, '0')}:\${secs.toString().padStart(2, '0')}`;
+    return `${mins.toString().padStart(2, '0')}:${secs.toString().padStart(2, '0')}`;
   };
 
   const stop = useCallback(() => {
@@ -33,6 +58,7 @@ export function useTimer() {
       if ('vibrate' in navigator) {
         navigator.vibrate([200, 100, 200, 100, 400]);
       }
+      playDing();
       return;
     }
     setRemainingSecs(Math.ceil(ms / 1000));
@@ -47,6 +73,19 @@ export function useTimer() {
     intervalRef.current = setInterval(tick, 1000);
     tick(); // Initial
   }, [stop, tick]);
+
+  const addTime = useCallback((secondsToAdd: number) => {
+    if (!endTimeRef.current || remainingSecs === null) return;
+    const newRemaining = remainingSecs + secondsToAdd;
+    if (newRemaining <= 0) {
+      stop();
+      return;
+    }
+    const newTotal = totalSecs + secondsToAdd;
+    setTotalSecs(newTotal);
+    setRemainingSecs(newRemaining);
+    endTimeRef.current = endTimeRef.current + (secondsToAdd * 1000);
+  }, [remainingSecs, totalSecs, stop]);
 
   useEffect(() => {
     const handleVisibility = () => {
@@ -66,6 +105,7 @@ export function useTimer() {
     totalSecs,
     start,
     stop,
+    addTime,
     format,
     isActive: remainingSecs !== null
   };

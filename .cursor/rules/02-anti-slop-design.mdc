@@ -1,0 +1,133 @@
+---
+description: Anti-Slop Design Standards (Taste & Impeccable principles)
+globs: ["**/*.tsx", "**/*.ts", "**/*.css"]
+alwaysApply: true
+---
+
+# Anti-Slop Design Standards
+
+> "Slop" = generic, template-looking, lifeless UI. This project has ZERO tolerance for slop.
+> Every screen must look like it was designed by a studio that charges $300/hr.
+
+## The Slop Test — If ANY of these are true, the code FAILS review:
+1. ❌ Using default browser fonts (Times New Roman, serif, system default sans-serif without explicit stack)
+2. ❌ Using pure `#000000` black on pure `#FFFFFF` white backgrounds
+3. ❌ Generic blue (`#007bff`, `#0066cc`) as primary color
+4. ❌ Uniform padding/margin everywhere (everything is `p-4`, `m-4`)
+5. ❌ All text the same size or weight
+6. ❌ Buttons that look like Bootstrap defaults
+7. ❌ Cards with identical shadows and border-radius without hierarchy
+8. ❌ Empty space that serves no compositional purpose
+9. ❌ Icons used as decoration with no functional meaning
+10. ❌ Color palette with more than 2 competing saturated hues (unless intentionally designed)
+
+## Typography Rules
+
+### Font Stack
+- Use a curated sans-serif: **Inter**, **Geist**, **Satoshi**, or **Outfit** via Google Fonts or `next/font`.
+- Monospace for code/data: **JetBrains Mono**, **Geist Mono**, or **Fira Code**.
+- Load with `next/font/google` or `next/font/local` for zero-CLS font loading.
+
+### Type Scale (MANDATORY)
+Establish and reuse a consistent type scale. Example using Tailwind:
+```
+Hero/Display:  text-4xl md:text-5xl lg:text-6xl  font-bold    tracking-tight
+Page title:    text-2xl md:text-3xl               font-semibold tracking-tight
+Section head:  text-xl md:text-2xl                font-semibold
+Card title:    text-lg                            font-medium
+Body:          text-base                          font-normal   leading-relaxed
+Caption/meta:  text-sm                            font-normal   text-muted-foreground
+Micro/label:   text-xs                            font-medium   uppercase tracking-wider
+```
+
+### Rules
+- **Headings MUST use `tracking-tight`** (letter-spacing: -0.025em). Loose headings look amateur.
+- **Body text MUST use `leading-relaxed`** (line-height: 1.625) or `leading-7`. Cramped text is unreadable.
+- **Contrast between heading weight and body weight** must be ≥2 steps (e.g., bold headings, normal body).
+- **Never use more than 3 font weights** on a single screen.
+
+## Color System
+
+### Dark Mode (PRIMARY — This app is dark-mode-first)
+```css
+/* Semantic tokens — NOT raw hex values scattered in components */
+--background:       hsl(0 0% 3.9%);      /* Near-black, NOT pure black */
+--foreground:        hsl(0 0% 98%);       /* Near-white, NOT pure white */
+--muted:             hsl(0 0% 14.9%);     /* Subtle backgrounds */
+--muted-foreground:  hsl(0 0% 63.9%);     /* Secondary text */
+--card:              hsl(0 0% 6%);        /* Card surfaces */
+--card-foreground:   hsl(0 0% 98%);
+--border:            hsl(0 0% 14.9%);     /* Subtle borders */
+--ring:              hsl(0 0% 83.1%);     /* Focus rings */
+--primary:           /* YOUR brand hue */ ;
+--primary-foreground:/* Contrast color for text on primary */;
+--destructive:       hsl(0 62.8% 50.6%);
+--accent:            hsl(0 0% 14.9%);
+--accent-foreground: hsl(0 0% 98%);
+```
+
+### Rules
+- **NEVER hardcode hex/rgb values in components**. Use CSS custom properties or Tailwind semantic tokens.
+- **Surfaces must have hierarchy**: background → card → elevated card. Minimum 3 elevation levels.
+- **Borders should be subtle** (`border-white/10` or `border-[hsl(0,0%,15%)]`), not harsh.
+- **Text hierarchy through opacity/color, not just size**: primary text (`opacity-100`), secondary (`opacity-70`), muted (`opacity-40`).
+- **Accent colors must be used sparingly** — max 10-15% of the visible surface area.
+
+## Spacing & Layout
+
+### The 4px Grid
+All spacing must be multiples of 4px: `4, 8, 12, 16, 20, 24, 32, 40, 48, 64, 80, 96`.
+- Component internal padding: `12–16px`
+- Between related items: `8–12px`
+- Between sections: `32–48px`
+- Page margins: `16–24px` mobile, `32–64px` desktop
+
+### Rules
+- **Generous whitespace > cramped layouts**. When in doubt, add more space.
+- **Group related elements tightly**, separate unrelated elements generously. This creates visual hierarchy through proximity (Gestalt principle).
+- **Never center-align body text** over 2 lines. Left-align for readability.
+- **Max content width**: `max-w-2xl` for text, `max-w-6xl` for dashboards. Never full-width text.
+
+## Component Quality Standards
+
+### Buttons
+- Must have **4 states minimum**: default, hover, active (pressed), disabled.
+- Primary buttons: filled with primary color, slight shadow.
+- Secondary buttons: ghost/outline style, subtle background on hover.
+- **Active state**: `scale(0.97–0.98)` transform. MANDATORY.
+- **Disabled state**: `opacity-50 cursor-not-allowed`. Never just gray out the text.
+- **Icon + label buttons**: Icon must be `16–20px`, with `8px` gap to label.
+
+### Cards
+- Must have **differentiated elevation levels**: flat, raised, floating.
+- Hover state: subtle lift + shadow increase OR border glow.
+- **Content inside cards** must have consistent internal padding.
+- **Never stack cards without visual separation** (gap, dividers, or background contrast).
+
+### Forms & Inputs
+- Inputs must have: placeholder (muted), focus ring (primary color), error state (destructive + message), disabled state.
+- Labels above inputs, not as placeholders that disappear.
+- Error messages appear with a slide-down animation, not instant.
+
+### Empty States
+- **NEVER** show a blank page with just "No data" text.
+- Use an illustration or icon (≥48px), a message, and a CTA button if applicable.
+- Empty states should feel intentional, not broken.
+
+## Dark Mode Polish Checklist
+- [ ] No pure `#000` backgrounds — use `hsl(0 0% 3.9%)` or similar near-black
+- [ ] No pure `#FFF` text — use `hsl(0 0% 98%)` or `text-zinc-50`
+- [ ] Images/illustrations have appropriate dark mode variants or overlays
+- [ ] Shadows use `rgba(0,0,0,0.3–0.5)` not `rgba(0,0,0,0.1)` (too invisible on dark)
+- [ ] Borders are visible but subtle (`white/10` or `zinc-800`)
+- [ ] Charts/graphs use colors that work on dark backgrounds (check contrast)
+- [ ] No "washed out" or "foggy" sections — every element has clear contrast
+- [ ] Status colors (success, warning, error) are adjusted for dark mode readability
+
+## The Final Test
+Look at your screen from 2 meters away. Can you identify:
+1. The most important element? (visual hierarchy)
+2. Where to take action? (CTA prominence)
+3. How content is grouped? (spatial relationships)
+
+If not, the design FAILS and needs revision.

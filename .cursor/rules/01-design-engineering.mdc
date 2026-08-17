@@ -1,0 +1,110 @@
+---
+description: Design Engineering & Animation Standards (Emil Kowalski principles)
+globs: ["**/*.tsx", "**/*.ts", "**/*.css"]
+alwaysApply: true
+---
+
+# Design Engineering & Animation Standards
+
+> Inspired by Emil Kowalski's philosophy: every pixel, every frame, every transition matters.
+> The bar is perfection. If it doesn't feel alive, it's not done.
+
+## Core Animation Principles
+
+### Timing & Duration
+- **Micro-interactions** (hover, focus, active): `150ms–200ms`. Never exceed `250ms`.
+- **Element entrances** (fade-in, slide-in): `250ms–400ms`. Adjust based on travel distance.
+- **Page transitions / layout shifts**: `300ms–500ms`.
+- **Complex orchestrations** (staggered lists): `400ms–700ms` total, with `30ms–60ms` stagger delay per item.
+- **NEVER** use durations over `800ms` for UI elements. The interface must feel instant.
+
+### Easing Curves (CRITICAL)
+- **Entrances**: Use `cubic-bezier(0.16, 1, 0.3, 1)` (ease-out with overshoot feel) or `ease-out`.
+- **Exits**: Use `cubic-bezier(0.55, 0, 1, 0.45)` (ease-in) — fast start, decelerate.
+- **Continuous/hover**: Use `cubic-bezier(0.45, 0, 0.55, 1)` (ease-in-out) sparingly.
+- **Spring-like**: Use `cubic-bezier(0.34, 1.56, 0.64, 1)` for playful, bouncy interactions.
+- **NEVER** use `linear` for UI animations. Linear motion feels robotic and dead.
+- **NEVER** use the default `ease` — it's a compromise that excels at nothing.
+
+### CSS Transition Patterns
+```css
+/* ✅ Correct — specific properties, tuned timing */
+.card {
+  transition: transform 200ms cubic-bezier(0.16, 1, 0.3, 1),
+              box-shadow 200ms cubic-bezier(0.16, 1, 0.3, 1),
+              opacity 150ms ease-out;
+}
+
+/* ❌ FORBIDDEN — lazy, unpredictable, performance-hostile */
+.card {
+  transition: all 0.3s ease;
+}
+```
+
+### Mandatory Rules
+1. **NEVER use `transition: all`**. Always specify exact properties. `all` causes layout thrashing and animates properties you didn't intend.
+2. **ONLY animate `transform` and `opacity`** for performant animations. These are GPU-composited. If you must animate other properties (height, background-color), justify it explicitly.
+3. **Every interactive element MUST have a hover/active state**. Buttons, cards, links, icons — no exceptions.
+4. **Hover states must provide feedback within 1 frame** (~16ms). Use `will-change` or `transform: translateZ(0)` for elements that will animate.
+5. **Button press feedback**: Scale down to `scale(0.97)–scale(0.98)` on `:active`. This is mandatory.
+6. **Focus-visible states** must be visually distinct (ring, outline, glow) — never remove them.
+
+## Animation Audit Checklist
+Before any PR or component is considered "done", verify:
+
+- [ ] **Page load**: Do elements enter with a purposeful animation (fade + slight translate)?
+- [ ] **Lists/grids**: Are items staggered on entry? (not all appearing at once)
+- [ ] **Modals/dialogs**: Do they scale + fade in from `scale(0.95) opacity(0)` to `scale(1) opacity(1)`?
+- [ ] **Toasts/notifications**: Do they slide in from edge and slide out on dismiss?
+- [ ] **Tab/view switches**: Is there a crossfade or slide between content?
+- [ ] **Loading states**: Are there skeleton screens or shimmer effects (never a blank void)?
+- [ ] **Scroll interactions**: Is there at least one scroll-triggered reveal on long pages?
+- [ ] **Hover on cards**: Subtle lift (`translateY(-2px)`) + shadow elevation change?
+- [ ] **Icon transitions**: Do icons morph or animate on state change (e.g., hamburger → X)?
+- [ ] **Empty states**: Are they illustrated or animated, not just plain text?
+
+## Tailwind CSS Animation Tokens
+Define these in your `globals.css` or Tailwind config and reuse them:
+
+```css
+@theme {
+  --animate-fade-in: fade-in 400ms cubic-bezier(0.16, 1, 0.3, 1) forwards;
+  --animate-slide-up: slide-up 350ms cubic-bezier(0.16, 1, 0.3, 1) forwards;
+  --animate-slide-down: slide-down 350ms cubic-bezier(0.16, 1, 0.3, 1) forwards;
+  --animate-scale-in: scale-in 250ms cubic-bezier(0.34, 1.56, 0.64, 1) forwards;
+  --animate-shimmer: shimmer 2s ease-in-out infinite;
+}
+
+@keyframes fade-in {
+  from { opacity: 0; }
+  to { opacity: 1; }
+}
+
+@keyframes slide-up {
+  from { opacity: 0; transform: translateY(12px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+@keyframes scale-in {
+  from { opacity: 0; transform: scale(0.95); }
+  to { opacity: 1; transform: scale(1); }
+}
+
+@keyframes shimmer {
+  0% { background-position: -200% 0; }
+  100% { background-position: 200% 0; }
+}
+```
+
+## Performance Guardrails
+- Audit with Chrome DevTools **Performance** tab. Animations must hit **60fps** consistently.
+- Use `will-change` sparingly and only on elements about to animate. Remove it after animation completes if dynamic.
+- Prefer CSS animations over JS-driven animations for simple transitions.
+- For complex orchestrations, use `requestAnimationFrame` — never `setTimeout`/`setInterval`.
+- Test on **low-end devices** (use Chrome's CPU throttling at 4x slowdown).
+
+## Philosophy
+> "The best interfaces feel like they're anticipating you."  
+> — Every transition should make the user feel like the interface is *alive* and *responsive to them*.  
+> If an element appears without motion, ask: "Would this feel better with a 200ms fade?"  
+> The answer is almost always yes.

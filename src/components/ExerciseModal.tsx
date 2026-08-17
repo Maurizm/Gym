@@ -1,19 +1,17 @@
 'use client';
 
 import { useEffect, useState } from 'react';
-import Image from 'next/image';
 import { ImageCarousel } from './ImageCarousel';
 import nippardTips from '@/data/nippard_tips.json';
-import exercisesData from '@/data/exercises.json';
 
 interface ExerciseModalProps {
-  exerciseName: string; // The translated Spanish name (for the UI) or English name
-  exerciseData: any; // The raw object from exercisesData (or formatted)
+  exerciseName?: string; // The translated Spanish name (for the UI) or English name
+  exerciseData?: Record<string, unknown> | null; // The raw object from exercisesData (or formatted)
   isOpen: boolean;
   onClose: () => void;
 }
 
-export function ExerciseModal({ exerciseName, exerciseData, isOpen, onClose }: ExerciseModalProps) {
+export function ExerciseModal({ exerciseName = '', exerciseData = null, isOpen, onClose }: ExerciseModalProps) {
   const [isVisible, setIsVisible] = useState(false);
 
   useEffect(() => {
@@ -31,10 +29,10 @@ export function ExerciseModal({ exerciseName, exerciseData, isOpen, onClose }: E
 
   if (!isOpen && !isVisible) return null;
 
-  const originalName = exerciseData?.name?.toLowerCase() || "";
+  const originalName = (exerciseData?.name as string)?.toLowerCase() || "";
   
   // Attempt exact match first, if not try partial map
-  let tips = (nippardTips as any)[originalName];
+  let tips = (nippardTips as Record<string, unknown>)[originalName] as Record<string, unknown> | undefined;
   if (!tips) {
     // Reverse map from Spanish to English for workout view
     const reverseMap: Record<string, string> = {
@@ -76,16 +74,16 @@ export function ExerciseModal({ exerciseName, exerciseData, isOpen, onClose }: E
     };
     
     const engKey = reverseMap[originalName] || Object.keys(nippardTips).find(k => originalName.includes(k) || k.includes(originalName));
-    if (engKey) tips = (nippardTips as any)[engKey];
+    if (engKey) tips = (nippardTips as Record<string, unknown>)[engKey] as Record<string, unknown>;
   }
 
-  const goldenRule = (nippardTips as any).golden_rule;
+  const goldenRule = (nippardTips as Record<string, unknown>).golden_rule as Record<string, unknown>;
 
   let images: string[] = [];
-  if (exerciseData?.imageUrls && exerciseData.imageUrls.length > 0) {
-    images = exerciseData.imageUrls;
+  if (exerciseData?.imageUrls && (exerciseData.imageUrls as string[]).length > 0) {
+    images = exerciseData.imageUrls as string[];
   } else if (exerciseData?.imageUrl) {
-    images = [exerciseData.imageUrl];
+    images = [exerciseData.imageUrl as string];
   } else if (exerciseData?.gif_url) {
     images = [ `/${exerciseData.gif_url}` ];
   }
@@ -97,18 +95,26 @@ export function ExerciseModal({ exerciseName, exerciseData, isOpen, onClose }: E
   const t = (str: string) => esDict[str?.toLowerCase()] || str;
 
   return (
-    <div className={`fixed inset-0 z-[100] flex items-end md:items-center justify-center bg-black/60 backdrop-blur-sm transition-opacity duration-300 ${isOpen ? 'opacity-100' : 'opacity-0'}`} onClick={onClose}>
+    <div className={`fixed inset-0 z-[100] flex items-end md:items-center justify-center bg-background/80 backdrop-blur-sm transition-opacity duration-300 ease-[cubic-bezier(0.16,1,0.3,1)] ${isOpen ? 'opacity-100' : 'opacity-0 pointer-events-none'}`} onClick={onClose}>
       
       {/* Modal Content */}
       <div 
-        className={`bg-surface w-full md:w-[600px] max-h-[90vh] md:max-h-[85vh] rounded-t-3xl md:rounded-3xl shadow-2xl flex flex-col overflow-hidden transition-transform duration-300 ${isOpen ? 'translate-y-0' : 'translate-y-full md:translate-y-12 md:scale-95'}`}
+        className={`
+          bg-surface w-full md:w-[600px] max-h-[90vh] md:max-h-[85vh] rounded-t-3xl md:rounded-3xl shadow-2xl flex flex-col overflow-hidden
+          transition-transform duration-300 ease-[cubic-bezier(0.16,1,0.3,1)] border border-outline-variant
+          ${isOpen ? 'translate-y-0 scale-100' : 'translate-y-full md:translate-y-12 md:scale-95'}
+        `}
         onClick={e => e.stopPropagation()}
       >
         {/* Header Image/Carousel */}
         <div className="relative w-full aspect-video bg-surface-bright shrink-0">
           <button 
             onClick={onClose}
-            className="absolute top-4 right-4 z-10 w-10 h-10 bg-black/50 hover:bg-black/70 text-white rounded-full flex items-center justify-center transition-colors"
+            className="
+              absolute top-4 right-4 z-10 w-10 h-10 bg-surface/50 backdrop-blur-md border border-outline-variant/30
+              hover:bg-surface text-on-surface rounded-full flex items-center justify-center
+              transition-colors duration-200 ease-[cubic-bezier(0.16,1,0.3,1)]
+            "
           >
             <span className="material-symbols-outlined">close</span>
           </button>
@@ -118,7 +124,7 @@ export function ExerciseModal({ exerciseName, exerciseData, isOpen, onClose }: E
               <ImageCarousel images={images} alt={exerciseName} showLabels />
             </div>
           ) : (
-            <div className="w-full h-full flex items-center justify-center text-on-surface-variant">
+            <div className="w-full h-full flex items-center justify-center text-on-surface-variant font-label-caps text-label-caps">
               Sin imagen
             </div>
           )}
@@ -126,62 +132,62 @@ export function ExerciseModal({ exerciseName, exerciseData, isOpen, onClose }: E
 
         {/* Scrollable Content */}
         <div className="p-lg overflow-y-auto flex-1">
-          <h2 className="font-headline-lg text-headline-lg text-on-surface capitalize mb-2">{exerciseName}</h2>
+          <h2 className="text-headline-lg text-on-surface capitalize mb-2">{exerciseName}</h2>
           
-          {exerciseData?.target && exerciseData?.equipment && (
-            <div className="flex flex-wrap gap-2 mb-6">
-              <span className="px-3 py-1 bg-primary/10 text-primary rounded-full font-label-caps text-label-caps capitalize">
-                {t(exerciseData.target)}
+          {Boolean(exerciseData?.target && exerciseData?.equipment) && (
+            <div className="flex flex-wrap gap-2 mb-lg">
+              <span className="px-3 py-1 bg-primary-soft text-primary rounded-full text-label-caps capitalize tracking-wide">
+                {t(exerciseData?.target as string)}
               </span>
-              <span className="px-3 py-1 bg-secondary-fixed/20 text-secondary-fixed rounded-full font-label-caps text-label-caps capitalize">
-                {t(exerciseData.equipment)}
+              <span className="px-3 py-1 bg-surface-bright border border-outline-variant text-on-surface-variant rounded-full text-label-caps capitalize tracking-wide">
+                {t(exerciseData?.equipment as string)}
               </span>
             </div>
           )}
 
-          {/* Golden Rule Banner (Only if there are tips, as this implies it's a core hypertrophy exercise) */}
-          {tips && goldenRule && (
-            <div className="bg-tertiary-container/30 border border-tertiary/20 rounded-xl p-md mb-6 animate-fade-in">
-              <h4 className="font-headline-sm text-headline-sm text-tertiary flex items-center gap-2 mb-2">
-                <span>{goldenRule.title}</span>
+          {/* Golden Rule Banner */}
+          {Boolean(tips && goldenRule) && (
+            <div className="bg-warning/10 border border-warning/20 rounded-2xl p-md mb-lg animate-fade-in-up">
+              <h4 className="text-headline-sm text-warning flex items-center gap-2 mb-2">
+                <span>{goldenRule.title as string}</span>
               </h4>
-              <p className="font-body-md text-body-md text-on-surface-variant whitespace-pre-line">
-                {goldenRule.content}
+              <p className="text-body-md text-on-surface-variant whitespace-pre-line leading-relaxed">
+                {goldenRule.content as string}
               </p>
             </div>
           )}
 
           {/* Expert Tips */}
           {tips ? (
-            <div className="space-y-6 animate-fade-in delay-100">
-              <div className="bg-surface-container rounded-xl p-md">
-                <h4 className="font-headline-sm text-headline-sm text-primary flex items-center gap-2 mb-1">
-                  <span className="material-symbols-outlined text-[20px]">psychology</span>
+            <div className="space-y-md animate-fade-in-up" style={{ animationDelay: '100ms' }}>
+              <div className="bg-surface-bright border border-outline-variant rounded-2xl p-md">
+                <h4 className="text-headline-sm text-primary flex items-center gap-2 mb-xs">
+                  <span className="material-symbols-outlined" style={{ fontVariationSettings: "'FILL' 1" }}>psychology</span>
                   ¿Por qué hacerlo?
                 </h4>
-                <p className="font-body-md text-body-md text-on-surface-variant">{tips.why}</p>
+                <p className="text-body-md text-on-surface-variant leading-relaxed">{tips.why as string}</p>
               </div>
 
-              <div className="bg-surface-container rounded-xl p-md">
-                <h4 className="font-headline-sm text-headline-sm text-error flex items-center gap-2 mb-1">
-                  <span className="material-symbols-outlined text-[20px]">fitness_center</span>
+              <div className="bg-surface-bright border border-outline-variant rounded-2xl p-md">
+                <h4 className="text-headline-sm text-error flex items-center gap-2 mb-xs">
+                  <span className="material-symbols-outlined" style={{ fontVariationSettings: "'FILL' 1" }}>fitness_center</span>
                   Pesos y Esfuerzo (RPE)
                 </h4>
-                <p className="font-body-md text-body-md text-on-surface-variant">{tips.weights}</p>
+                <p className="text-body-md text-on-surface-variant leading-relaxed">{tips.weights as string}</p>
               </div>
 
-              <div className="bg-surface-container rounded-xl p-md">
-                <h4 className="font-headline-sm text-headline-sm text-secondary flex items-center gap-2 mb-1">
-                  <span className="material-symbols-outlined text-[20px]">accessibility_new</span>
+              <div className="bg-surface-bright border border-outline-variant rounded-2xl p-md">
+                <h4 className="text-headline-sm text-success flex items-center gap-2 mb-xs">
+                  <span className="material-symbols-outlined" style={{ fontVariationSettings: "'FILL' 1" }}>accessibility_new</span>
                   Técnica Perfecta
                 </h4>
-                <p className="font-body-md text-body-md text-on-surface-variant">{tips.technique}</p>
+                <p className="text-body-md text-on-surface-variant leading-relaxed">{tips.technique as string}</p>
               </div>
             </div>
           ) : (
-            <div className="bg-surface-container rounded-xl p-lg text-center mt-4">
+            <div className="bg-surface-bright border border-dashed border-outline-variant rounded-2xl p-lg text-center mt-md">
               <span className="material-symbols-outlined text-4xl text-on-surface-variant/50 mb-2">info</span>
-              <p className="font-body-md text-body-md text-on-surface-variant">
+              <p className="text-body-md text-on-surface-variant">
                 Información técnica detallada no disponible para este ejercicio en los manuales actuales.
               </p>
             </div>

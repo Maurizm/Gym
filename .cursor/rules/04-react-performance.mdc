@@ -1,0 +1,177 @@
+---
+description: React Performance & TypeScript Architecture (Callstack-inspired principles for web)
+globs: ["**/*.tsx", "**/*.ts"]
+alwaysApply: true
+---
+
+# React Performance & TypeScript Architecture
+
+> Adapted from Callstack's React Native best practices for the Next.js/React 19 web context.
+> Every re-render is a bug until proven necessary. Every `any` is tech debt.
+
+## TypeScript Strictness
+
+### tsconfig Enforcement
+These must be `true` in `tsconfig.json` (most already are — never loosen them):
+```json
+{
+  "strict": true,              // Enables all strict checks
+  "noUncheckedIndexedAccess": true, // arrays/objects return T | undefined
+  "exactOptionalPropertyTypes": true,
+  "noImplicitReturns": true,
+  "noFallthroughCasesInSwitch": true
+}
+```
+
+### Type Rules
+1. **NEVER use `any`**. Use `unknown` + type narrowing, or define a proper type/interface.
+   ```tsx
+   // ✅ Correct
+   function parseData(input: unknown): Exercise {
+     if (!isExercise(input)) throw new Error('Invalid exercise data');
+     return input;
+   }
+   
+   // ❌ FORBIDDEN
+   function parseData(input: any): any { ... }
+   ```
+
+2. **Prefer `interface` over `type`** for object shapes (better error messages, extensibility).
+   ```tsx
+   // ✅ Preferred
+   interface Exercise {
+     id: string;
+     name: string;
+     muscleGroup: MuscleGroup;
+     sets: ExerciseSet[];
+   }
+   
+   // Use `type` for unions, intersections, mapped types
+   type MuscleGroup = 'chest' | 'back' | 'legs' | 'shoulders' | 'arms' | 'core';
+   ```
+
+3. **Export types from a central `types/` directory or co-locate with feature**.
+4. **Use `as const` for literal objects** and `satisfies` for type-safe validation without widening.
+5. **Discriminated unions** for state machines and component variants:
+   ```tsx
+   type AsyncState<T> =
+     | { status: 'idle' }
+     | { status: 'loading' }
+     | { status: 'success'; data: T }
+     | { status: 'error'; error: Error };
+   ```
+
+## React Rendering Optimization
+
+### Server vs Client Components
+- **Default to Server Components**. They have ZERO client JS bundle cost.
+- Mark `'use client'` ONLY at the lowest possible boundary — the leaf component that needs interactivity.
+- **Never mark a layout or page as `'use client'`** unless absolutely unavoidable.
+
+### Client Component Performance
+1. **Memoize expensive computations**:
+   ```tsx
+   // ✅ When computation is expensive and deps don't change every render
+   const sortedExercises = useMemo(
+     () => exercises.sort((a, b) => a.name.localeCompare(b.name)),
+     [exercises]
+   );
+   ```
+
+2. **Stabilize callback references**:
+   ```tsx
+   // ✅ When passing callbacks to memoized children or effects
+   const handleSave = useCallback((data: WorkoutData) => {
+     saveWorkout(data);
+   }, [saveWorkout]);
+   ```
+
+3. **When to use `useMemo` / `useCallback`**:
+   - ✅ Passing to `React.memo()` wrapped children
+   - ✅ Used as a dependency in `useEffect` / `useMemo`
+   - ✅ Expensive computation (sorting, filtering, transforming large datasets)
+   - ❌ Simple values, string concatenation, boolean flags — overhead not worth it
+
+4. **Component splitting to reduce re-render scope**:
+   ```tsx
+   // ✅ State isolated to the component that uses it
+   function WorkoutPage() {
+     return (
+       <div>
+         <WorkoutHeader />        {/* Does NOT re-render when timer ticks */}
+         <WorkoutTimer />          {/* Has its own state */}
+         <ExerciseList />          {/* Does NOT re-render when timer ticks */}
+       </div>
+     );
+   }
+   ```
+
+5. **List rendering**:
+   - Always provide a stable, unique `key` prop. NEVER use array index as key for dynamic lists.
+   - For long lists (>50 items), implement virtualization (e.g., `@tanstack/react-virtual`).
+   - Wrap list item components in `React.memo` if the list re-renders frequently.
+
+### State Management Rules
+1. **Local state first** (`useState`). Don't reach for context or external state until local state is insufficient.
+2. **Lift state only as high as necessary** — the lowest common ancestor of consumers.
+3. **Context is for low-frequency updates** (theme, locale, auth). NEVER put high-frequency state (timers, animations, form inputs) in context.
+4. **Split contexts by update frequency**:
+   ```tsx
+   // ✅ Separate contexts so theme changes don't re-render workout consumers
+   <ThemeContext.Provider value={theme}>
+     <WorkoutContext.Provider value={workout}>
+       {children}
+     </WorkoutContext.Provider>
+   </ThemeContext.Provider>
+   ```
+
+5. **Derive state, don't sync state**:
+   ```tsx
+   // ✅ Derived — always in sync, no bugs
+   const completedSets = exercises.flatMap(e => e.sets).filter(s => s.completed).length;
+   
+   // ❌ Synced state — will go out of sync, guaranteed
+   const [completedSets, setCompletedSets] = useState(0);
+   useEffect(() => { setCompletedSets(countCompleted(exercises)); }, [exercises]);
+   ```
+
+## Architecture — Feature-First Organization
+
+### Directory Structure
+```
+src/
+├── app/                    # Next.js App Router pages
+│   ├── (routes)/           # Route groups
+│   ├── layout.tsx
+│   └── globals.css
+├── components/
+│   ├── ui/                 # Primitive, reusable UI components (Button, Card, Input)
+│   └── [feature]/          # Feature-specific composed components
+├── hooks/                  # Shared custom hooks
+├── lib/                    # Utilities, helpers, constants
+├── data/                   # Static data, JSON files
+└── types/                  # Shared TypeScript types/interfaces
+```
+
+### Rules
+1. **Components in `ui/` must be pure presentational** — no business logic, no data fetching.
+2. **Feature components** compose `ui/` primitives with business logic.
+3. **Custom hooks** extract reusable stateful logic — name them `use[Noun]` or `use[Verb][Noun]`.
+4. **One component per file**. The filename matches the component name (`ExerciseCard.tsx` → `ExerciseCard`).
+5. **Co-locate tests, styles, and stories** next to the component they belong to.
+
+## Code Quality Gates
+- **No unused variables or imports** — ESLint `no-unused-vars` must be error-level.
+- **No implicit `any`** — TypeScript strict mode catches this.
+- **No `// @ts-ignore` or `// @ts-expect-error`** without an explanatory comment AND a linked issue.
+- **No `eslint-disable` without explanation** — always include the rule name and reason.
+- **Functions > 50 lines**: Must be refactored or explicitly justified.
+- **Components > 200 lines**: Must be split into smaller sub-components.
+- **Max 3 levels of conditional rendering** nesting. Beyond that, extract sub-components.
+
+## React 19 / Next.js 16 Specific
+- Use the new `use()` hook for reading promises and context in client components where appropriate.
+- Prefer **Server Actions** over API routes for form mutations.
+- Use `useFormStatus()` and `useActionState()` for form pending/error states.
+- Use `useOptimistic()` for optimistic UI updates on mutations.
+- Always wrap client-side data mutations in `startTransition` to avoid blocking the UI.

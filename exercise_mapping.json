@@ -1,0 +1,100 @@
+{
+  "mapped": [
+    {
+      "requested": "Extensión de Tríceps en Banco (Skull Crusher con Mancuerna)",
+      "matchedId": "0060",
+      "matchedName": "barbell lying triceps extension skull crusher"
+    },
+    {
+      "requested": "Thrust de Cadera con Barra (Hip Thrust)",
+      "matchedId": "3305",
+      "matchedName": "barbell thruster"
+    },
+    {
+      "requested": "Crunch (Encogimientos abdominales)",
+      "matchedId": "0685",
+      "matchedName": "run"
+    },
+    {
+      "requested": "Press Militar con Barra (De pie)",
+      "matchedId": "0086",
+      "matchedName": "barbell seated behind head military press"
+    },
+    {
+      "requested": "Pájaros en Polea (Cable Reverse Flye)",
+      "matchedId": "1635",
+      "matchedName": "cable one arm reverse preacher curl"
+    },
+    {
+      "requested": "Patada de Tríceps en Polea (Tricep Kickback)",
+      "matchedId": "1728",
+      "matchedName": "cable two arm tricep kickback"
+    },
+    {
+      "requested": "Abdominal Bicicleta (Bicycle Crunch)",
+      "matchedId": "0685",
+      "matchedName": "run"
+    },
+    {
+      "requested": "Remo con Barra Inclinado (Bent Over Row)",
+      "matchedId": "0980",
+      "matchedName": "band bent-over hip extension"
+    },
+    {
+      "requested": "Curl de Bíceps con Barra Z (EZ Bar Curl)",
+      "matchedId": "0968",
+      "matchedName": "band alternating biceps curl"
+    },
+    {
+      "requested": "Elevación de Piernas Colgado (Hanging Leg Raise)",
+      "matchedId": "0472",
+      "matchedName": "hanging leg raise"
+    },
+    {
+      "requested": "Press de Banca en el Suelo con Mancuernas (Floor Press)",
+      "matchedId": "0065",
+      "matchedName": "barbell one arm floor press"
+    }
+  ],
+  "notFound": [
+    "Press de Banca con Barra",
+    "Press Inclinado con Mancuernas",
+    "Aperturas en Polea (Cable Fly)",
+    "Fondos en Máquina (Assisted Dip)",
+    "Sentadilla con Barra",
+    "Peso Muerto Rumano (RDL)",
+    "Extensión de Cuádriceps en Máquina",
+    "Curl Femoral en Máquina",
+    "Elevación de Talones (Gemelos) de Pie",
+    "Jalón al Pecho con Agarre Supino (Palmas hacia ti)",
+    "Remo en Polea Sentado",
+    "Remo en Banco T (Chest-Supported T-Bar Row)",
+    "Face Pull Sentado (Polea al rostro)",
+    "Curl de Bíceps con Mancuernas (Supino)",
+    "Peso Muerto Convencional",
+    "Zancadas Caminando con Mancuernas",
+    "Extensión de Cuádriceps a Una Pierna",
+    "Curl Femoral a Una Pierna",
+    "Abductores en Máquina Sentado",
+    "Elevación de Talones de Pie",
+    "Plancha Abdominal (Plank)",
+    "Elevaciones Laterales con Mancuernas",
+    "Extensión de Tríceps en Polea a Una Mano con Cuerda",
+    "Curl de Bíceps en Polea a Una Mano",
+    "Press Inclinado en Máquina",
+    "Aperturas en Máquina (Pec Deck)",
+    "Sentadilla Goblet (Con una mancuerna al pecho)",
+    "Thrust de Cadera a Una Pierna con Mancuerna",
+    "Prensa de Piernas",
+    "Curl Femoral Tumbado",
+    "Jalón al Pecho Tradicional (Lat Pulldown)",
+    "Remo con Mancuerna a Una Mano",
+    "Pájaros en Máquina (Reverse Pec Deck)",
+    "Thrust de Cadera con Barra",
+    "Curl Femoral Sentado",
+    "Press de Hombros con Mancuernas Sentado",
+    "Elevaciones Laterales en Polea",
+    "Elevaciones Laterales Inclinado con Mancuernas (Pájaros)",
+    "Curl Martillo con Mancuernas"
+  ]
+}

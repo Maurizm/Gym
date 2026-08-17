@@ -1,1014 +1,887 @@
 {
-  "days": [
+  "version": 7,
+  "programStartDate": 1786922793479,
+  "phases": [
     {
-      "id": "monday",
-      "dayNumber": 1,
-      "label": "PUSH (Empuje - Énfasis Pesado)",
-      "intensity": "Alta (RPE 8-10)",
-      "note": "Fuerza en press de banca y hombros.",
-      "exercises": [
+      "id": "phase1",
+      "name": "Base de Fuerza (Fase 1)",
+      "days": [
         {
-          "id": "ex-1",
-          "name": "Elevación de Piernas Colgado",
-          "sets": 1,
-          "repsMin": 10,
-          "repsMax": 15,
-          "restSeconds": 0,
-          "notes": "Calentamiento",
-          "isWarmup": true,
-          "imageUrl": "/videos/0472-I3tsCnC.gif",
-          "imageUrls": [
-            "/videos/0472-I3tsCnC.gif"
+          "id": "monday",
+          "dayNumber": 1,
+          "label": "Pecho y Tríceps",
+          "intensity": "Alta",
+          "exercises": [
+            {
+              "id": "0025",
+              "name": "Press de Banca con Barra",
+              "sets": 3,
+              "repsMin": 5,
+              "repsMax": 8,
+              "unit": "reps",
+              "imageUrl": "videos/0025-EIeI8Vf.gif",
+              "notes": "Túmbate sobre un banco con los pies apoyados en el suelo y la espalda presionada contra el banco. Agarra la barra con un agarre pronado un poco más ancho que la separación de los hombros. Levanta la barra del soporte y sostenla directamente sobre el pecho con los brazos completamente extendidos. Baja la barra lentamente hacia el pecho, manteniendo los codos pegados al cuerpo. Haz una pausa breve cuando la barra toque el pecho. Empuja la barra de vuelta a la posición inicial extendiendo los brazos. Repite el número de repeticiones deseado."
+            },
+            {
+              "id": "0314",
+              "name": "Press Inclinado con Mancuernas",
+              "sets": 3,
+              "repsMin": 8,
+              "repsMax": 10,
+              "unit": "reps",
+              "imageUrl": "videos/0314-ns0SIbU.gif",
+              "notes": "Coloca un banco inclinado a un ángulo de 45 grados. Siéntate en el banco con los pies apoyados en el suelo y la espalda firmemente apoyada contra el banco. Sostén una mancuerna en cada mano, con las palmas hacia adelante, y levántalas hasta la altura de los hombros. Baja lentamente las mancuernas hacia los lados del pecho, manteniendo los codos en un ángulo de 90 grados. Empuja las mancuernas de nuevo hacia arriba hasta la posición inicial, extendiendo completamente los brazos. Repite el número de repeticiones deseado."
+            },
+            {
+              "id": "0596",
+              "name": "Aperturas en Polea",
+              "sets": 3,
+              "repsMin": 12,
+              "repsMax": 15,
+              "unit": "reps",
+              "imageUrl": "videos/0596-v3xmPAR.gif",
+              "notes": "Ajusta la altura del asiento y colócate en la máquina con la espalda apoyada en la almohadilla. Agarra las asas con un agarre pronado y mantén los codos ligeramente flexionados. Exhala y empuja las asas hacia adelante, juntándolas frente a tu pecho. Haz una pausa por un momento, contrayendo los músculos del pecho. Inhala y vuelve lentamente a la posición inicial, permitiendo que los músculos del pecho se estiren. Repite el número de repeticiones deseado."
+            },
+            {
+              "id": "0060",
+              "name": "Skull Crusher (Extensión Tríceps)",
+              "sets": 3,
+              "repsMin": 8,
+              "repsMax": 10,
+              "unit": "reps",
+              "imageUrl": "videos/0060-h8LFzo9.gif",
+              "notes": "Túmbate boca arriba en un banco con los pies planos sobre el suelo y la cabeza en el extremo del banco. Sujeta una barra con un agarre pronado, manos separadas a la altura de los hombros, y extiende los brazos rectos por encima del pecho. Manteniendo los brazos superiores fijos, baja lentamente la barra hacia la frente flexionando los codos. Haz una pausa breve cuando la barra esté justo encima de la frente y luego extiende los brazos de vuelta a la posición inicial. Repite el número de repeticiones deseado."
+            },
+            {
+              "id": "0201",
+              "name": "Extensión de Tríceps en Polea",
+              "sets": 3,
+              "repsMin": 12,
+              "repsMax": 15,
+              "unit": "reps",
+              "imageUrl": "videos/0201-3ZflifB.gif",
+              "notes": "Sujeta una barra recta a una máquina de cable con polea alta. Ponte de pie frente a la máquina con los pies separados a la altura de los hombros y una ligera flexión en las rodillas. Sujeta la barra con un agarre prono, con las manos separadas a la altura de los hombros. Mantén los codos cerca de los costados y los brazos superiores quietos. Exhala y empuja la barra hacia abajo hasta que los codos queden completamente extendidos. Haz una pausa por un momento, luego inhala y regresa lentamente la barra a la posición inicial. Repite el número de repeticiones deseado."
+            }
           ]
         },
         {
-          "id": "ex-2",
-          "name": "Dominada Escapular",
-          "sets": 1,
-          "repsMin": 10,
-          "repsMax": 15,
-          "restSeconds": 0,
-          "notes": "Calentamiento",
-          "isWarmup": true,
-          "imageUrl": "/videos/0688-uTBt1HV.gif",
-          "imageUrls": [
-            "/videos/0688-uTBt1HV.gif"
+          "id": "tuesday",
+          "dayNumber": 2,
+          "label": "Piernas (Enfoque Cuádriceps)",
+          "intensity": "Muy Alta",
+          "exercises": [
+            {
+              "id": "0043",
+              "name": "Sentadilla con Barra",
+              "sets": 3,
+              "repsMin": 5,
+              "repsMax": 8,
+              "unit": "reps",
+              "imageUrl": "videos/0043-qXTaZnJ.gif",
+              "notes": "Ponte de pie con los pies separados a la altura de los hombros, con los dedos de los pies ligeramente hacia afuera. Sujeta la barra sobre la parte superior de la espalda, apoyándola en los trapecios o los deltoides posteriores. Activa el core y mantén el pecho elevado mientras comienzas a bajar el cuerpo. Flexiona las rodillas y las caderas, empujando las caderas hacia atrás y hacia abajo como si te sentaras en una silla. Baja hasta que los muslos queden paralelos al suelo o un poco por debajo. Mantén las rodillas alineadas con los dedos de los pies y el peso sobre los talones. Empuja con los talones para volver a ponerte de pie, extendiendo las caderas y las rodillas. Repite el número de repeticiones deseado."
+            },
+            {
+              "id": "0085",
+              "name": "Peso Muerto Rumano (RDL)",
+              "sets": 3,
+              "repsMin": 8,
+              "repsMax": 10,
+              "unit": "reps",
+              "imageUrl": "videos/0085-wQ2c4XD.gif",
+              "notes": "Ponte de pie con los pies separados a la altura de los hombros y los dedos de los pies apuntando hacia delante. Sujeta la barra con un agarre pronado, manos un poco más separadas que el ancho de los hombros. Flexiona las caderas, manteniendo la espalda recta y las rodillas ligeramente flexionadas. Baja la barra hacia el suelo, manteniéndola cerca del cuerpo. Siente el estiramiento en los isquiotibiales mientras bajas la barra. Cuando sientas el estiramiento en los isquiotibiales, empuja las caderas hacia delante y ponte de pie. Aprieta los glúteos en la parte alta del movimiento. Baja la barra de vuelta a la posición inicial y repite el número de repeticiones deseado."
+            },
+            {
+              "id": "1463",
+              "name": "Prensa de Piernas",
+              "sets": 3,
+              "repsMin": 10,
+              "repsMax": 12,
+              "unit": "reps",
+              "imageUrl": "videos/1463-2Qh2J1e.gif",
+              "notes": "Ajusta el asiento de la máquina de trineo de modo que las rodillas queden en un ángulo de 90 grados cuando los pies estén sobre la placa. Siéntate en la máquina de trineo con la espalda plana contra el respaldo y los pies separados a la altura de los hombros sobre la placa. Sujeta las asas a los lados del asiento para mayor estabilidad. Empuja contra la placa para extender las piernas, estirándolas por completo. Haz una pausa por un momento en la posición alta, luego dobla lentamente las rodillas para bajar la placa de vuelta a la posición inicial. Repite el número de repeticiones deseado."
+            },
+            {
+              "id": "0585",
+              "name": "Extensión de Cuádriceps",
+              "sets": 3,
+              "repsMin": 12,
+              "repsMax": 15,
+              "unit": "reps",
+              "imageUrl": "videos/0585-my33uHU.gif",
+              "notes": "Ajusta la altura del asiento y el respaldo de la máquina a tu cuerpo. Siéntate en la máquina con la espalda apoyada en el respaldo y los pies sobre la almohadilla para los pies. Sujeta las asas o las barras laterales para mayor estabilidad. Extiende las piernas hacia adelante enderezando las rodillas, levantando el peso. Haz una pausa breve en lo alto, luego baja lentamente el peso de vuelta a la posición inicial. Repite el número de repeticiones deseado."
+            },
+            {
+              "id": "0599",
+              "name": "Curl Femoral",
+              "sets": 3,
+              "repsMin": 10,
+              "repsMax": 12,
+              "unit": "reps",
+              "imageUrl": "videos/0599-Zg3XY7P.gif",
+              "notes": "Ajusta la máquina a tu cuerpo y siéntate en ella con la espalda apoyada en el respaldo. Coloca la parte baja de las piernas debajo de la palanca acolchada, justo por encima de los tobillos. Sujeta las asas a los lados de la máquina para mayor apoyo. Manteniendo la parte superior de las piernas inmóvil, exhala y flexiona las piernas hacia arriba todo lo que puedas. Mantén la posición contraída durante una pausa breve mientras aprietas los isquiotibiales. Inhala y baja lentamente la palanca de vuelta a la posición inicial. Repite el número de repeticiones deseado."
+            },
+            {
+              "id": "0594",
+              "name": "Elevación de Gemelos",
+              "sets": 4,
+              "repsMin": 12,
+              "repsMax": 15,
+              "unit": "reps",
+              "imageUrl": "videos/0594-bOOdeyc.gif",
+              "notes": "Ajusta la altura del asiento de modo que las rodillas queden ligeramente flexionadas y los pies queden planos sobre la placa para los pies. Coloca los dedos de los pies sobre la placa para los pies, con los talones colgando fuera del borde. Sujeta las asas o los lados del asiento para mayor estabilidad. Empuja con la parte delantera de los pies para elevar los talones tan alto como sea posible. Haz una pausa breve en la parte alta y luego baja lentamente los talones de vuelta a la posición inicial. Repite el número de repeticiones deseado."
+            }
           ]
         },
         {
-          "id": "ex-3",
-          "name": "Remo Invertido",
-          "sets": 1,
-          "repsMin": 10,
-          "repsMax": 15,
-          "restSeconds": 0,
-          "notes": "Calentamiento",
-          "isWarmup": true,
-          "imageUrl": "/videos/0499-bZGHsAZ.gif",
-          "imageUrls": [
-            "/videos/0499-bZGHsAZ.gif"
+          "id": "wednesday",
+          "dayNumber": 3,
+          "label": "Espalda y Bíceps",
+          "intensity": "Media-Alta",
+          "exercises": [
+            {
+              "id": "0245",
+              "name": "Jalón al Pecho",
+              "sets": 3,
+              "repsMin": 8,
+              "repsMax": 10,
+              "unit": "reps",
+              "imageUrl": "videos/0245-xBYcQHj.gif",
+              "notes": "Ajusta la máquina de cable de modo que la barra de jalón quede a una altura por encima de tu cabeza. Siéntate y agarra la barra de jalón con un agarre supino, con las manos un poco más separadas que el ancho de los hombros. Mantén la espalda recta e inclínate ligeramente hacia atrás. Jala la barra hacia el pecho, apretando los omóplatos entre sí. Haz una pausa por un momento en la parte baja del movimiento y luego suelta lentamente la barra de vuelta a la posición inicial. Repite el número de repeticiones deseado."
+            },
+            {
+              "id": "0027",
+              "name": "Remo con Barra Inclinado",
+              "sets": 3,
+              "repsMin": 8,
+              "repsMax": 10,
+              "unit": "reps",
+              "imageUrl": "videos/0027-eZyBC3j.gif",
+              "notes": "Ponte de pie con los pies separados a la altura de los hombros y las rodillas ligeramente flexionadas. Inclínate hacia delante desde las caderas manteniendo la espalda recta y el pecho elevado. Agarra la barra con un agarre pronado, con las manos un poco más separadas que el ancho de los hombros. Tira de la barra hacia la parte inferior del pecho retrayendo los omóplatos y contrayendo los músculos de la espalda. Haz una pausa breve en la parte alta y luego baja lentamente la barra de vuelta a la posición inicial. Repite el número de repeticiones deseado."
+            },
+            {
+              "id": "0861",
+              "name": "Remo en Polea Sentado",
+              "sets": 3,
+              "repsMin": 10,
+              "repsMax": 12,
+              "unit": "reps",
+              "imageUrl": "videos/0861-fUBheHs.gif",
+              "notes": "Siéntate en la máquina de remo con cable con los pies planos sobre los apoyapiés y las rodillas ligeramente flexionadas. Sujeta las agarraderas con un agarre prono, manteniendo la espalda recta y los hombros relajados. Jala las agarraderas hacia el cuerpo, apretando los omóplatos entre sí. Haz una pausa por un momento en el punto máximo del movimiento, luego suelta lentamente las agarraderas de vuelta a la posición inicial. Repite el número de repeticiones deseado."
+            },
+            {
+              "id": "0233",
+              "name": "Face Pull",
+              "sets": 3,
+              "repsMin": 12,
+              "repsMax": 15,
+              "unit": "reps",
+              "imageUrl": "videos/0233-ZfyAGhK.gif",
+              "notes": "Ponte de pie frente a una máquina de cable con los pies separados a la altura de los hombros. Sujeta el accesorio del cable con ambas manos, con las palmas una frente a la otra, y retrocede un paso para crear tensión en el cable. Mantén la espalda recta y el core activado. Tira del cable hacia tu cuerpo, apretando los omóplatos entre sí. Haz una pausa breve en el punto máximo del movimiento, luego suelta lentamente el cable de vuelta a la posición inicial. Repite el número de repeticiones deseado."
+            },
+            {
+              "id": "1677",
+              "name": "Curl de Bíceps con Mancuernas",
+              "sets": 3,
+              "repsMin": 10,
+              "repsMax": 12,
+              "unit": "reps",
+              "imageUrl": "videos/1677-xiA6lRr.gif",
+              "notes": "Siéntate en un banco con los pies apoyados en el suelo y sostén una mancuerna en cada mano, con las palmas hacia arriba. Mantén la espalda recta y los codos cerca del torso. Exhala y flexiona las mancuernas hacia los hombros, contrayendo los bíceps. Haz una pausa por un momento en la parte superior, luego inhala y baja lentamente las mancuernas de vuelta a la posición inicial. Repite el número de repeticiones deseado."
+            },
+            {
+              "id": "1627",
+              "name": "Curl de Bíceps con Barra Z",
+              "sets": 3,
+              "repsMin": 10,
+              "repsMax": 12,
+              "unit": "reps",
+              "imageUrl": "videos/1627-hacCyUv.gif",
+              "notes": "Siéntate en un banco scott y coloca los brazos superiores sobre la almohadilla, sujetando la barra EZ con agarre supino. Apoya los tríceps sobre la almohadilla y extiende los brazos por completo, manteniendo la espalda recta. Sube lentamente la barra hacia los hombros, contrayendo los bíceps. Haz una pausa breve en la parte alta, apretando los bíceps. Baja la barra a la posición inicial, extendiendo los brazos por completo. Repite el número de repeticiones deseado."
+            }
           ]
         },
         {
-          "id": "ex-4",
-          "name": "Press de Banca con Barra",
-          "sets": 3,
-          "repsMin": 5,
-          "repsMax": 8,
-          "restSeconds": 240,
-          "notes": "Alt: Press de Banca con Mancuernas, Press de Pecho en Máquina, Press de Banca en Multipower",
-          "imageUrl": "/videos/0025-EIeI8Vf.gif",
-          "imageUrls": [
-            "/videos/0025-EIeI8Vf.gif",
-            "/videos/0289-SpYC0Kp.gif",
-            "/videos/0577-T0yTjgW.gif",
-            "/videos/1625-yB9SvIF.gif"
+          "id": "thursday",
+          "dayNumber": 4,
+          "label": "Piernas (Enfoque Glúteo/Isquio)",
+          "intensity": "Alta",
+          "exercises": [
+            {
+              "id": "0032",
+              "name": "Peso Muerto Convencional",
+              "sets": 3,
+              "repsMin": 5,
+              "repsMax": 8,
+              "unit": "reps",
+              "imageUrl": "videos/0032-ila4NZS.gif",
+              "notes": "Ponte de pie con los pies separados a la altura de los hombros y la barra en el suelo frente a ti. Flexiona las rodillas y las caderas para bajar el torso y agarra la barra con un agarre pronado, con las manos un poco más separadas que el ancho de los hombros. Mantén la espalda recta y el pecho elevado mientras empujas con los talones para levantar la barra del suelo, extendiendo las caderas y las rodillas. Al ponerte de pie, aprieta los glúteos y mantén el core activado. Baja la barra de vuelta al suelo flexionando las caderas y las rodillas, manteniendo la espalda recta. Repite el número de repeticiones deseado."
+            },
+            {
+              "id": "0489",
+              "name": "Thrust de Cadera con Barra",
+              "sets": 3,
+              "repsMin": 8,
+              "repsMax": 10,
+              "unit": "reps",
+              "imageUrl": "videos/0489-zhMwOwE.gif",
+              "notes": "Ajusta el banco de hiperextensiones para que la parte superior de los muslos quede apoyada en la almohadilla y los pies queden asegurados. Cruza los brazos sobre el pecho o coloca las manos detrás de la cabeza. Baja la parte superior del cuerpo hacia el suelo manteniendo la espalda recta. Haz una pausa breve en la parte baja, luego eleva la parte superior del cuerpo hasta que quede alineada con las piernas. Repite el número de repeticiones deseado."
+            },
+            {
+              "id": "1760",
+              "name": "Sentadilla Goblet",
+              "sets": 3,
+              "repsMin": 10,
+              "repsMax": 12,
+              "unit": "reps",
+              "imageUrl": "videos/1760-yn8yg1r.gif",
+              "notes": "Ponte de pie con los pies separados a la altura de los hombros, sosteniendo una mancuerna verticalmente contra el pecho con ambas manos. Manteniendo el pecho erguido y el core activado, baja el cuerpo a una posición de sentadilla empujando las caderas hacia atrás y flexionando las rodillas. Continúa bajando hasta que los muslos queden paralelos al suelo, o tan abajo como puedas hacerlo cómodamente. Haz una pausa por un momento en la parte inferior, luego empuja con los talones para regresar a la posición inicial. Repite el número de repeticiones deseado."
+            },
+            {
+              "id": "0585",
+              "name": "Extensión de Cuádriceps",
+              "sets": 3,
+              "repsMin": 12,
+              "repsMax": 15,
+              "unit": "reps",
+              "imageUrl": "videos/0585-my33uHU.gif",
+              "notes": "Ajusta la altura del asiento y el respaldo de la máquina a tu cuerpo. Siéntate en la máquina con la espalda apoyada en el respaldo y los pies sobre la almohadilla para los pies. Sujeta las asas o las barras laterales para mayor estabilidad. Extiende las piernas hacia adelante enderezando las rodillas, levantando el peso. Haz una pausa breve en lo alto, luego baja lentamente el peso de vuelta a la posición inicial. Repite el número de repeticiones deseado."
+            },
+            {
+              "id": "0586",
+              "name": "Curl Femoral Tumbado",
+              "sets": 3,
+              "repsMin": 10,
+              "repsMax": 12,
+              "unit": "reps",
+              "imageUrl": "videos/0586-17lJ1kr.gif",
+              "notes": "Ajusta la máquina a tu cuerpo y selecciona el peso deseado. Túmbate boca abajo en la máquina con las piernas rectas y los talones contra la palanca acolchada. Sujeta las asas o los lados de la máquina para mayor estabilidad. Manteniendo la parte superior del cuerpo inmóvil, exhala y flexiona las piernas hacia arriba tanto como sea posible sin levantar las caderas de la almohadilla. Mantén la posición contraída durante una pausa breve mientras aprietas los isquiotibiales. Inhala y baja lentamente la palanca de vuelta a la posición inicial. Repite el número de repeticiones deseado."
+            },
+            {
+              "id": "0597",
+              "name": "Abductores en Máquina",
+              "sets": 3,
+              "repsMin": 12,
+              "repsMax": 15,
+              "unit": "reps",
+              "imageUrl": "videos/0597-CHpahtl.gif",
+              "notes": "Ajusta la altura del asiento de modo que tus rodillas formen un ángulo de 90 grados. Siéntate en la máquina con la espalda apoyada en el respaldo y los pies sobre los apoyapiés. Coloca las manos en las asas laterales para mayor estabilidad. Activa los abductores y empuja lentamente las piernas hacia afuera, alejándolas de la línea media del cuerpo. Haz una pausa al final del movimiento y luego junta lentamente las piernas de nuevo hasta la posición inicial. Repite el número de repeticiones deseado."
+            }
           ]
         },
         {
-          "id": "ex-5",
-          "name": "Press Inclinado con Mancuernas",
-          "sets": 3,
-          "repsMin": 8,
-          "repsMax": 10,
-          "restSeconds": 180,
-          "notes": "Alt: Press Inclinado con Barra, Press Inclinado en Máquina",
-          "imageUrl": "/videos/0314-ns0SIbU.gif",
-          "imageUrls": [
-            "/videos/0314-ns0SIbU.gif",
-            "/videos/0047-3TZduzM.gif",
-            "/videos/1299-jHAnWmT.gif"
+          "id": "friday",
+          "dayNumber": 5,
+          "label": "Hombros y Abdomen",
+          "intensity": "Media",
+          "exercises": [
+            {
+              "id": "1456",
+              "name": "Press Militar con Barra",
+              "sets": 3,
+              "repsMin": 6,
+              "repsMax": 8,
+              "unit": "reps",
+              "imageUrl": "videos/1456-wdRZISl.gif",
+              "notes": "Ponte de pie con los pies separados a la altura de los hombros y sujeta la barra con agarre prono, manos un poco más juntas que el ancho de los hombros. Levanta la barra hasta la altura de los hombros, manteniendo los codos cerca del cuerpo. Empuja la barra por encima de la cabeza, extendiendo completamente los brazos. Baja la barra de nuevo a la altura de los hombros. Repite el número de repeticiones deseado."
+            },
+            {
+              "id": "0334",
+              "name": "Elevaciones Laterales",
+              "sets": 4,
+              "repsMin": 12,
+              "repsMax": 15,
+              "unit": "reps",
+              "imageUrl": "videos/0334-DsgkuIt.gif",
+              "notes": "Ponte de pie con los pies separados a la altura de los hombros y sostén una mancuerna en cada mano, con las palmas hacia el cuerpo. Mantén la espalda recta y activa el core. Levanta los brazos hacia los lados hasta que queden paralelos al suelo, manteniendo una ligera flexión en los codos. Haz una pausa por un momento en la parte superior, luego baja lentamente los brazos de vuelta a la posición inicial. Repite el número de repeticiones deseado."
+            },
+            {
+              "id": "0383",
+              "name": "Pájaros en Máquina",
+              "sets": 3,
+              "repsMin": 12,
+              "repsMax": 15,
+              "unit": "reps",
+              "imageUrl": "videos/0383-EAs3xL9.gif",
+              "notes": "Ponte de pie con los pies separados a la altura de los hombros y sostén una mancuerna en cada mano. Flexiona ligeramente las rodillas e inclínate hacia adelante desde las caderas, manteniendo la espalda recta. Extiende los brazos rectos hacia adelante, con las palmas mirándose entre sí. Manteniendo una ligera flexión en los codos, levanta los brazos hacia los lados hasta que queden paralelos al suelo. Haz una pausa por un momento en la parte superior, luego baja lentamente los brazos de vuelta a la posición inicial. Repite el número de repeticiones deseado."
+            },
+            {
+              "id": "0472",
+              "name": "Elevación de Piernas Colgado",
+              "sets": 3,
+              "repsMin": 10,
+              "repsMax": 15,
+              "unit": "reps",
+              "imageUrl": "videos/0472-I3tsCnC.gif",
+              "notes": "Cuélgate de una barra de dominadas con los brazos completamente extendidos y las palmas mirando hacia afuera. Activa el core y levanta las piernas frente a ti, manteniéndolas rectas. Continúa levantando hasta que las piernas estén paralelas al suelo o tan alto como puedas llegar cómodamente. Haz una pausa por un momento en la parte superior, luego baja lentamente las piernas de vuelta a la posición inicial. Repite el número de repeticiones deseado."
+            },
+            {
+              "id": "0277",
+              "name": "Crunch Abdominal",
+              "sets": 3,
+              "repsMin": 15,
+              "repsMax": 20,
+              "unit": "reps",
+              "imageUrl": "videos/0277-9Ap7miY.gif",
+              "notes": "Túmbate en un banco declinado con los pies sujetos y las rodillas flexionadas en un ángulo de 90 grados. Coloca las manos detrás de la cabeza o cruzadas sobre el pecho. Activa el abdomen y levanta la parte superior del cuerpo hacia las rodillas, flexionando el torso. Haz una pausa por un momento en la parte superior, luego baja lentamente la parte superior del cuerpo de vuelta a la posición inicial. Repite el número de repeticiones deseado."
+            },
+            {
+              "id": "0464",
+              "name": "Plancha Abdominal",
+              "sets": 3,
+              "repsMin": 60,
+              "repsMax": 60,
+              "unit": "reps",
+              "imageUrl": "videos/0464-CosupLu.gif",
+              "notes": "Comienza en posición de plancha alta con las manos directamente debajo de los hombros y el cuerpo en línea recta de la cabeza a los pies. Activa el core y los glúteos para mantener una posición estable. Gira el torso hacia la derecha, levantando el brazo derecho y extendiéndolo hacia el techo. Mantén las caderas y las piernas estables mientras giras. Mantén la posición por un momento, luego regresa a la posición inicial. Repite el giro hacia el lado izquierdo. Continúa alternando lados durante el número de repeticiones deseado."
+            }
           ]
         },
         {
-          "id": "ex-6",
-          "name": "Press de Hombros Sentado (Mancuernas)",
-          "sets": 3,
-          "repsMin": 8,
-          "repsMax": 10,
-          "restSeconds": 180,
-          "notes": "Alt: Press Militar con Barra, Press de Hombros en Máquina, Press Arnold",
-          "imageUrl": "/videos/0405-znQUdHY.gif",
-          "imageUrls": [
-            "/videos/0405-znQUdHY.gif",
-            "/videos/0091-kTbSH9h.gif",
-            "/videos/0603-67n3r98.gif",
-            "/videos/2137-Xy4jlWA.gif"
+          "id": "saturday",
+          "dayNumber": 6,
+          "label": "Empuje Superior (Fuerza)",
+          "intensity": "Media-Alta",
+          "exercises": [
+            {
+              "id": "0405",
+              "name": "Press de Hombros",
+              "sets": 3,
+              "repsMin": 8,
+              "repsMax": 10,
+              "unit": "reps",
+              "imageUrl": "videos/0405-znQUdHY.gif",
+              "notes": "Siéntate en un banco con una mancuerna en cada mano, apoyadas en los muslos. Sube las mancuernas hasta la altura de los hombros, con las palmas hacia adelante. Presiona las mancuernas hacia arriba hasta que los brazos queden completamente extendidos por encima de la cabeza. Haz una pausa por un momento en la parte superior, luego baja lentamente las mancuernas de vuelta a la altura de los hombros. Repite el número de repeticiones deseado."
+            },
+            {
+              "id": "0314",
+              "name": "Press Inclinado",
+              "sets": 3,
+              "repsMin": 8,
+              "repsMax": 10,
+              "unit": "reps",
+              "imageUrl": "videos/0314-ns0SIbU.gif",
+              "notes": "Coloca un banco inclinado a un ángulo de 45 grados. Siéntate en el banco con los pies apoyados en el suelo y la espalda firmemente apoyada contra el banco. Sostén una mancuerna en cada mano, con las palmas hacia adelante, y levántalas hasta la altura de los hombros. Baja lentamente las mancuernas hacia los lados del pecho, manteniendo los codos en un ángulo de 90 grados. Empuja las mancuernas de nuevo hacia arriba hasta la posición inicial, extendiendo completamente los brazos. Repite el número de repeticiones deseado."
+            },
+            {
+              "id": "0334",
+              "name": "Elevaciones Laterales",
+              "sets": 3,
+              "repsMin": 10,
+              "repsMax": 12,
+              "unit": "reps",
+              "imageUrl": "videos/0334-DsgkuIt.gif",
+              "notes": "Ponte de pie con los pies separados a la altura de los hombros y sostén una mancuerna en cada mano, con las palmas hacia el cuerpo. Mantén la espalda recta y activa el core. Levanta los brazos hacia los lados hasta que queden paralelos al suelo, manteniendo una ligera flexión en los codos. Haz una pausa por un momento en la parte superior, luego baja lentamente los brazos de vuelta a la posición inicial. Repite el número de repeticiones deseado."
+            },
+            {
+              "id": "0201",
+              "name": "Tríceps en Polea",
+              "sets": 3,
+              "repsMin": 10,
+              "repsMax": 12,
+              "unit": "reps",
+              "imageUrl": "videos/0201-3ZflifB.gif",
+              "notes": "Sujeta una barra recta a una máquina de cable con polea alta. Ponte de pie frente a la máquina con los pies separados a la altura de los hombros y una ligera flexión en las rodillas. Sujeta la barra con un agarre prono, con las manos separadas a la altura de los hombros. Mantén los codos cerca de los costados y los brazos superiores quietos. Exhala y empuja la barra hacia abajo hasta que los codos queden completamente extendidos. Haz una pausa por un momento, luego inhala y regresa lentamente la barra a la posición inicial. Repite el número de repeticiones deseado."
+            },
+            {
+              "id": "0313",
+              "name": "Curl Martillo",
+              "sets": 3,
+              "repsMin": 10,
+              "repsMax": 12,
+              "unit": "reps",
+              "imageUrl": "videos/0313-slDvUAU.gif",
+              "notes": "Ponte de pie con una mancuerna en cada mano, con las palmas mirando hacia el torso. Mantén los codos cerca del torso y gira las palmas de las manos hasta que queden mirando hacia adelante. Esta será tu posición inicial. Ahora, manteniendo los brazos superiores quietos, exhala y flexiona los brazos contrayendo los bíceps. Continúa levantando las pesas hasta que los bíceps estén completamente contraídos y las mancuernas estén a la altura de los hombros. Mantén la posición contraída durante una breve pausa mientras aprietas los bíceps. Luego, inhala y comienza a bajar lentamente las mancuernas de vuelta a la posición inicial. Repite el número de repeticiones recomendado."
+            }
           ]
         },
         {
-          "id": "ex-7",
-          "name": "Cruce de Poleas",
-          "sets": 3,
-          "repsMin": 12,
-          "repsMax": 15,
-          "restSeconds": 120,
-          "notes": "Alt: Máquina Pec Deck (Aperturas), Aperturas con Mancuernas",
-          "imageUrl": "/videos/0153-OQ1otBN.gif",
-          "imageUrls": [
-            "/videos/0153-OQ1otBN.gif",
-            "/videos/0596-v3xmPAR.gif",
-            "/videos/0308-yz9nUhF.gif"
-          ]
-        },
-        {
-          "id": "ex-8",
-          "name": "Elevaciones Laterales con Mancuernas",
-          "sets": 4,
-          "repsMin": 12,
-          "repsMax": 15,
-          "restSeconds": 120,
-          "notes": "Alt: Elevaciones Laterales en Polea, Elevaciones Laterales en Máquina",
-          "imageUrl": "/videos/0334-DsgkuIt.gif",
-          "imageUrls": [
-            "/videos/0334-DsgkuIt.gif",
-            "/videos/0178-goJ6ezq.gif",
-            "/videos/0584-dRTfGZT.gif"
-          ]
-        },
-        {
-          "id": "ex-9",
-          "name": "Extensión de Tríceps con Cuerda",
-          "sets": 3,
-          "repsMin": 10,
-          "repsMax": 12,
-          "restSeconds": 120,
-          "notes": "Alt: Extensión de Tríceps (Barra V), Patada de Tríceps con Mancuerna, Extensión de Tríceps sobre Cabeza (Cuerda)",
-          "imageUrl": "/videos/0241-gAwDzB3.gif",
-          "imageUrls": [
-            "/videos/0241-gAwDzB3.gif",
-            "/videos/0306-OTgkHwR.gif",
-            "/videos/0194-2IxROQ1.gif"
+          "id": "sunday",
+          "dayNumber": 7,
+          "label": "Tirón Superior (Fuerza)",
+          "intensity": "Media",
+          "exercises": [
+            {
+              "id": "0652",
+              "name": "Dominadas",
+              "sets": 3,
+              "repsMin": 6,
+              "repsMax": 8,
+              "unit": "reps",
+              "imageUrl": "videos/0652-lBDjFxJ.gif",
+              "notes": "Cuélgate de una barra de dominadas con las palmas hacia afuera y los brazos completamente extendidos. Activa el core y junta los omóplatos. Tira de tu cuerpo hacia la barra flexionando los codos y llevando el pecho hacia la barra. Haz una pausa en la parte alta del movimiento y luego baja lentamente el cuerpo de vuelta a la posición inicial. Repite el número de repeticiones deseado."
+            },
+            {
+              "id": "0861",
+              "name": "Remo Sentado",
+              "sets": 3,
+              "repsMin": 8,
+              "repsMax": 10,
+              "unit": "reps",
+              "imageUrl": "videos/0861-fUBheHs.gif",
+              "notes": "Siéntate en la máquina de remo con cable con los pies planos sobre los apoyapiés y las rodillas ligeramente flexionadas. Sujeta las agarraderas con un agarre prono, manteniendo la espalda recta y los hombros relajados. Jala las agarraderas hacia el cuerpo, apretando los omóplatos entre sí. Haz una pausa por un momento en el punto máximo del movimiento, luego suelta lentamente las agarraderas de vuelta a la posición inicial. Repite el número de repeticiones deseado."
+            },
+            {
+              "id": "0225",
+              "name": "Pájaros en Polea",
+              "sets": 3,
+              "repsMin": 10,
+              "repsMax": 12,
+              "unit": "reps",
+              "imageUrl": "videos/0225-P5p0j8B.gif",
+              "notes": "Coloca un mango en D en cada lado de una máquina de cable a la altura de los hombros. Ponte de pie en el medio de la máquina de cable con los pies separados a la altura de los hombros. Agarra los mangos con un agarre prono y extiende los brazos hacia los lados, con las palmas hacia adelante. Mantén una ligera flexión en los codos y conserva la espalda recta durante todo el ejercicio. Activa los músculos de los hombros y aprieta los omóplatos entre sí mientras tiras de los mangos hacia la parte delantera de tu cuerpo. Haz una pausa breve en el punto máximo del movimiento, luego regresa lentamente a la posición inicial. Repite el número de repeticiones deseado."
+            },
+            {
+              "id": "0406",
+              "name": "Encogimientos",
+              "sets": 3,
+              "repsMin": 10,
+              "repsMax": 12,
+              "unit": "reps",
+              "imageUrl": "videos/0406-NJzBsGJ.gif",
+              "notes": "Ponte de pie con los pies separados a la altura de los hombros y sujeta una mancuerna en cada mano con las palmas hacia tu cuerpo. Mantén los brazos rectos y deja que las mancuernas cuelguen a tus costados. Eleva los hombros lo más alto posible, como si intentaras tocarte las orejas con ellos. Mantén la contracción durante un segundo, luego baja lentamente los hombros de vuelta a la posición inicial. Repite el número de repeticiones deseado."
+            },
+            {
+              "id": "0031",
+              "name": "Curl con Barra",
+              "sets": 3,
+              "repsMin": 8,
+              "repsMax": 10,
+              "unit": "reps",
+              "imageUrl": "videos/0031-25GPyDY.gif",
+              "notes": "Ponte de pie con los pies separados a la altura de los hombros y sujeta una barra con un agarre supino, con las palmas mirando hacia delante. Mantén los codos cerca del torso y exhala mientras levantas el peso contrayendo los bíceps. Continúa levantando la barra hasta que los bíceps estén completamente contraídos y la barra esté a la altura de los hombros. Mantén la posición contraída durante una breve pausa mientras aprietas los bíceps. Inhala mientras comienzas a bajar lentamente la barra de vuelta a la posición inicial. Repite el número de repeticiones deseado."
+            }
           ]
         }
       ]
     },
     {
-      "id": "tuesday",
-      "dayNumber": 2,
-      "label": "PULL (Tirón - Énfasis Espesor)",
-      "intensity": "Alta (RPE 8-9)",
-      "note": "Remos pesados y dorsal ancho.",
-      "exercises": [
+      "id": "phase2",
+      "name": "Hipertrofia (Fase 2)",
+      "days": [
         {
-          "id": "ex-10",
-          "name": "Elevación de Piernas Colgado",
-          "sets": 1,
-          "repsMin": 10,
-          "repsMax": 15,
-          "restSeconds": 0,
-          "notes": "Calentamiento",
-          "isWarmup": true,
-          "imageUrl": "/videos/0472-I3tsCnC.gif",
-          "imageUrls": [
-            "/videos/0472-I3tsCnC.gif"
+          "id": "monday",
+          "dayNumber": 1,
+          "label": "Pecho y Tríceps",
+          "intensity": "Alta",
+          "exercises": [
+            {
+              "id": "0047",
+              "name": "Press Inclinado con Barra",
+              "sets": 3,
+              "repsMin": 6,
+              "repsMax": 8,
+              "unit": "reps",
+              "imageUrl": "videos/0047-3TZduzM.gif",
+              "notes": "Coloca un banco inclinado a un ángulo de 45 grados. Túmbate en el banco con los pies planos sobre el suelo. Agarra la barra con un agarre pronado un poco más ancho que la separación de los hombros. Saca la barra del soporte y bájala lentamente hacia el pecho, manteniendo los codos a un ángulo de 45 grados. Haz una pausa breve en la parte baja y luego empuja la barra de vuelta a la posición inicial. Repite el número de repeticiones deseado."
+            },
+            {
+              "id": "0289",
+              "name": "Press de Banca con Mancuernas",
+              "sets": 3,
+              "repsMin": 8,
+              "repsMax": 10,
+              "unit": "reps",
+              "imageUrl": "videos/0289-SpYC0Kp.gif",
+              "notes": "Túmbate sobre un banco con los pies apoyados en el suelo y la espalda presionada contra el banco. Sujeta una mancuerna en cada mano, con las palmas hacia adelante y los brazos extendidos por encima del pecho. Baja lentamente las mancuernas hacia los lados del pecho, manteniendo los codos en un ángulo de 90 grados. Haz una pausa breve, luego empuja las mancuernas de vuelta hacia arriba hasta la posición inicial, extendiendo completamente los brazos. Repite el número de repeticiones deseado."
+            },
+            {
+              "id": "0596",
+              "name": "Aperturas en Máquina (Pec Deck)",
+              "sets": 3,
+              "repsMin": 12,
+              "repsMax": 15,
+              "unit": "reps",
+              "imageUrl": "videos/0596-v3xmPAR.gif",
+              "notes": "Ajusta la altura del asiento y colócate en la máquina con la espalda apoyada en la almohadilla. Agarra las asas con un agarre pronado y mantén los codos ligeramente flexionados. Exhala y empuja las asas hacia adelante, juntándolas frente a tu pecho. Haz una pausa por un momento, contrayendo los músculos del pecho. Inhala y vuelve lentamente a la posición inicial, permitiendo que los músculos del pecho se estiren. Repite el número de repeticiones deseado."
+            },
+            {
+              "id": "0030",
+              "name": "Press en el Suelo con Mancuernas",
+              "sets": 3,
+              "repsMin": 10,
+              "repsMax": 12,
+              "unit": "reps",
+              "imageUrl": "videos/0030-J6Dx1Mu.gif",
+              "notes": "Túmbate sobre un banco con los pies apoyados en el suelo y la espalda presionada contra el banco. Agarra la barra con un agarre cerrado, un poco más estrecho que el ancho de los hombros. Saca la barra del soporte y bájala lentamente hacia el pecho, manteniendo los codos cerca del cuerpo. Haz una pausa breve cuando la barra toque el pecho. Empuja la barra de vuelta a la posición inicial, extendiendo completamente los brazos. Repite el número de repeticiones deseado."
+            },
+            {
+              "id": "0241",
+              "name": "Extensión de Tríceps",
+              "sets": 3,
+              "repsMin": 12,
+              "repsMax": 15,
+              "unit": "reps",
+              "imageUrl": "videos/0241-gAwDzB3.gif",
+              "notes": "Coloca un accesorio en V en la máquina de cable en el ajuste más alto. Ponte de pie frente a la máquina de cable con los pies separados a la altura de los hombros. Agarra el accesorio en V con un agarre prono, con las palmas hacia abajo y las manos separadas a la altura de los hombros. Mantén los codos cerca de los costados y los brazos superiores quietos durante todo el ejercicio. Activa los tríceps y exhala mientras empujas el accesorio en V hacia abajo hasta que los brazos estén completamente extendidos. Haz una pausa breve en la parte baja del movimiento, apretando los tríceps. Inhala mientras regresas lentamente el accesorio en V a la posición inicial, manteniendo el control. Repite el número de repeticiones deseado."
+            },
+            {
+              "id": "0231",
+              "name": "Tríceps a Una Mano (Cuerda)",
+              "sets": 3,
+              "repsMin": 12,
+              "repsMax": 15,
+              "unit": "reps",
+              "imageUrl": "videos/0231-sYCcnon.gif",
+              "notes": "Ponte de pie con los pies separados a la altura de los hombros, frente a la máquina de cable. Sujeta el mango del cable con la mano derecha, con la palma hacia abajo, y coloca el brazo completamente extendido y paralelo al suelo. Mantén el codo quieto y cerca del cuerpo. Flexiona lentamente el codo, bajando el mango del cable hacia la parte de atrás de la cabeza. Haz una pausa breve en la parte baja del movimiento, luego extiende el brazo de vuelta a la posición inicial. Repite el número de repeticiones deseado, luego cambia de lado y realiza el ejercicio con el brazo izquierdo."
+            }
           ]
         },
         {
-          "id": "ex-11",
-          "name": "Dominada Escapular",
-          "sets": 1,
-          "repsMin": 10,
-          "repsMax": 15,
-          "restSeconds": 0,
-          "notes": "Calentamiento",
-          "isWarmup": true,
-          "imageUrl": "/videos/0688-uTBt1HV.gif",
-          "imageUrls": [
-            "/videos/0688-uTBt1HV.gif"
+          "id": "tuesday",
+          "dayNumber": 2,
+          "label": "Piernas (Enfoque Cuádriceps)",
+          "intensity": "Alta",
+          "exercises": [
+            {
+              "id": "0042",
+              "name": "Sentadilla Frontal",
+              "sets": 3,
+              "repsMin": 6,
+              "repsMax": 8,
+              "unit": "reps",
+              "imageUrl": "videos/0042-zG0zs85.gif",
+              "notes": "Empieza de pie con los pies separados a la altura de los hombros, con los dedos de los pies ligeramente hacia afuera. Sujeta la barra frente a los hombros, apoyándola sobre la clavícula y los hombros. Activa el core y mantén el pecho elevado mientras bajas el cuerpo hacia una posición de sentadilla, empujando las caderas hacia atrás y flexionando las rodillas. Baja hasta que los muslos queden paralelos al suelo, o tan abajo como puedas hacerlo cómodamente. Haz una pausa por un momento en la parte inferior, luego empuja con los talones para regresar a la posición inicial. Repite el número de repeticiones deseado."
+            },
+            {
+              "id": "0336",
+              "name": "Zancadas Caminando con Mancuernas",
+              "sets": 3,
+              "repsMin": 10,
+              "repsMax": 12,
+              "unit": "reps",
+              "imageUrl": "videos/0336-RRWFUcw.gif",
+              "notes": "Ponte de pie con los pies separados a la altura de los hombros, sujetando una mancuerna en cada mano. Da un paso adelante con el pie derecho, bajando el cuerpo hasta una posición de zancada. Mantén la espalda recta y el pecho erguido mientras bajas el cuerpo. Empuja con el talón derecho para regresar a la posición inicial. Repite con la pierna izquierda. Alterna las piernas el número de repeticiones deseado."
+            },
+            {
+              "id": "0585",
+              "name": "Extensión de Cuádriceps (1 Pierna)",
+              "sets": 3,
+              "repsMin": 12,
+              "repsMax": 15,
+              "unit": "reps",
+              "imageUrl": "videos/0585-my33uHU.gif",
+              "notes": "Ajusta la altura del asiento y el respaldo de la máquina a tu cuerpo. Siéntate en la máquina con la espalda apoyada en el respaldo y los pies sobre la almohadilla para los pies. Sujeta las asas o las barras laterales para mayor estabilidad. Extiende las piernas hacia adelante enderezando las rodillas, levantando el peso. Haz una pausa breve en lo alto, luego baja lentamente el peso de vuelta a la posición inicial. Repite el número de repeticiones deseado."
+            },
+            {
+              "id": "3195",
+              "name": "Curl Femoral (1 Pierna)",
+              "sets": 3,
+              "repsMin": 10,
+              "repsMax": 12,
+              "unit": "reps",
+              "imageUrl": "videos/3195-UXpKJoq.gif",
+              "notes": "Ajusta la máquina a tu cuerpo y siéntate en ella con la espalda apoyada en el respaldo. Coloca las piernas sobre la almohadilla de la palanca, justo encima de los tobillos. Sujeta las asas a los lados de la máquina para mayor apoyo. Manteniendo la parte superior del cuerpo inmóvil, exhala y flexiona las piernas hacia los glúteos. Haz una pausa breve en lo alto, luego inhala y baja lentamente las piernas de vuelta a la posición inicial. Repite el número de repeticiones deseado."
+            },
+            {
+              "id": "1372",
+              "name": "Elevación de Talones",
+              "sets": 4,
+              "repsMin": 12,
+              "repsMax": 15,
+              "unit": "reps",
+              "imageUrl": "videos/1372-8ozhUIZ.gif",
+              "notes": "Ponte de pie con los pies separados a la altura de los hombros y coloca una barra sobre la parte superior de la espalda. Levanta los talones del suelo lo más alto posible, apoyándote solo en las puntas de los pies. Haz una pausa breve en la parte alta y luego baja lentamente los talones de vuelta a la posición inicial. Repite el número de repeticiones deseado."
+            }
           ]
         },
         {
-          "id": "ex-12",
-          "name": "Remo Invertido",
-          "sets": 1,
-          "repsMin": 10,
-          "repsMax": 15,
-          "restSeconds": 0,
-          "notes": "Calentamiento",
-          "isWarmup": true,
-          "imageUrl": "/videos/0499-bZGHsAZ.gif",
-          "imageUrls": [
-            "/videos/0499-bZGHsAZ.gif"
+          "id": "wednesday",
+          "dayNumber": 3,
+          "label": "Espalda y Bíceps",
+          "intensity": "Media",
+          "exercises": [
+            {
+              "id": "3293",
+              "name": "Dominadas (o Jalón Neutro)",
+              "sets": 3,
+              "repsMin": 8,
+              "repsMax": 10,
+              "unit": "reps",
+              "imageUrl": "videos/3293-72BC5Za.gif",
+              "notes": "Comienza colgándote de una barra de dominadas con un agarre prono, un poco más separado que el ancho de los hombros. Activa el core y lleva los omóplatos hacia abajo y atrás. Mientras te elevas, flexiona un brazo y lleva el codo hacia el costado, manteniendo el otro brazo recto. Continúa subiendo hasta que la barbilla quede por encima de la barra y el brazo flexionado esté completamente doblado. Bájate de nuevo con control, estirando el brazo flexionado y repitiendo el movimiento del otro lado. Alterna los lados en cada repetición."
+            },
+            {
+              "id": "1349",
+              "name": "Remo en Banco T (Apoyado)",
+              "sets": 3,
+              "repsMin": 8,
+              "repsMax": 10,
+              "unit": "reps",
+              "imageUrl": "videos/1349-BgljGjd.gif",
+              "notes": "Ajusta la altura del asiento y la posición de la placa para los pies en la máquina de palanca. Siéntate en la máquina con el pecho contra la almohadilla y los pies planos sobre la placa para los pies. Agarra las agarraderas con un agarre prono, un poco más separadas que el ancho de los hombros. Mantén la espalda recta y activa el core. Tira de las asas hacia el pecho, juntando los omóplatos. Haz una pausa breve en la parte alta del movimiento, luego suelta lentamente y extiende los brazos de vuelta a la posición inicial. Repite el número de repeticiones deseado."
+            },
+            {
+              "id": "0292",
+              "name": "Remo con Mancuerna a Una Mano",
+              "sets": 3,
+              "repsMin": 10,
+              "repsMax": 12,
+              "unit": "reps",
+              "imageUrl": "videos/0292-C0MA9bC.gif",
+              "notes": "Ponte de pie con los pies separados a la altura de los hombros, sosteniendo una mancuerna en una mano con la palma hacia el cuerpo. Flexiona ligeramente las rodillas e inclínate hacia adelante desde las caderas, manteniendo la espalda recta y el core activado. Deja que la mancuerna cuelgue recta hacia el suelo, con el brazo completamente extendido. Tira de la mancuerna hacia el pecho, manteniendo el codo cerca del cuerpo y juntando los omóplatos. Haz una pausa breve en la parte más alta, luego baja lentamente la mancuerna de vuelta a la posición inicial. Repite el número de repeticiones deseado, luego cambia de lado."
+            },
+            {
+              "id": "0225",
+              "name": "Pájaros en Polea",
+              "sets": 3,
+              "repsMin": 12,
+              "repsMax": 15,
+              "unit": "reps",
+              "imageUrl": "videos/0225-P5p0j8B.gif",
+              "notes": "Coloca un mango en D en cada lado de una máquina de cable a la altura de los hombros. Ponte de pie en el medio de la máquina de cable con los pies separados a la altura de los hombros. Agarra los mangos con un agarre prono y extiende los brazos hacia los lados, con las palmas hacia adelante. Mantén una ligera flexión en los codos y conserva la espalda recta durante todo el ejercicio. Activa los músculos de los hombros y aprieta los omóplatos entre sí mientras tiras de los mangos hacia la parte delantera de tu cuerpo. Haz una pausa breve en el punto máximo del movimiento, luego regresa lentamente a la posición inicial. Repite el número de repeticiones deseado."
+            },
+            {
+              "id": "0313",
+              "name": "Curl Martillo con Mancuernas",
+              "sets": 3,
+              "repsMin": 10,
+              "repsMax": 12,
+              "unit": "reps",
+              "imageUrl": "videos/0313-slDvUAU.gif",
+              "notes": "Ponte de pie con una mancuerna en cada mano, con las palmas mirando hacia el torso. Mantén los codos cerca del torso y gira las palmas de las manos hasta que queden mirando hacia adelante. Esta será tu posición inicial. Ahora, manteniendo los brazos superiores quietos, exhala y flexiona los brazos contrayendo los bíceps. Continúa levantando las pesas hasta que los bíceps estén completamente contraídos y las mancuernas estén a la altura de los hombros. Mantén la posición contraída durante una breve pausa mientras aprietas los bíceps. Luego, inhala y comienza a bajar lentamente las mancuernas de vuelta a la posición inicial. Repite el número de repeticiones recomendado."
+            },
+            {
+              "id": "0190",
+              "name": "Curl en Polea a Una Mano",
+              "sets": 3,
+              "repsMin": 12,
+              "repsMax": 15,
+              "unit": "reps",
+              "imageUrl": "videos/0190-YTur5nR.gif",
+              "notes": "Ponte de pie frente a la máquina de cable con los pies separados a la altura de los hombros. Sujeta la agarradera del cable con un agarre supino, con la palma hacia arriba. Mantén el codo cerca del costado y curva lentamente el antebrazo hacia el hombro. Haz una pausa por un momento en la parte superior, luego baja lentamente el antebrazo de vuelta a la posición inicial. Repite el número de repeticiones deseado."
+            }
           ]
         },
         {
-          "id": "ex-13",
-          "name": "Peso Muerto Convencional o Sumo",
-          "sets": 3,
-          "repsMin": 5,
-          "repsMax": 5,
-          "restSeconds": 300,
-          "notes": "Alt: Peso Muerto con Barra Hexagonal, Rack Pull (Tirón desde Soportes), Peso Muerto desde Bloques",
-          "imageUrl": "/videos/0032-ila4NZS.gif",
-          "imageUrls": [
-            "/videos/0032-ila4NZS.gif",
-            "/videos/0811-jQGwmxN.gif",
-            "/videos/0074-za9Ni4z.gif"
+          "id": "thursday",
+          "dayNumber": 4,
+          "label": "Piernas (Enfoque Isquio/Glúteo)",
+          "intensity": "Alta",
+          "exercises": [
+            {
+              "id": "1459",
+              "name": "RDL con Mancuernas",
+              "sets": 3,
+              "repsMin": 8,
+              "repsMax": 10,
+              "unit": "reps",
+              "imageUrl": "videos/1459-rR0LJzx.gif",
+              "notes": "Ponte de pie con los pies separados a la altura de los hombros, sujetando una mancuerna en cada mano con un agarre prono. Manteniendo la espalda recta y el core activado, inclínate desde las caderas y baja las mancuernas hacia el suelo, permitiendo que las rodillas se flexionen ligeramente. Baja las mancuernas hasta sentir un estiramiento en los isquiotibiales, luego empuja con los talones y activa los glúteos para volver a la posición inicial. Repite el número de repeticiones deseado."
+            },
+            {
+              "id": "0489",
+              "name": "Thrust de Cadera a 1 Pierna",
+              "sets": 3,
+              "repsMin": 10,
+              "repsMax": 12,
+              "unit": "reps",
+              "imageUrl": "videos/0489-zhMwOwE.gif",
+              "notes": "Ajusta el banco de hiperextensiones para que la parte superior de los muslos quede apoyada en la almohadilla y los pies queden asegurados. Cruza los brazos sobre el pecho o coloca las manos detrás de la cabeza. Baja la parte superior del cuerpo hacia el suelo manteniendo la espalda recta. Haz una pausa breve en la parte baja, luego eleva la parte superior del cuerpo hasta que quede alineada con las piernas. Repite el número de repeticiones deseado."
+            },
+            {
+              "id": "0599",
+              "name": "Curl Femoral Sentado",
+              "sets": 3,
+              "repsMin": 10,
+              "repsMax": 12,
+              "unit": "reps",
+              "imageUrl": "videos/0599-Zg3XY7P.gif",
+              "notes": "Ajusta la máquina a tu cuerpo y siéntate en ella con la espalda apoyada en el respaldo. Coloca la parte baja de las piernas debajo de la palanca acolchada, justo por encima de los tobillos. Sujeta las asas a los lados de la máquina para mayor apoyo. Manteniendo la parte superior de las piernas inmóvil, exhala y flexiona las piernas hacia arriba todo lo que puedas. Mantén la posición contraída durante una pausa breve mientras aprietas los isquiotibiales. Inhala y baja lentamente la palanca de vuelta a la posición inicial. Repite el número de repeticiones deseado."
+            },
+            {
+              "id": "0585",
+              "name": "Extensión de Cuádriceps",
+              "sets": 3,
+              "repsMin": 12,
+              "repsMax": 15,
+              "unit": "reps",
+              "imageUrl": "videos/0585-my33uHU.gif",
+              "notes": "Ajusta la altura del asiento y el respaldo de la máquina a tu cuerpo. Siéntate en la máquina con la espalda apoyada en el respaldo y los pies sobre la almohadilla para los pies. Sujeta las asas o las barras laterales para mayor estabilidad. Extiende las piernas hacia adelante enderezando las rodillas, levantando el peso. Haz una pausa breve en lo alto, luego baja lentamente el peso de vuelta a la posición inicial. Repite el número de repeticiones deseado."
+            },
+            {
+              "id": "1372",
+              "name": "Elevación de Talones de Pie",
+              "sets": 4,
+              "repsMin": 15,
+              "repsMax": 20,
+              "unit": "reps",
+              "imageUrl": "videos/1372-8ozhUIZ.gif",
+              "notes": "Ponte de pie con los pies separados a la altura de los hombros y coloca una barra sobre la parte superior de la espalda. Levanta los talones del suelo lo más alto posible, apoyándote solo en las puntas de los pies. Haz una pausa breve en la parte alta y luego baja lentamente los talones de vuelta a la posición inicial. Repite el número de repeticiones deseado."
+            }
           ]
         },
         {
-          "id": "ex-14",
-          "name": "Remo Pendlay / Remo con Barra",
-          "sets": 3,
-          "repsMin": 6,
-          "repsMax": 8,
-          "restSeconds": 180,
-          "notes": "Alt: Remo en Punta Apoyado al Pecho, Remo con Mancuerna, Remo Sentado en Polea",
-          "imageUrl": "/videos/0027-eZyBC3j.gif",
-          "imageUrls": [
-            "/videos/0027-eZyBC3j.gif",
-            "/videos/0606-aaXr7ld.gif",
-            "/videos/0293-BJ0Hz5L.gif",
-            "/videos/0861-fUBheHs.gif"
+          "id": "friday",
+          "dayNumber": 5,
+          "label": "Hombros y Abdomen",
+          "intensity": "Media",
+          "exercises": [
+            {
+              "id": "0405",
+              "name": "Press de Hombros Sentado",
+              "sets": 3,
+              "repsMin": 8,
+              "repsMax": 10,
+              "unit": "reps",
+              "imageUrl": "videos/0405-znQUdHY.gif",
+              "notes": "Siéntate en un banco con una mancuerna en cada mano, apoyadas en los muslos. Sube las mancuernas hasta la altura de los hombros, con las palmas hacia adelante. Presiona las mancuernas hacia arriba hasta que los brazos queden completamente extendidos por encima de la cabeza. Haz una pausa por un momento en la parte superior, luego baja lentamente las mancuernas de vuelta a la altura de los hombros. Repite el número de repeticiones deseado."
+            },
+            {
+              "id": "0178",
+              "name": "Elevaciones Laterales en Polea",
+              "sets": 3,
+              "repsMin": 12,
+              "repsMax": 15,
+              "unit": "reps",
+              "imageUrl": "videos/0178-goJ6ezq.gif",
+              "notes": "Ponte de pie con los pies separados a la altura de los hombros y sujeta las agarraderas del cable con un agarre prono. Mantén los brazos rectos y el core activado. Levanta los brazos hacia los lados hasta que queden paralelos al suelo. Haz una pausa por un momento en la parte superior, luego baja lentamente los brazos de vuelta a la posición inicial. Repite el número de repeticiones deseado."
+            },
+            {
+              "id": "0326",
+              "name": "Pájaros Inclinado con Mancuernas",
+              "sets": 3,
+              "repsMin": 12,
+              "repsMax": 15,
+              "unit": "reps",
+              "imageUrl": "videos/0326-vYk8lqw.gif",
+              "notes": "Coloca un banco inclinado a un ángulo de 45 grados. Siéntate en el banco con el pecho contra el respaldo y sostén una mancuerna en cada mano. Extiende los brazos rectos hacia abajo con las palmas enfrentadas entre sí. Manteniendo una ligera flexión en los codos, levanta los brazos hacia los lados hasta que queden paralelos al suelo. Haz una pausa por un momento en la parte superior, luego baja lentamente los brazos de vuelta a la posición inicial. Repite el número de repeticiones deseado."
+            },
+            {
+              "id": "0972",
+              "name": "Bicycle Crunch",
+              "sets": 3,
+              "repsMin": 20,
+              "repsMax": 30,
+              "unit": "reps",
+              "imageUrl": "videos/0972-tZkGYZ9.gif",
+              "notes": "Túmbate sobre tu espalda con las manos detrás de la cabeza y las rodillas flexionadas. Levanta los pies del suelo y lleva la rodilla derecha hacia el pecho mientras simultáneamente giras el torso para llevar el codo izquierdo hacia la rodilla derecha. Estira la pierna derecha mientras llevas la rodilla izquierda hacia el pecho y giras el torso para llevar el codo derecho hacia la rodilla izquierda. Continúa alternando el movimiento de giro, como si estuvieras pedaleando una bicicleta, manteniendo el core activado durante todo el movimiento. Repite el número de repeticiones deseado."
+            },
+            {
+              "id": "0472",
+              "name": "Elevación de Piernas Colgado",
+              "sets": 3,
+              "repsMin": 10,
+              "repsMax": 15,
+              "unit": "reps",
+              "imageUrl": "videos/0472-I3tsCnC.gif",
+              "notes": "Cuélgate de una barra de dominadas con los brazos completamente extendidos y las palmas mirando hacia afuera. Activa el core y levanta las piernas frente a ti, manteniéndolas rectas. Continúa levantando hasta que las piernas estén paralelas al suelo o tan alto como puedas llegar cómodamente. Haz una pausa por un momento en la parte superior, luego baja lentamente las piernas de vuelta a la posición inicial. Repite el número de repeticiones deseado."
+            }
           ]
         },
         {
-          "id": "ex-15",
-          "name": "Dominadas (o Jalón al Pecho)",
-          "sets": 3,
-          "repsMin": 8,
-          "repsMax": 10,
-          "restSeconds": 180,
-          "notes": "Alt: Dominadas Asistidas, Jalón al Pecho (Agarre Neutro)",
-          "imageUrl": "/videos/0652-lBDjFxJ.gif",
-          "imageUrls": [
-            "/videos/0652-lBDjFxJ.gif",
-            "/videos/0017-kiJ4Z2K.gif",
-            "/videos/0198-RVwzP10.gif"
+          "id": "saturday",
+          "dayNumber": 6,
+          "label": "Empuje Superior (Hipertrofia)",
+          "intensity": "Alta",
+          "exercises": [
+            {
+              "id": "0155",
+              "name": "Cruces en Polea",
+              "sets": 3,
+              "repsMin": 12,
+              "repsMax": 15,
+              "unit": "reps",
+              "imageUrl": "videos/0155-0CXGHya.gif",
+              "notes": "Ajusta las poleas del cable a la altura del pecho. Ponte de pie en el centro de la máquina de cable con un pie delante del otro. Sujeta las agarraderas con las palmas hacia abajo y los brazos extendidos hacia los lados. Da un paso hacia adelante, manteniendo los brazos ligeramente flexionados. Con una ligera flexión en los codos, junta las manos frente al pecho. Haz una pausa breve, luego vuelve lentamente los brazos a la posición inicial. Repite el número de repeticiones deseado."
+            },
+            {
+              "id": "0577",
+              "name": "Press en Máquina",
+              "sets": 3,
+              "repsMin": 10,
+              "repsMax": 12,
+              "unit": "reps",
+              "imageUrl": "videos/0577-T0yTjgW.gif",
+              "notes": "Ajusta la altura del asiento y colócate en la máquina con la espalda totalmente apoyada en la almohadilla. Sujeta las asas con un agarre prono y coloca los codos en un ángulo de 90 grados. Empuja las asas hacia adelante hasta que los brazos queden completamente extendidos, exhalando durante el movimiento. Haz una pausa breve al final del movimiento, luego vuelve lentamente a la posición inicial, inhalando mientras lo haces. Repite el número de repeticiones deseado."
+            },
+            {
+              "id": "0334",
+              "name": "Elevaciones Laterales",
+              "sets": 3,
+              "repsMin": 12,
+              "repsMax": 15,
+              "unit": "reps",
+              "imageUrl": "videos/0334-DsgkuIt.gif",
+              "notes": "Ponte de pie con los pies separados a la altura de los hombros y sostén una mancuerna en cada mano, con las palmas hacia el cuerpo. Mantén la espalda recta y activa el core. Levanta los brazos hacia los lados hasta que queden paralelos al suelo, manteniendo una ligera flexión en los codos. Haz una pausa por un momento en la parte superior, luego baja lentamente los brazos de vuelta a la posición inicial. Repite el número de repeticiones deseado."
+            },
+            {
+              "id": "0231",
+              "name": "Extensión Tríceps",
+              "sets": 3,
+              "repsMin": 12,
+              "repsMax": 15,
+              "unit": "reps",
+              "imageUrl": "videos/0231-sYCcnon.gif",
+              "notes": "Ponte de pie con los pies separados a la altura de los hombros, frente a la máquina de cable. Sujeta el mango del cable con la mano derecha, con la palma hacia abajo, y coloca el brazo completamente extendido y paralelo al suelo. Mantén el codo quieto y cerca del cuerpo. Flexiona lentamente el codo, bajando el mango del cable hacia la parte de atrás de la cabeza. Haz una pausa breve en la parte baja del movimiento, luego extiende el brazo de vuelta a la posición inicial. Repite el número de repeticiones deseado, luego cambia de lado y realiza el ejercicio con el brazo izquierdo."
+            },
+            {
+              "id": "0868",
+              "name": "Curl en Polea",
+              "sets": 3,
+              "repsMin": 12,
+              "repsMax": 15,
+              "unit": "reps",
+              "imageUrl": "videos/0868-G08RZcQ.gif",
+              "notes": "Ponte de pie frente a la máquina de cable con los pies separados a la altura de los hombros. Sujeta el accesorio del cable con agarre supino, palmas hacia arriba. Mantén los codos cerca de los costados y los brazos superiores quietos. Exhala y flexiona el accesorio del cable hacia los hombros, contrayendo los bíceps. Haz una pausa breve en la parte más alta del movimiento, contrayendo los bíceps. Inhala y baja lentamente el accesorio del cable de vuelta a la posición inicial. Repite el número de repeticiones deseado."
+            }
           ]
         },
         {
-          "id": "ex-16",
-          "name": "Remo Gironda (Agarre Estrecho)",
-          "sets": 3,
-          "repsMin": 10,
-          "repsMax": 12,
-          "restSeconds": 120,
-          "notes": "Alt: Remo en Máquina Apoyado al Pecho, Remo con Mancuerna",
-          "imageUrl": "/videos/0861-fUBheHs.gif",
-          "imageUrls": [
-            "/videos/0861-fUBheHs.gif",
-            "/videos/1350-7I6LNUG.gif",
-            "/videos/0293-BJ0Hz5L.gif"
-          ]
-        },
-        {
-          "id": "ex-17",
-          "name": "Face Pull con Cuerda",
-          "sets": 3,
-          "repsMin": 15,
-          "repsMax": 20,
-          "restSeconds": 120,
-          "notes": "Alt: Separaciones con Banda Elástica, Cruces Inversos en Polea, Pájaros en Máquina (Pec Deck Inverso)",
-          "imageUrl": "/videos/0205-SpsOSXk.gif",
-          "imageUrls": [
-            "/videos/0205-SpsOSXk.gif",
-            "/videos/0970-r1XNRYB.gif",
-            "/videos/0154-aqvSOQE.gif",
-            "/videos/0602-myfUsKf.gif"
-          ]
-        },
-        {
-          "id": "ex-18",
-          "name": "Curl de Bíceps con Barra EZ",
-          "sets": 3,
-          "repsMin": 8,
-          "repsMax": 10,
-          "restSeconds": 120,
-          "notes": "Alt: Curl de Bíceps con Mancuernas, Curl de Bíceps en Polea, Curl de Bíceps con Barra",
-          "imageUrl": "/videos/0447-6TG6x2w.gif",
-          "imageUrls": [
-            "/videos/0447-6TG6x2w.gif",
-            "/videos/0285-BU15nH4.gif",
-            "/videos/0868-G08RZcQ.gif",
-            "/videos/0031-25GPyDY.gif"
-          ]
-        }
-      ]
-    },
-    {
-      "id": "wednesday",
-      "dayNumber": 3,
-      "label": "LEGS (Piernas - Cuádriceps/Femorales)",
-      "intensity": "Alta (RPE 8-10)",
-      "note": "Sentadilla pesada y estímulo metabólico.",
-      "exercises": [
-        {
-          "id": "ex-19",
-          "name": "Rotación de Tobillos",
-          "sets": 1,
-          "repsMin": 10,
-          "repsMax": 15,
-          "restSeconds": 0,
-          "notes": "Calentamiento",
-          "isWarmup": true,
-          "perSide": true,
-          "imageUrl": "/videos/1368-uL9CsKm.gif",
-          "imageUrls": [
-            "/videos/1368-uL9CsKm.gif"
-          ]
-        },
-        {
-          "id": "ex-20",
-          "name": "Estiramiento en Cuadrupedia",
-          "sets": 1,
-          "repsMin": 30,
-          "repsMax": 45,
-          "restSeconds": 0,
-          "notes": "Calentamiento",
-          "isWarmup": true,
-          "unit": "seg",
-          "imageUrl": "/videos/1512-qBcKorM.gif",
-          "imageUrls": [
-            "/videos/1512-qBcKorM.gif"
-          ]
-        },
-        {
-          "id": "ex-21",
-          "name": "Toque de Puntas de Pie Circular",
-          "sets": 1,
-          "repsMin": 10,
-          "repsMax": 15,
-          "restSeconds": 0,
-          "notes": "Calentamiento",
-          "isWarmup": true,
-          "imageUrl": "/videos/3214-RtyAsy1.gif",
-          "imageUrls": [
-            "/videos/3214-RtyAsy1.gif"
-          ]
-        },
-        {
-          "id": "ex-22",
-          "name": "Sentadilla Trasera con Barra",
-          "sets": 3,
-          "repsMin": 5,
-          "repsMax": 8,
-          "restSeconds": 240,
-          "notes": "Alt: Sentadilla Hack, Prensa de Piernas, Sentadilla en Multipower",
-          "imageUrl": "/videos/0043-qXTaZnJ.gif",
-          "imageUrls": [
-            "/videos/0043-qXTaZnJ.gif",
-            "/videos/0743-Qa55kX1.gif",
-            "/videos/1425-WWD6FzI.gif",
-            "/videos/1385-IeDEXTe.gif"
-          ]
-        },
-        {
-          "id": "ex-23",
-          "name": "Peso Muerto Rumano (RDL)",
-          "sets": 3,
-          "repsMin": 8,
-          "repsMax": 10,
-          "restSeconds": 180,
-          "notes": "Alt: Peso Muerto Piernas Rígidas, Buenos Días, Peso Muerto Rumano con Mancuernas",
-          "imageUrl": "/videos/0085-wQ2c4XD.gif",
-          "imageUrls": [
-            "/videos/0085-wQ2c4XD.gif",
-            "/videos/1009-kuMiR2T.gif",
-            "/videos/0044-XlZ4lAC.gif",
-            "/videos/1459-rR0LJzx.gif"
-          ]
-        },
-        {
-          "id": "ex-24",
-          "name": "Prensa de Piernas",
-          "sets": 3,
-          "repsMin": 10,
-          "repsMax": 12,
-          "restSeconds": 180,
-          "notes": "Alt: Sentadilla Goblet, Zancadas Caminando con Mancuernas",
-          "imageUrl": "/videos/1425-WWD6FzI.gif",
-          "imageUrls": [
-            "/videos/1425-WWD6FzI.gif",
-            "/videos/1760-yn8yg1r.gif",
-            "/videos/0336-RRWFUcw.gif"
-          ]
-        },
-        {
-          "id": "ex-25",
-          "name": "Curl de Isquios Tumbado",
-          "sets": 3,
-          "repsMin": 12,
-          "repsMax": 15,
-          "restSeconds": 120,
-          "notes": "Alt: Curl de Isquios Sentado, Curl Deslizante de Isquios, Curl de Isquios con Mancuerna",
-          "imageUrl": "/videos/0586-17lJ1kr.gif",
-          "imageUrls": [
-            "/videos/0586-17lJ1kr.gif",
-            "/videos/0599-Zg3XY7P.gif",
-            "/videos/1649-Zwiw7XR.gif"
-          ]
-        },
-        {
-          "id": "ex-26",
-          "name": "Elevación de Talones de Pie",
-          "sets": 4,
-          "repsMin": 10,
-          "repsMax": 12,
-          "restSeconds": 120,
-          "notes": "Alt: Elevación de Talones Sentado, Elevación de Talones en Prensa",
-          "imageUrl": "/videos/0605-ykUOVze.gif",
-          "imageUrls": [
-            "/videos/0605-ykUOVze.gif",
-            "/videos/0594-bOOdeyc.gif",
-            "/videos/1391-ykHcWme.gif"
-          ]
-        },
-        {
-          "id": "ex-27",
-          "name": "Crunch Abdominal en Polea",
-          "sets": 3,
-          "repsMin": 12,
-          "repsMax": 15,
-          "restSeconds": 120,
-          "notes": "Alt: Crunch con Peso, Elevación de Piernas Colgado, Elevaciones en V",
-          "imageUrl": "/videos/0175-WW95auq.gif",
-          "imageUrls": [
-            "/videos/0175-WW95auq.gif",
-            "/videos/0832-s8nrDXF.gif",
-            "/videos/0472-I3tsCnC.gif",
-            "/videos/0972-tZkGYZ9.gif"
-          ]
-        }
-      ]
-    },
-    {
-      "id": "thursday",
-      "dayNumber": 4,
-      "label": "UPPER (Tren Superior - Hipertrofia)",
-      "intensity": "Media (RPE 8-10)",
-      "note": "Repeticiones moderadas/altas, menos peso, máximo control.",
-      "exercises": [
-        {
-          "id": "ex-28",
-          "name": "Elevación de Piernas Colgado",
-          "sets": 1,
-          "repsMin": 10,
-          "repsMax": 15,
-          "restSeconds": 0,
-          "notes": "Calentamiento",
-          "isWarmup": true,
-          "imageUrl": "/videos/0472-I3tsCnC.gif",
-          "imageUrls": [
-            "/videos/0472-I3tsCnC.gif"
-          ]
-        },
-        {
-          "id": "ex-29",
-          "name": "Dominada Escapular",
-          "sets": 1,
-          "repsMin": 10,
-          "repsMax": 15,
-          "restSeconds": 0,
-          "notes": "Calentamiento",
-          "isWarmup": true,
-          "imageUrl": "/videos/0688-uTBt1HV.gif",
-          "imageUrls": [
-            "/videos/0688-uTBt1HV.gif"
-          ]
-        },
-        {
-          "id": "ex-30",
-          "name": "Remo Invertido",
-          "sets": 1,
-          "repsMin": 10,
-          "repsMax": 15,
-          "restSeconds": 0,
-          "notes": "Calentamiento",
-          "isWarmup": true,
-          "imageUrl": "/videos/0499-bZGHsAZ.gif",
-          "imageUrls": [
-            "/videos/0499-bZGHsAZ.gif"
-          ]
-        },
-        {
-          "id": "ex-31",
-          "name": "Press de Banca (Agarre Cerrado)",
-          "sets": 3,
-          "repsMin": 8,
-          "repsMax": 10,
-          "restSeconds": 180,
-          "notes": "Alt: Press con Mancuernas (Agarre Cerrado), Press de Suelo, Fondos en Paralelas",
-          "imageUrl": "/videos/0030-J6Dx1Mu.gif",
-          "imageUrls": [
-            "/videos/0030-J6Dx1Mu.gif",
-            "/videos/0296-RxayqAZ.gif",
-            "/videos/0065-vtusOWT.gif",
-            "/videos/0814-X6C6i5Y.gif"
-          ]
-        },
-        {
-          "id": "ex-32",
-          "name": "Remo a una Mano con Mancuerna",
-          "sets": 3,
-          "repsMin": 10,
-          "repsMax": 12,
-          "restSeconds": 120,
-          "notes": "Alt: Remo a una Mano en Polea, Remo con Mancuernas Apoyado al Pecho",
-          "imageUrl": "/videos/0293-BJ0Hz5L.gif",
-          "imageUrls": [
-            "/videos/0293-BJ0Hz5L.gif",
-            "/videos/0214-vpp9Ku2.gif",
-            "/videos/0327-7vG5o25.gif"
-          ]
-        },
-        {
-          "id": "ex-33",
-          "name": "Press Arnold",
-          "sets": 3,
-          "repsMin": 10,
-          "repsMax": 12,
-          "restSeconds": 120,
-          "notes": "Alt: Press de Hombros Sentado (Mancuernas), Press de Hombros en Máquina",
-          "imageUrl": "/videos/2137-Xy4jlWA.gif",
-          "imageUrls": [
-            "/videos/2137-Xy4jlWA.gif",
-            "/videos/0405-znQUdHY.gif",
-            "/videos/0603-67n3r98.gif"
-          ]
-        },
-        {
-          "id": "ex-34",
-          "name": "Jalón al Pecho Supino",
-          "sets": 3,
-          "repsMin": 12,
-          "repsMax": 15,
-          "restSeconds": 120,
-          "notes": "Alt: Dominadas Supinas, Jalón al Pecho Prono",
-          "imageUrl": "/videos/0150-eYnzaCm.gif",
-          "imageUrls": [
-            "/videos/0150-eYnzaCm.gif",
-            "/videos/1326-T2mxWqc.gif",
-            "/videos/0198-RVwzP10.gif"
-          ]
-        },
-        {
-          "id": "ex-35",
-          "name": "Pájaros con Mancuernas (Vuelo Inverso)",
-          "sets": 3,
-          "repsMin": 15,
-          "repsMax": 15,
-          "restSeconds": 60,
-          "notes": "Alt: Pájaros en Máquina (Pec Deck Inverso), Cruces Inversos en Polea",
-          "imageUrl": "/videos/0383-EAs3xL9.gif",
-          "imageUrls": [
-            "/videos/0383-EAs3xL9.gif",
-            "/videos/0602-myfUsKf.gif",
-            "/videos/0154-aqvSOQE.gif"
-          ]
-        },
-        {
-          "id": "ex-36",
-          "name": "Curl Martillo con Mancuernas",
-          "sets": 3,
-          "repsMin": 10,
-          "repsMax": 12,
-          "restSeconds": 0,
-          "notes": "Alt: Curl Martillo con Cuerda, Curl Prono con Barra EZ",
-          "imageUrl": "/videos/0313-slDvUAU.gif",
-          "imageUrls": [
-            "/videos/0313-slDvUAU.gif",
-            "/videos/0165-HPlPoQA.gif",
-            "/videos/0080-xNrS20v.gif"
-          ]
-        },
-        {
-          "id": "ex-37",
-          "name": "Rompecráneos con Mancuernas",
-          "sets": 3,
-          "repsMin": 10,
-          "repsMax": 12,
-          "restSeconds": 60,
-          "notes": "Alt: Rompecráneos con Barra EZ, Extensión de Tríceps sobre Cabeza (Cuerda), Patada de Tríceps en Polea",
-          "imageUrl": "/videos/0351-mpKZGWz.gif",
-          "imageUrls": [
-            "/videos/0351-mpKZGWz.gif",
-            "/videos/0060-h8LFzo9.gif",
-            "/videos/0194-2IxROQ1.gif",
-            "/videos/0860-HEJ6DIX.gif"
-          ]
-        }
-      ]
-    },
-    {
-      "id": "friday",
-      "dayNumber": 5,
-      "label": "LOWER (Tren Inferior - Glúteos)",
-      "intensity": "Media (RPE 8-10)",
-      "note": "Carga mecánica en femorales/glúteos y aislamiento de cuádriceps.",
-      "exercises": [
-        {
-          "id": "ex-38",
-          "name": "Rotación de Tobillos",
-          "sets": 1,
-          "repsMin": 10,
-          "repsMax": 15,
-          "restSeconds": 0,
-          "notes": "Calentamiento",
-          "isWarmup": true,
-          "perSide": true,
-          "imageUrl": "/videos/1368-uL9CsKm.gif",
-          "imageUrls": [
-            "/videos/1368-uL9CsKm.gif"
-          ]
-        },
-        {
-          "id": "ex-39",
-          "name": "Estiramiento en Cuadrupedia",
-          "sets": 1,
-          "repsMin": 30,
-          "repsMax": 45,
-          "restSeconds": 0,
-          "notes": "Calentamiento",
-          "isWarmup": true,
-          "unit": "seg",
-          "imageUrl": "/videos/1512-qBcKorM.gif",
-          "imageUrls": [
-            "/videos/1512-qBcKorM.gif"
-          ]
-        },
-        {
-          "id": "ex-40",
-          "name": "Toque de Puntas de Pie Circular",
-          "sets": 1,
-          "repsMin": 10,
-          "repsMax": 15,
-          "restSeconds": 0,
-          "notes": "Calentamiento",
-          "isWarmup": true,
-          "imageUrl": "/videos/3214-RtyAsy1.gif",
-          "imageUrls": [
-            "/videos/3214-RtyAsy1.gif"
-          ]
-        },
-        {
-          "id": "ex-41",
-          "name": "Hip Thrust con Barra",
-          "sets": 3,
-          "repsMin": 6,
-          "repsMax": 8,
-          "restSeconds": 180,
-          "notes": "Alt: Puente de Glúteos, Hiperextensiones a 45°, Pull-Through en Polea",
-          "imageUrl": "/videos/1409-qKBpF7I.gif",
-          "imageUrls": [
-            "/videos/1409-qKBpF7I.gif",
-            "/videos/0489-zhMwOwE.gif",
-            "/videos/0196-OM46QHm.gif"
-          ]
-        },
-        {
-          "id": "ex-42",
-          "name": "Zancadas Caminando con Mancuernas",
-          "sets": 3,
-          "repsMin": 10,
-          "repsMax": 12,
-          "restSeconds": 120,
-          "notes": "Alt: Subidas a Cajón con Mancuernas, Sentadilla Búlgara, Zancada Inversa",
-          "perSide": true,
-          "imageUrl": "/videos/0336-RRWFUcw.gif",
-          "imageUrls": [
-            "/videos/0336-RRWFUcw.gif",
-            "/videos/0431-aXtJhlg.gif",
-            "/videos/0098-W31mMjd.gif",
-            "/videos/1651-1VpF8db.gif"
-          ]
-        },
-        {
-          "id": "ex-43",
-          "name": "Sentadilla Frontal",
-          "sets": 3,
-          "repsMin": 8,
-          "repsMax": 10,
-          "restSeconds": 180,
-          "notes": "Alt: Sentadilla Goblet, Sentadilla con Barra de Seguridad, Prensa de Piernas",
-          "imageUrl": "/videos/0042-zG0zs85.gif",
-          "imageUrls": [
-            "/videos/0042-zG0zs85.gif",
-            "/videos/1760-yn8yg1r.gif",
-            "/videos/1425-WWD6FzI.gif"
-          ]
-        },
-        {
-          "id": "ex-44",
-          "name": "Extensión de Cuádriceps",
-          "sets": 3,
-          "repsMin": 12,
-          "repsMax": 15,
-          "restSeconds": 120,
-          "notes": "Alt: Sentadilla Sissy, Sentadilla Goblet (Tensión Constante)",
-          "imageUrl": "/videos/0585-my33uHU.gif",
-          "imageUrls": [
-            "/videos/0585-my33uHU.gif",
-            "/videos/1489-xdYPUtE.gif",
-            "/videos/1760-yn8yg1r.gif"
-          ]
-        },
-        {
-          "id": "ex-45",
-          "name": "Curl de Isquios Sentado",
-          "sets": 3,
-          "repsMin": 12,
-          "repsMax": 15,
-          "restSeconds": 120,
-          "notes": "Alt: Curl de Isquios Tumbado, Curl Deslizante de Isquios",
-          "imageUrl": "/videos/0599-Zg3XY7P.gif",
-          "imageUrls": [
-            "/videos/0599-Zg3XY7P.gif",
-            "/videos/0586-17lJ1kr.gif"
-          ]
-        },
-        {
-          "id": "ex-46",
-          "name": "Elevación de Piernas Colgado",
-          "sets": 3,
-          "repsMin": 10,
-          "repsMax": 15,
-          "restSeconds": 120,
-          "notes": "Alt: Elevación de Piernas en Silla Romana, Elevación de Piernas Tumbado, Elevaciones en V",
-          "imageUrl": "/videos/0472-I3tsCnC.gif",
-          "imageUrls": [
-            "/videos/0472-I3tsCnC.gif",
-            "/videos/2963-weoDEpH.gif",
-            "/videos/0012-UGhRD1A.gif",
-            "/videos/0972-tZkGYZ9.gif"
-          ]
-        }
-      ]
-    },
-    {
-      "id": "saturday",
-      "dayNumber": 6,
-      "label": "Full Body 1 (Enfoque Fuerza Funcional)",
-      "intensity": "Baja (RPE 7)",
-      "note": "Ocasional, no debe interferir con la recuperación.",
-      "exercises": [
-        {
-          "id": "ex-47",
-          "name": "Elevación de Piernas Colgado",
-          "sets": 1,
-          "repsMin": 10,
-          "repsMax": 15,
-          "restSeconds": 0,
-          "notes": "Calentamiento",
-          "isWarmup": true,
-          "imageUrl": "/videos/0472-I3tsCnC.gif",
-          "imageUrls": [
-            "/videos/0472-I3tsCnC.gif"
-          ]
-        },
-        {
-          "id": "ex-48",
-          "name": "Remo Invertido",
-          "sets": 1,
-          "repsMin": 10,
-          "repsMax": 15,
-          "restSeconds": 0,
-          "notes": "Calentamiento",
-          "isWarmup": true,
-          "imageUrl": "/videos/0499-bZGHsAZ.gif",
-          "imageUrls": [
-            "/videos/0499-bZGHsAZ.gif"
-          ]
-        },
-        {
-          "id": "ex-49",
-          "name": "Toque de Puntas de Pie Circular",
-          "sets": 1,
-          "repsMin": 10,
-          "repsMax": 15,
-          "restSeconds": 0,
-          "notes": "Calentamiento",
-          "isWarmup": true,
-          "imageUrl": "/videos/3214-RtyAsy1.gif",
-          "imageUrls": [
-            "/videos/3214-RtyAsy1.gif"
-          ]
-        },
-        {
-          "id": "ex-50",
-          "name": "Sentadilla Trasera con Barra",
-          "sets": 3,
-          "repsMin": 6,
-          "repsMax": 8,
-          "restSeconds": 120,
-          "notes": "Alt: Sentadilla Hack, Prensa de Piernas",
-          "imageUrl": "/videos/0043-qXTaZnJ.gif",
-          "imageUrls": [
-            "/videos/0043-qXTaZnJ.gif",
-            "/videos/0743-Qa55kX1.gif",
-            "/videos/1425-WWD6FzI.gif"
-          ]
-        },
-        {
-          "id": "ex-51",
-          "name": "Press de Banca con Mancuernas",
-          "sets": 3,
-          "repsMin": 8,
-          "repsMax": 10,
-          "restSeconds": 120,
-          "notes": "Alt: Press de Pecho en Máquina, Flexiones",
-          "imageUrl": "/videos/0289-SpYC0Kp.gif",
-          "imageUrls": [
-            "/videos/0289-SpYC0Kp.gif",
-            "/videos/0577-T0yTjgW.gif",
-            "/videos/0662-I4hDWkc.gif"
-          ]
-        },
-        {
-          "id": "ex-52",
-          "name": "Remo Sentado en Polea",
-          "sets": 3,
-          "repsMin": 10,
-          "repsMax": 12,
-          "restSeconds": 90,
-          "notes": "Alt: Remo con Mancuerna, Remo con Mancuernas Apoyado al Pecho",
-          "imageUrl": "/videos/0861-fUBheHs.gif",
-          "imageUrls": [
-            "/videos/0861-fUBheHs.gif",
-            "/videos/0293-BJ0Hz5L.gif",
-            "/videos/0327-7vG5o25.gif"
-          ]
-        },
-        {
-          "id": "ex-53",
-          "name": "Elevaciones Laterales con Mancuernas",
-          "sets": 3,
-          "repsMin": 15,
-          "repsMax": 15,
-          "restSeconds": 90,
-          "notes": "Alt: Elevaciones Laterales en Polea",
-          "imageUrl": "/videos/0334-DsgkuIt.gif",
-          "imageUrls": [
-            "/videos/0334-DsgkuIt.gif",
-            "/videos/0178-goJ6ezq.gif"
-          ]
-        },
-        {
-          "id": "ex-54",
-          "name": "Curl de Bíceps con Mancuernas",
-          "sets": 3,
-          "repsMin": 12,
-          "repsMax": 15,
-          "restSeconds": 0,
-          "notes": "Alt: Curl de Bíceps con Barra EZ",
-          "imageUrl": "/videos/0285-BU15nH4.gif",
-          "imageUrls": [
-            "/videos/0285-BU15nH4.gif",
-            "/videos/0447-6TG6x2w.gif"
-          ]
-        },
-        {
-          "id": "ex-55",
-          "name": "Extensión de Tríceps con Cuerda",
-          "sets": 3,
-          "repsMin": 12,
-          "repsMax": 15,
-          "restSeconds": 60,
-          "notes": "Alt: Extensión de Tríceps sobre Cabeza (Cuerda)",
-          "imageUrl": "/videos/0241-gAwDzB3.gif",
-          "imageUrls": [
-            "/videos/0241-gAwDzB3.gif",
-            "/videos/0194-2IxROQ1.gif"
-          ]
-        }
-      ]
-    },
-    {
-      "id": "sunday",
-      "dayNumber": 7,
-      "label": "Full Body 2 (Máquinas / Hipertrofia)",
-      "intensity": "Baja (RPE 7)",
-      "note": "Ocasional, no debe interferir con la recuperación.",
-      "exercises": [
-        {
-          "id": "ex-56",
-          "name": "Elevación de Piernas Colgado",
-          "sets": 1,
-          "repsMin": 10,
-          "repsMax": 15,
-          "restSeconds": 0,
-          "notes": "Calentamiento",
-          "isWarmup": true,
-          "imageUrl": "/videos/0472-I3tsCnC.gif",
-          "imageUrls": [
-            "/videos/0472-I3tsCnC.gif"
-          ]
-        },
-        {
-          "id": "ex-57",
-          "name": "Remo Invertido",
-          "sets": 1,
-          "repsMin": 10,
-          "repsMax": 15,
-          "restSeconds": 0,
-          "notes": "Calentamiento",
-          "isWarmup": true,
-          "imageUrl": "/videos/0499-bZGHsAZ.gif",
-          "imageUrls": [
-            "/videos/0499-bZGHsAZ.gif"
-          ]
-        },
-        {
-          "id": "ex-58",
-          "name": "Toque de Puntas de Pie Circular",
-          "sets": 1,
-          "repsMin": 10,
-          "repsMax": 15,
-          "restSeconds": 0,
-          "notes": "Calentamiento",
-          "isWarmup": true,
-          "imageUrl": "/videos/3214-RtyAsy1.gif",
-          "imageUrls": [
-            "/videos/3214-RtyAsy1.gif"
-          ]
-        },
-        {
-          "id": "ex-59",
-          "name": "Prensa de Piernas",
-          "sets": 3,
-          "repsMin": 10,
-          "repsMax": 12,
-          "restSeconds": 120,
-          "notes": "Alt: Sentadilla Goblet",
-          "imageUrl": "/videos/1425-WWD6FzI.gif",
-          "imageUrls": [
-            "/videos/1425-WWD6FzI.gif",
-            "/videos/1760-yn8yg1r.gif"
-          ]
-        },
-        {
-          "id": "ex-60",
-          "name": "Peso Muerto Rumano Ligero",
-          "sets": 3,
-          "repsMin": 10,
-          "repsMax": 12,
-          "restSeconds": 120,
-          "notes": "Alt: Buenos Días, Pull-Through en Polea",
-          "imageUrl": "/videos/1459-rR0LJzx.gif",
-          "imageUrls": [
-            "/videos/1459-rR0LJzx.gif",
-            "/videos/0044-XlZ4lAC.gif",
-            "/videos/0196-OM46QHm.gif"
-          ]
-        },
-        {
-          "id": "ex-61",
-          "name": "Press de Hombros en Máquina",
-          "sets": 3,
-          "repsMin": 10,
-          "repsMax": 12,
-          "restSeconds": 120,
-          "notes": "Alt: Press de Hombros Sentado (Mancuernas)",
-          "imageUrl": "/videos/0603-67n3r98.gif",
-          "imageUrls": [
-            "/videos/0603-67n3r98.gif",
-            "/videos/0405-znQUdHY.gif"
-          ]
-        },
-        {
-          "id": "ex-62",
-          "name": "Jalón al Pecho",
-          "sets": 3,
-          "repsMin": 12,
-          "repsMax": 15,
-          "restSeconds": 120,
-          "notes": "Alt: Dominadas Asistidas",
-          "imageUrl": "/videos/0198-RVwzP10.gif",
-          "imageUrls": [
-            "/videos/0198-RVwzP10.gif",
-            "/videos/0017-kiJ4Z2K.gif"
-          ]
-        },
-        {
-          "id": "ex-63",
-          "name": "Máquina Pec Deck (Aperturas)",
-          "sets": 3,
-          "repsMin": 15,
-          "repsMax": 15,
-          "restSeconds": 90,
-          "notes": "Alt: Cruce de Poleas, Aperturas con Mancuernas",
-          "imageUrl": "/videos/0596-v3xmPAR.gif",
-          "imageUrls": [
-            "/videos/0596-v3xmPAR.gif",
-            "/videos/0153-OQ1otBN.gif",
-            "/videos/0308-yz9nUhF.gif"
-          ]
-        },
-        {
-          "id": "ex-64",
-          "name": "Plancha Abdominal",
-          "sets": 3,
-          "repsMin": 40,
-          "repsMax": 60,
-          "restSeconds": 60,
-          "notes": "Alt: Crunch Abdominal en Polea, Rueda Abdominal",
-          "unit": "seg",
-          "imageUrl": "/videos/0464-CosupLu.gif",
-          "imageUrls": [
-            "/videos/0464-CosupLu.gif",
-            "/videos/0175-WW95auq.gif",
-            "/videos/0971-zhF9lW4.gif"
+          "id": "sunday",
+          "dayNumber": 7,
+          "label": "Tirón Superior (Hipertrofia)",
+          "intensity": "Media-Alta",
+          "exercises": [
+            {
+              "id": "0238",
+              "name": "Pull-over en Polea",
+              "sets": 3,
+              "repsMin": 12,
+              "repsMax": 15,
+              "unit": "reps",
+              "imageUrl": "videos/0238-x69MAlq.gif",
+              "notes": "Coloca una barra recta en la polea alta de una máquina de cable. Ponte de pie frente a la máquina con los pies separados a la altura de los hombros. Sujeta la barra con un agarre prono, manteniendo los brazos rectos y las palmas hacia abajo. Activa los dorsales y tira de la barra hacia abajo, hacia los muslos, manteniendo los brazos rectos durante todo el movimiento. Haz una pausa por un momento en la parte baja y luego regresa lentamente la barra a la posición inicial. Repite el número de repeticiones deseado."
+            },
+            {
+              "id": "0292",
+              "name": "Remo a una mano",
+              "sets": 3,
+              "repsMin": 10,
+              "repsMax": 12,
+              "unit": "reps",
+              "imageUrl": "videos/0292-C0MA9bC.gif",
+              "notes": "Ponte de pie con los pies separados a la altura de los hombros, sosteniendo una mancuerna en una mano con la palma hacia el cuerpo. Flexiona ligeramente las rodillas e inclínate hacia adelante desde las caderas, manteniendo la espalda recta y el core activado. Deja que la mancuerna cuelgue recta hacia el suelo, con el brazo completamente extendido. Tira de la mancuerna hacia el pecho, manteniendo el codo cerca del cuerpo y juntando los omóplatos. Haz una pausa breve en la parte más alta, luego baja lentamente la mancuerna de vuelta a la posición inicial. Repite el número de repeticiones deseado, luego cambia de lado."
+            },
+            {
+              "id": "0602",
+              "name": "Pájaros en Máquina",
+              "sets": 3,
+              "repsMin": 12,
+              "repsMax": 15,
+              "unit": "reps",
+              "imageUrl": "videos/0602-myfUsKf.gif",
+              "notes": "Ajusta la altura del asiento y colócate en la máquina con el pecho contra la almohadilla y los pies planos en el suelo. Agarra las asas con un agarre prono y mantén los brazos ligeramente flexionados. Exhala y junta las escápulas mientras llevas las asas hacia atrás y hacia afuera, alejándolas de tu cuerpo. Haz una pausa breve en el punto máximo de contracción, luego inhala y vuelve lentamente a la posición inicial. Repite el número de repeticiones deseado."
+            },
+            {
+              "id": "0120",
+              "name": "Remo al Mentón",
+              "sets": 3,
+              "repsMin": 10,
+              "repsMax": 12,
+              "unit": "reps",
+              "imageUrl": "videos/0120-UDlhcO8.gif",
+              "notes": "Ponte de pie con los pies separados a la altura de los hombros y sujeta una barra con agarre prono, manos un poco más separadas que el ancho de los hombros. Deja que la barra cuelgue frente a los muslos, con los brazos completamente extendidos. Manteniendo la espalda recta y el core activado, exhala y levanta la barra en línea recta hacia la barbilla, guiando el movimiento con los codos. Haz una pausa breve en la parte más alta, luego inhala y baja lentamente la barra de vuelta a la posición inicial. Repite el número de repeticiones deseado."
+            },
+            {
+              "id": "0313",
+              "name": "Curl Martillo",
+              "sets": 3,
+              "repsMin": 12,
+              "repsMax": 15,
+              "unit": "reps",
+              "imageUrl": "videos/0313-slDvUAU.gif",
+              "notes": "Ponte de pie con una mancuerna en cada mano, con las palmas mirando hacia el torso. Mantén los codos cerca del torso y gira las palmas de las manos hasta que queden mirando hacia adelante. Esta será tu posición inicial. Ahora, manteniendo los brazos superiores quietos, exhala y flexiona los brazos contrayendo los bíceps. Continúa levantando las pesas hasta que los bíceps estén completamente contraídos y las mancuernas estén a la altura de los hombros. Mantén la posición contraída durante una breve pausa mientras aprietas los bíceps. Luego, inhala y comienza a bajar lentamente las mancuernas de vuelta a la posición inicial. Repite el número de repeticiones recomendado."
+            }
           ]
         }
       ]

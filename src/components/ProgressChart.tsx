@@ -43,7 +43,7 @@ export function ProgressChart({ history }: Props) {
     history.forEach(sess => {
       if (!sess.completed) return;
       sess.exerciseLogs.forEach(log => {
-        if (log.sets.some(s => s.completed && s.weightKg)) {
+        if (log.sets.some((s: { completed: boolean; weightKg?: string }) => s.completed && s.weightKg)) {
           ids.add(log.exerciseId);
         }
       });
@@ -102,11 +102,11 @@ export function ProgressChart({ history }: Props) {
         {
           label: 'Peso Máximo (kg)',
           data: dataPoints.map(d => d.weight),
-          borderColor: '#ffb4a9', // Primary color
-          backgroundColor: 'rgba(255, 180, 169, 0.1)',
+          borderColor: '#a22c29', // primary color
+          backgroundColor: 'rgba(162, 44, 41, 0.12)',
           borderWidth: 3,
-          pointBackgroundColor: '#ffb4a9',
-          pointBorderColor: '#1e0f0d',
+          pointBackgroundColor: '#fafaf7', // on-surface
+          pointBorderColor: '#a22c29',
           pointBorderWidth: 2,
           pointRadius: 5,
           pointHoverRadius: 7,
@@ -125,26 +125,26 @@ export function ProgressChart({ history }: Props) {
         display: false
       },
       tooltip: {
-        backgroundColor: '#372623', // surface-container-high
-        titleColor: '#e5beb8',
-        bodyColor: '#fadcd7',
-        borderColor: '#5c403c',
+        backgroundColor: '#0a100d', // surface-container
+        titleColor: '#d6d5c9', // on-surface-variant
+        bodyColor: '#a22c29', // primary
+        borderColor: '#b9baa3', // outline-variant (roughly)
         borderWidth: 1,
         padding: 12,
         displayColors: false,
         callbacks: {
-          label: (context: any) => `${context.parsed.y} kg`
+          label: (context: Record<string, unknown>) => `${(context.parsed as Record<string, unknown>).y} kg`
         }
       }
     },
     scales: {
       y: {
         grid: {
-          color: '#2d2d33',
+          color: 'rgba(185, 186, 163, 0.15)', // outline-variant with opacity
         },
         ticks: {
-          color: '#e5beb8', // on-surface-variant
-          font: { family: 'Inter', size: 12 }
+          color: '#d6d5c9', // on-surface-variant
+          font: { family: 'var(--font-mono)', size: 12 }
         }
       },
       x: {
@@ -152,8 +152,8 @@ export function ProgressChart({ history }: Props) {
           display: false
         },
         ticks: {
-          color: '#e5beb8',
-          font: { family: 'Inter', size: 12 }
+          color: '#d6d5c9',
+          font: { family: 'var(--font-mono)', size: 12 }
         }
       }
     },
@@ -165,20 +165,20 @@ export function ProgressChart({ history }: Props) {
 
   if (availableExercises.length === 0) {
     return (
-      <div className="bg-surface border border-outline-variant rounded-lg p-md text-center text-on-surface-variant">
+      <div className="bg-surface border border-outline-variant rounded-2xl p-md text-center text-on-surface-variant shadow-sm dark:shadow-none">
         No hay datos suficientes para mostrar gráficos.
       </div>
     );
   }
 
   return (
-    <div className="bg-surface border border-outline-variant rounded-lg p-md space-y-md animate-fade-in-up">
+    <div className="bg-surface border border-outline-variant rounded-2xl p-md md:p-lg space-y-md animate-fade-in-up shadow-sm dark:shadow-none">
       <div className="flex flex-col md:flex-row md:items-center justify-between gap-sm">
-        <h3 className="font-headline-md text-headline-md text-on-surface">Evolución de Peso</h3>
+        <h3 className="text-headline-sm text-on-surface">Evolución de Peso</h3>
         <select
           value={selectedExerciseId}
           onChange={(e) => setSelectedExerciseId(e.target.value)}
-          className="bg-[#232328] border border-outline-variant text-on-surface rounded-lg px-sm py-xs font-body-md text-body-md focus:outline-none focus:border-primary focus:ring-1 focus:ring-primary max-w-full md:max-w-[250px]"
+          className="bg-surface-bright border border-outline-variant text-on-surface rounded-xl px-sm py-xs text-body-md focus:outline-none focus:border-primary focus:ring-1 focus:ring-primary max-w-full md:max-w-[250px] transition-colors duration-200 ease-[cubic-bezier(0.16,1,0.3,1)]"
         >
           {availableExercises.map(ex => (
             <option key={ex.id} value={ex.id}>
@@ -191,19 +191,19 @@ export function ProgressChart({ history }: Props) {
       <div className="flex gap-2">
         <button 
           onClick={() => setTimeFilter('1M')} 
-          className={`px-3 py-1 rounded-full text-xs font-label-caps tracking-wider transition-colors ${timeFilter === '1M' ? 'bg-primary text-on-primary' : 'bg-[#232328] text-on-surface-variant hover:bg-[#2d2d33]'}`}
+          className={`px-3 py-1 rounded-full text-label-caps tracking-wider transition-colors duration-200 ease-[cubic-bezier(0.16,1,0.3,1)] ${timeFilter === '1M' ? 'bg-primary text-on-primary shadow-sm' : 'bg-surface-bright text-on-surface-variant hover:text-on-surface border border-outline-variant/50'}`}
         >
           1 MES
         </button>
         <button 
           onClick={() => setTimeFilter('3M')} 
-          className={`px-3 py-1 rounded-full text-xs font-label-caps tracking-wider transition-colors ${timeFilter === '3M' ? 'bg-primary text-on-primary' : 'bg-[#232328] text-on-surface-variant hover:bg-[#2d2d33]'}`}
+          className={`px-3 py-1 rounded-full text-label-caps tracking-wider transition-colors duration-200 ease-[cubic-bezier(0.16,1,0.3,1)] ${timeFilter === '3M' ? 'bg-primary text-on-primary shadow-sm' : 'bg-surface-bright text-on-surface-variant hover:text-on-surface border border-outline-variant/50'}`}
         >
           3 MESES
         </button>
         <button 
           onClick={() => setTimeFilter('ALL')} 
-          className={`px-3 py-1 rounded-full text-xs font-label-caps tracking-wider transition-colors ${timeFilter === 'ALL' ? 'bg-primary text-on-primary' : 'bg-[#232328] text-on-surface-variant hover:bg-[#2d2d33]'}`}
+          className={`px-3 py-1 rounded-full text-label-caps tracking-wider transition-colors duration-200 ease-[cubic-bezier(0.16,1,0.3,1)] ${timeFilter === 'ALL' ? 'bg-primary text-on-primary shadow-sm' : 'bg-surface-bright text-on-surface-variant hover:text-on-surface border border-outline-variant/50'}`}
         >
           TODO
         </button>
@@ -211,9 +211,9 @@ export function ProgressChart({ history }: Props) {
       
       <div className="w-full h-64 mt-md">
         {chartData ? (
-          <Line data={chartData} options={options} />
+          <Line data={chartData as any} options={options as any} />
         ) : (
-          <div className="w-full h-full flex items-center justify-center text-on-surface-variant">
+          <div className="w-full h-full flex items-center justify-center text-on-surface-variant bg-surface-bright/50 border border-dashed border-outline-variant rounded-xl">
             Sin datos para este ejercicio.
           </div>
         )}

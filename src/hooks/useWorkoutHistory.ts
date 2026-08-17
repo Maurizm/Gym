@@ -3,6 +3,7 @@
 import { useState, useEffect } from 'react';
 import { storage } from '@/lib/storage';
 import { SessionState } from '@/hooks/useWorkoutSession';
+export type { SessionState };
 
 const SESSIONS_HISTORY_KEY = 'gymapp:sessions';
 
